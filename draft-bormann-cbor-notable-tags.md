@@ -605,6 +605,9 @@ There are no special considerations for deterministic encoding
 overlap; particularly, tag 101 encoding starts where the more compact
 special encodings for 0..6 and 7..127 end.
 
+For cases 0..6 and 7..127, the tag value indicates the value of the alternative.
+For cases 128+, a single tag number is used with an enclosed two-element array that contains the case number and the value of the alternative.
+
 ### Semantics
 
 The value consists of a case number and a case body. The case number is
@@ -635,7 +638,7 @@ for *alternatives* of multiple values. Combinations are expressed in
 CBOR using lists or maps.
 
 Most programming languages have a notion of data consisting of
-combinations of data values, often called records or objects. Many
+combinations of data values, often called records, structs or objects. Many
 programming languages also have a notion of data consisting of multiple
 alternative data values. For example C has unions, and other languages
 have "tagged" unions (where it is always clear which alternative is in
