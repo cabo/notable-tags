@@ -1,7 +1,7 @@
 <note title="Discussion Venues" removeInRFC="true">
 <t>Discussion of this document takes place on the
-  CBOR Working Group mailing list (cbor@ietf.org),
-  which is archived at <eref target="https://mailarchive.ietf.org/arch/browse/cbor/">https://mailarchive.ietf.org/arch/browse/cbor/</eref>.</t>
+    Concise Binary Object Representation Maintenance and Extensions Working Group mailing list (cbor@ietf.org),
+    which is archived at <eref target="https://www.ietf.org/mail-archive/web/cbor/current/maillist.html"/>.</t>
 <t>Source for this draft and an issue tracker can be found at
-  <eref target="https://github.com/cabo/notable-tags">https://github.com/cabo/notable-tags</eref>.</t>
+    <eref target="https://github.com/cabo/notable-tags"/>.</t>
 </note>
