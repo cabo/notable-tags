@@ -51,6 +51,31 @@ normative:
   RFC8610: cddl
 
 informative:
+  BCP47:
+  W3C-STRINGS-BIDI:
+    target: https://www.w3.org/International/articles/strings-and-bidi/
+    title: Strings and bidi
+    date: 2017-07-31
+  W3C-BIDI-USE-CASES:
+    target:   https://www.w3.org/International/articles/lang-bidi-use-cases/
+    title: Use cases for bidi and language metadata on the Web
+    date: 2021-05-06
+  W3C-UBA-BASICS:
+    target: https://www.w3.org/International/articles/inline-bidi-markup/uba-basics
+    title: Unicode Bidirectional Algorithm basics
+    date: 2016-08-09
+  W3C-SIMPLE-RUBY:
+    target: https://www.w3.org/TR/simple-ruby/
+    title: W3C Rules for Simple Placement of Japanese Ruby
+    date: 2020-06-09
+    rc: W3C First Public Working Draft
+  HTML:
+    target: https://html.spec.whatwg.org
+    title: HTML - Living Standard
+    author:
+    - org: WHATWG
+    date: false
+
   STD63:
     -: utf8
     =: RFC3629
@@ -61,6 +86,7 @@ informative:
   RFC7493: ijson
   RFC8259: json
   I-D.ietf-cbor-time-tag: time-tag
+  I-D.ietf-core-problem-details: probdet
   C:
     target: https://www.iso.org/standard/74528.html
     title: Information technology - Programming languages - C
@@ -452,7 +478,6 @@ tags 52 and 54 essentially obsolete 260/261.)
 
 | Tag number | Tag content | Short Description                                               | Reference                                                              | Author         |
 |         37 | byte string | Binary UUID ({{Section 4.1.2 of RFC4122}})                        | https://github.com/lucas-clemente/cbor-specs/blob/master/uuid.md       | Lucas Clemente |
-|         38 | array       | Language-tagged string                                          | http://peteroupc.github.io/CBOR/langtags.html                          | Peter Occil    |
 |        257 | byte string | Binary MIME message                                             | http://peteroupc.github.io/CBOR/binarymime.html                        | Peter Occil    |
 |        260 | byte string | Network Address (IPv4 or IPv6 or MAC Address)                   | http://www.employees.org/~ravir/cbor-network.txt                       | Ravi Raju      |
 |        261 | map         | Network Address Prefix (IPv4 or IPv6 Address + Mask Length)     | https://github.com/toravir/CBOR-Tag-Specs/blob/master/networkPrefix.md | Ravi Raju      |
@@ -460,7 +485,50 @@ tags 52 and 54 essentially obsolete 260/261.)
 |        266 | text string | Internationalized resource identifier (IRI)                     | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil    |
 |        267 | text string | Internationalized resource identifier reference (IRI reference) | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil    |
 
+## Human-readable Text
 
+| Tag | Data Item | Semantics              | Reference                |
+|  38 | array     | Language-tagged string | {{Appendix A of -probdet}} |
+
+Tag 38 was originally registered by Peter Occil in
+<http://peteroupc.github.io/CBOR/langtags.html>; it has since been
+adopted and extended in {{Appendix A of -probdet}}, where a detailed
+definition of the tag and a few simple examples for its use are
+provided.
+
+The problem that this tag was designed to solve is that text strings
+often need additional information to be properly presented to a human.
+While Unicode (and the UTF-8 form of Unicode used in CBOR) define the
+characters, additional information about the human language in use
+and the writing direction appropriate for the text given are often
+required.
+
+The need to provide language information with text has been well-known
+for a while and led to a common form for this information, the
+language tag, defined in {{BCP47}}.
+
+Less well-known is the need to provide separate directionality
+information as well.
+The need for this information is demonstrated in {{W3C-STRINGS-BIDI}},
+which points out that it is "actually a bad idea to rely on language
+information to apply direction" and points out further reference
+information on this.
+{{W3C-BIDI-USE-CASES}} shows more examples for language tags and
+directionality, while {{W3C-UBA-BASICS}} provides an introduction to the
+way browsers, where "the order of characters in memory (logical) is
+not the same as the order in which they are displayed (visual)",
+"produce the correct order at the time of display" (Unicode
+Bidirectional Algorithm).
+
+Tag 38 meets the requirements of its specific application in
+{{-probdet}}, which could be summarized as: Supplying the necessary
+information to present isolated, linear, comparatively small pieces of
+human-readable text.
+It neither addresses more complex requirements of specific languages
+such as {{W3C-SIMPLE-RUBY}}, nor does it address requirements for more
+complex structure in texts such as emphasis, lists, or tables.
+These more complex requirements are typically met by specific media
+types such as HTML {{HTML}}.
 
 ## Extended Time Formats
 
