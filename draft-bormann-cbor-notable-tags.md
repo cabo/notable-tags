@@ -68,7 +68,7 @@ informative:
     rc: W3C First Public Working Draft
   HTML:
     target: https://html.spec.whatwg.org
-    title: HTML - Living Standard
+    title: HTML — Living Standard
     author:
     - org: WHATWG
     date: false
@@ -83,10 +83,11 @@ informative:
   RFC7493: ijson
   RFC8259: json
   I-D.ietf-cbor-time-tag: time-tag
-  I-D.ietf-core-problem-details: probdet
+  RFC9290: probdet
+  RFC9254: yang-cbor
   C:
     target: https://www.iso.org/standard/74528.html
-    title: Information technology - Programming languages - C
+    title: Information technology — Programming languages — C
     author:
     - org: International Organization for Standardization
     date: 2018-06
@@ -301,7 +302,7 @@ configuration information.  {{?RFC7950}} defines an XML-based
 representation format, and {{?RFC7951}} defines a JSON-based
 {{-json}} representation format for YANG.
 
-YANG-CBOR {{!I-D.ietf-core-yang-cbor}} is a representation format for
+YANG-CBOR {{-yang-cbor}} is a representation format for
 YANG data in CBOR.
 
 | Tag number | Tag content                              | Short Description                 | Section of YANG-CBOR |
