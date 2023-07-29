@@ -97,7 +97,7 @@ informative:
       ISO/IEC: 9899:2018
   Cplusplus20:
     target: https://isocpp.org/files/papers/N4860.pdf
-    title: Programming languages - C++
+    title: Programming languages — C++
     author:
     - org: International Organization for Standardization
     date: 2020-03
