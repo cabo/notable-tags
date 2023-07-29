@@ -1,18 +1,15 @@
 ---
+v: 3
+
 title: >
   Notable CBOR Tags
 abbrev: Notable CBOR Tags
 docname: draft-bormann-cbor-notable-tags-latest
 # date: 2022-02-13
 
-stand_alone: true
-
-ipr: trust200902
 keyword: Internet-Draft
 cat: info
 submissiontype: IETF
-
-pi: [toc, sortrefs, symrefs, compact, comments]
 
 author:
   - name: Carsten Bormann
