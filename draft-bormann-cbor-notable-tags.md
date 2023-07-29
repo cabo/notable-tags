@@ -41,11 +41,21 @@ contributor:
       Plase stay tuned.
 
 normative:
+  STD63:
+    -: utf8
+    =: RFC3629
   STD94:
     -: cbor
     =: RFC8949
   IANA.cbor-tags: tags
+  IANA.cose: cose-reg
   RFC8610: cddl
+  RFC8152:
+#    ann: foo
+  STD96: cose # includes RFC9052 and RFC9338
+  RFC9053: cose-alg
+  RFC9054: cose-hash
+  RFC9360: certhash
 
 informative:
   BCP47:
@@ -73,9 +83,6 @@ informative:
     - org: WHATWG
     date: false
 
-  STD63:
-    -: utf8
-    =: RFC3629
   RFC2045: mime
   RFC4122: uuid
   RFC7049: orig
@@ -261,22 +268,106 @@ expression roughly of the PCRE/Javascript flavor families.
 A number of CBOR tags are defined in security specifications that make
 use of CBOR.
 
-## RFC 8152 (COSE)
+## COSE
 
-{{!RFC8152}} defines CBOR Object Signing and Encryption (COSE).
-A revision is in process that splits this specification into the data
-structure definitions {{?I-D.ietf-cose-rfc8152bis-struct}}, which will
-define another tag for COSE standalone counter signature, and the
-algorithms employed {{?I-D.ietf-cose-rfc8152bis-algs}}.
+CBOR Object Signing and Encryption (COSE) is defined in a number of RFCs.
+{{RFC8152}} was the initial specification, set up the registries, and
+populated them with an initial set of assignments.
+A revision split this specification into the data
+structure definitions {{RFC9052}}, an Internet Standard {{STD96}}, and a
+separate document defining the representation for the algorithms
+employed {{RFC9053}}, which is expected to be updated more frequently
+than the COSE format itself.
+{{RFC9054}} added a separate set of algorithms for Hash functions (Hash
+functions have been part of {{RFC9053}} algorithms but weren't assigned
+separate codepoints).
+A revised COSE counter signature structure was defined in {{RFC9338}}, another part
+of {{STD96}}; this also defines a tag for these.
 
-| Tag number | Tag content   | Short Description                           |
-|         16 | COSE_Encrypt0 | COSE Single Recipient Encrypted Data Object |
-|         17 | COSE_Mac0     | COSE Mac w/o Recipients Object              |
-|         18 | COSE_Sign1    | COSE Single Signer Data Object              |
-|         96 | COSE_Encrypt  | COSE Encrypted Data Object                  |
-|         97 | COSE_Mac      | COSE MACed Data Object                      |
-|         98 | COSE_Sign     | COSE Signed Data Object                     |
-{: #cosetags title="Tag numbers defined in RFC 8152, COSE"}
+| Tag number | Tag content           | Short Description                               |
+|         16 | COSE_Encrypt0         | COSE Single Recipient Encrypted Data Object     |
+|         17 | COSE_Mac0             | COSE Mac w/o Recipients Object                  |
+|         18 | COSE_Sign1            | COSE Single Signer Data Object                  |
+|         19 | COSE_Countersignature | COSE standalone V2 countersignature ({{RFC9338}}) |
+|         96 | COSE_Encrypt          | COSE Encrypted Data Object                      |
+|         97 | COSE_Mac              | COSE MACed Data Object                          |
+|         98 | COSE_Sign             | COSE Signed Data Object                         |
+{: #cosetags title="Tag numbers defined in RFC9052, COSE, and RFC 9338"}
+
+### Tags for Bare Hash Values {#hashtags}
+
+{{RFC9054}} does not define CBOR tags for Hash values; it rightly notes
+that Hash values are often used in structures that are
+application-specific and should be defined with those applications.
+
+However, there are many cases where just a bare hash value is
+required, and for these cases common tags are useful, for instance
+when these tags are used for elision in place of a data structure.
+To enable agility, tags need to indicate the hash function used,
+preferably using the COSE algorithms registry as populated by
+{{RFC9054}}.
+
+The codepoint range available for the COSE algorithms registry is
+large, but the most likely range to be used for standard Hash
+functions is "Integer values between -256 and 255", which have the
+registry policy "Standards Action With Expert Review" ({{Section 16.4
+of RFC8152}}, Registry "{{algorithms (COSE Algorithms)<IANA.cose}}" {{IANA.cose}}).
+
+To this end, the present document registers a range of 512 tags from
+18312 to 18823 (inclusive), paralleling the algorithm identifier
+range of `-256 .. 255` (inclusive).
+The tag number for COSE algorithm number N is then defined to be
+`18568+N`, except for `N = -27` (see below).
+The tag value is a CBOR byte string, with the exception `N = -27`.
+
+For example, in {{IANA.cose}} SHA-256 has the COSE algorithm identifier
+`-16`.
+This is in the range `-256 .. 255` (inclusive range).
+Therefore, tag 18552 (`= 18568 + (-16)`) is the tag for a byte string
+containing a SHA-256 hash.
+
+As a special case, there is one exception: Tag 18541 (`= 18568 +
+(-27)`) stands for the combination of a an explicit numeric COSE
+algorithm identifier with a hash value, analogous to the use of
+`COSE_CertHash` in {{RFC9360}}:
+
+~~~ cddl
+Standard_COSE_Hash<alg, value> =
+    #6.<hashmiddle .plus (alg .within directhash)>(value)
+General_COSE_Hash<alg, value> = #6.<hashtag>([
+    hashAlg: alg .within (int .ne directhash  / tstr),
+    hashValue: value .within bstr ])
+hashmiddle = 18568
+directhash = -256 .. 255
+hashtag = hashmiddle .plus (-27) ; 18541
+~~~
+{: #hashcddl title="Generic CDDL for Tags for Bare Hash Values"}
+
+An example for the SHA-256 hash of "hello world" in CBOR diagnostic
+notation:
+
+~~~ cbor-diag
+18552(
+ h'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9')
+~~~
+
+The same in CBOR pretty printed hex:
+
+~~~ cbor-pretty
+d9 4878                                 # tag(18552)
+   58 20                                # bytes(32)
+      b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
+~~~
+
+As none has been registered, no real example can be given for a hash
+algorithm with an identifier not in the standard range, but if
+`-4711` were such an identifier, a hash with an explicit algorithm
+number could look like:
+
+~~~ cbor-diag
+18541([-4711, h'1234123412341234123412341234123412341234'])
+~~~
+
 
 ## RFC 8392 (CWT)
 
@@ -813,14 +904,17 @@ IANA Considerations {#iana}
 In the registry "{{cbor-tags (CBOR Tags)<IANA.cbor-tags}}" {{IANA.cbor-tags}},
 IANA has allocated the first to third tag in {{tab-tag-values}} from the
 FCFS space, with the present document as the specification reference.
-IANA has allocated the fourth tag from the Specification
+IANA has allocated the tags in the next four rows from the Specification
 Required space, with the present document as the specification reference.
 
-|                  Tag | Data Item    | Semantics                    | Reference                                       |
-|                65535 | (none valid) | always invalid               | draft-bormann-cbor-notable-tags, {{invalid-tag}}  |
-|           4294967295 | (none valid) | always invalid               | draft-bormann-cbor-notable-tags, {{invalid-tag}}  |
-| 18446744073709551615 | (none valid) | always invalid               | draft-bormann-cbor-notable-tags, {{invalid-tag}}  |
-|                   63 | byte string  | Encoded CBOR Sequence {{-seq}} | draft-bormann-cbor-notable-tags, {{related-tags}} |
+|                        Tag | Data Item    | Semantics                                    | Reference                                       |
+|                      65535 | (none valid) | always invalid                               | draft-bormann-cbor-notable-tags, {{invalid-tag}}  |
+|                 4294967295 | (none valid) | always invalid                               | draft-bormann-cbor-notable-tags, {{invalid-tag}}  |
+|       18446744073709551615 | (none valid) | always invalid                               | draft-bormann-cbor-notable-tags, {{invalid-tag}}  |
+|                         63 | byte string  | Encoded CBOR Sequence {{-seq}}                 | draft-bormann-cbor-notable-tags, {{related-tags}} |
+| 18312 to 18540 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -28) | draft-bormann-cbor-notable-tags, {{hashtags}}     |
+|                      18541 | array        | [COSE algorithm identifier, Bare Hash value] | draft-bormann-cbor-notable-tags, {{hashtags}}     |
+| 18542 to 18823 (inclusive) | byte string  | Bare Hash value (COSE algorithm -26 to 255)  | draft-bormann-cbor-notable-tags, {{hashtags}}     |
 {: #tab-tag-values cols='r l l' title="Values for Tags"}
 
 In addition, IANA is requested to allocate the tags from
