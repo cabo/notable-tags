@@ -315,7 +315,9 @@ application-specific and should be defined with those applications.
 
 However, there are many cases where just a bare hash value is
 required, and for these cases common tags are useful.
-In one use case, these tags indicate elision in place of some other data structure.
+In one use case, these tags occur in a data structure that is
+specified to indicate elision by using one of these tags as an
+alternative to some other data structure.
 To enable agility, tags need to indicate the hash function used,
 preferably using the COSE algorithms registry as populated by
 {{RFC9054}}.
