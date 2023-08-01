@@ -278,9 +278,9 @@ structure definitions {{RFC9052}}, an Internet Standard {{STD96}}, and a
 separate document defining the representation for the algorithms
 employed {{RFC9053}}, which is expected to be updated more frequently
 than the COSE format itself.
-{{RFC9054}} added a separate set of algorithms for Hash functions (Hash
-functions have been part of {{RFC9053}} algorithms but weren't assigned
-separate codepoints).
+{{RFC9054}} added a separate set of algorithms for cryptographic hash
+functions (Hash functions have been part of some {{RFC9053}} combined
+algorithms but weren't assigned separate codepoints).
 A revised COSE counter signature structure was defined in {{RFC9338}}, another part
 of {{STD96}}; this also defines a tag for these.
 
@@ -296,13 +296,13 @@ of {{STD96}}; this also defines a tag for these.
 
 ### Tags for Bare Hash Values {#hashtags}
 
-{{RFC9054}} does not define CBOR tags for Hash values; it rightly notes
+{{RFC9054}} does not define CBOR tags for cryptographic Hash values; it rightly notes
 that Hash values are often used in structures that are
 application-specific and should be defined with those applications.
 
 However, there are many cases where just a bare hash value is
-required, and for these cases common tags are useful, for instance
-when these tags are used for elision in place of a data structure.
+required, and for these cases common tags are useful.
+In one use case, these tags indicate elision in place of some other data structure.
 To enable agility, tags need to indicate the hash function used,
 preferably using the COSE algorithms registry as populated by
 {{RFC9054}}.
@@ -727,7 +727,7 @@ be represented as a CBOR text string
 (Original Text for this section was contributed by Duncan Coutts and
 Michael Peyton Jones; all errors are the author's.)
 
-A set of CBOR tag numbers has been allocated (to do, {{iana}}) for
+A set of CBOR tag numbers has been allocated ({{iana}}) for
 encoding data composed of enumerated alternatives:
 
 |       Tags | Data Item          | Meaning                                 |
