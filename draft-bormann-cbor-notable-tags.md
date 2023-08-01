@@ -90,6 +90,7 @@ informative:
   RFC7493: ijson
   RFC8259: json
   I-D.ietf-cbor-time-tag: time-tag
+  I-D.draft-ietf-jsonpath-iregexp: iregexp
   RFC9290: probdet
   RFC9254: yang-cbor
   C:
@@ -223,7 +224,7 @@ convenience only.
 Separately registered tags that are directly related to the tags
 predefined in RFC 7049 include:
 
-* Tag 63, registered by this document, is a parallel to tag 24, with
+* Tag 63, registered by this document ({{iana}}), is a parallel to tag 24, with
   the single difference that its byte string tag content carries a
   CBOR Sequence {{-seq}} instead of a single CBOR data item.
 
@@ -232,7 +233,18 @@ predefined in RFC 7049 include:
   tag 36, except that the tag content is a byte string, which
   therefore can also carry binary MIME messages as per {{-mime}}.
 
-## Tags from RFC 7049 not listed in RFC 8949
+* Tag 21065, being registered by this document ({{iana}}), is a parallel to tag 35, with
+  the difference that its text string tag content carries an
+  I-Regexp regular expression {{-iregexp}} instead of a regexp of a
+  more unspecified flavor.
+  Companion tag 21066, being registered by Joe Hildebrand with a
+  specification in
+  <https://github.com/hildjj/cbor-specs/blob/main/regexp.md>, is the
+  equivalent for JavaScript (ECMA262), but besides the regular
+  expression itself also can include the regular expression flags
+  as a separate item.
+
+## Tags from RFC 7049 not listed in RFC 8949 {#tag35}
 
 <!-- Note that xml2rfc generates a broken reference for {{Appendix G.3 of -cbor}}, so we -->
 <!-- work around manually: -->
@@ -262,6 +274,7 @@ manage to stay within that 2011 subset.
 Nonetheless, the registration is in place, so it is available for
 applications that simply want to mark a text string as being a regular
 expression roughly of the PCRE/Javascript flavor families.
+See also Tag 21065 and 21066 above.
 
 # Security
 
@@ -904,17 +917,19 @@ IANA Considerations {#iana}
 In the registry "{{cbor-tags (CBOR Tags)<IANA.cbor-tags}}" {{IANA.cbor-tags}},
 IANA has allocated the first to third tag in {{tab-tag-values}} from the
 FCFS space, with the present document as the specification reference.
-IANA has allocated the tags in the next four rows from the Specification
+IANA has allocated the tag in the next row, and is requested to
+allocate the tags in the next four rows, from the Specification
 Required space, with the present document as the specification reference.
 
-|                        Tag | Data Item    | Semantics                                    | Reference                                       |
-|                      65535 | (none valid) | always invalid                               | draft-bormann-cbor-notable-tags, {{invalid-tag}}  |
-|                 4294967295 | (none valid) | always invalid                               | draft-bormann-cbor-notable-tags, {{invalid-tag}}  |
-|       18446744073709551615 | (none valid) | always invalid                               | draft-bormann-cbor-notable-tags, {{invalid-tag}}  |
-|                         63 | byte string  | Encoded CBOR Sequence {{-seq}}                 | draft-bormann-cbor-notable-tags, {{related-tags}} |
-| 18312 to 18540 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -28) | draft-bormann-cbor-notable-tags, {{hashtags}}     |
-|                      18541 | array        | [COSE algorithm identifier, Bare Hash value] | draft-bormann-cbor-notable-tags, {{hashtags}}     |
-| 18542 to 18823 (inclusive) | byte string  | Bare Hash value (COSE algorithm -26 to 255)  | draft-bormann-cbor-notable-tags, {{hashtags}}     |
+|                        Tag | Data Item    | Semantics                                     | Reference                                                   |
+|                      65535 | (none valid) | always invalid                                | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
+|                 4294967295 | (none valid) | always invalid                                | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
+|       18446744073709551615 | (none valid) | always invalid                                | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
+|                         63 | byte string  | Encoded CBOR Sequence {{-seq}}                  | draft-bormann-cbor-notable-tags, {{related-tags}}             |
+|                      21065 | text string  | I-Regexp                                      | draft-bormann-cbor-notable-tags, {{related-tags}}; {{-iregexp}} |
+| 18312 to 18540 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -28)  | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
+|                      18541 | array        | \[COSE algorithm identifier, Bare Hash value] | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
+| 18542 to 18823 (inclusive) | byte string  | Bare Hash value (COSE algorithm -26 to 255)   | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
 {: #tab-tag-values cols='r l l' title="Values for Tags"}
 
 In addition, IANA is requested to allocate the tags from
