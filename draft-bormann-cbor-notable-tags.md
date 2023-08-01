@@ -49,6 +49,7 @@ normative:
     =: RFC8949
   IANA.cbor-tags: tags
   IANA.cose: cose-reg
+  IANA.named-information: ni
   RFC8610: cddl
   RFC8152:
 #    ann: foo
@@ -321,6 +322,15 @@ alternative to some other data structure.
 To enable agility, tags need to indicate the hash function used,
 preferably using the COSE algorithms registry as populated by
 {{RFC9054}}.
+
+{:aside}
+>
+(Note that there is another registry, "{{hash-alg (Named Information
+Hash Algorithm Registry)<IANA.named-information}}"
+{{IANA.named-information}}, that also defines numbers for some hash algorithms.
+We are not using this registry here, as more recent entries seem to
+have stopped assigning numbers.
+If desired, tags that employ this registry could be added later.)
 
 The codepoint range available for the COSE algorithms registry is
 large, but the most likely range to be used for standard Hash
