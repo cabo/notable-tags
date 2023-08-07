@@ -293,7 +293,7 @@ separate document defining the representation for the algorithms
 employed {{RFC9053}}, which is expected to be updated more frequently
 than the COSE format itself.
 {{RFC9054}} added a separate set of algorithms for cryptographic hash
-functions (Hash functions have been part of some {{RFC9053}} combined
+functions (Hash functions have been a component of some {{RFC9053}} combined
 algorithms but weren't assigned separate codepoints).
 A revised COSE counter signature structure was defined in {{RFC9338}}, another part
 of {{STD96}}; this also defines a tag for these.
