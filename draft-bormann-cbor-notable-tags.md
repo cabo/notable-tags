@@ -928,7 +928,7 @@ IANA Considerations {#iana}
 In the registry "{{cbor-tags (CBOR Tags)<IANA.cbor-tags}}" {{IANA.cbor-tags}},
 IANA has allocated the first to third tag in {{tab-tag-values}} from the
 FCFS space, with the present document as the specification reference.
-IANA has allocated the tag in the next two rows, and is requested to
+IANA has allocated the tags in the next two rows, and is requested to
 allocate the tags in the next three rows, from the Specification
 Required space, with the present document as the specification reference.
 
