@@ -339,32 +339,31 @@ registry policy "Standards Action With Expert Review" ({{Section 16.4
 of RFC8152}}, Registry "{{algorithms (COSE Algorithms)<IANA.cose}}" {{IANA.cose}}).
 
 To this end, the present document registers a range of 512 tags from
-18312 to 18823 (inclusive), paralleling the algorithm identifier
+18300 to 18811 (inclusive), paralleling the algorithm identifier
 range of `-256 .. 255` (inclusive).
 The tag number for COSE algorithm number N is then defined to be
-`18568+N`, except for `N = -27` (see below).
-The tag value is a CBOR byte string, with the exception `N = -27`.
+`18556+N`, except for `N = 0` (see below).
+The tag value is a CBOR byte string, with the exception `N = 0`.
 
 For example, in {{IANA.cose}} SHA-256 has the COSE algorithm identifier
 `-16`.
 This is in the range `-256 .. 255` (inclusive range).
-Therefore, tag 18552 (`= 18568 + (-16)`) is the tag for a byte string
+Therefore, tag 18540 (`= 18556 + (-16)`) is the tag for a byte string
 containing a SHA-256 hash.
 
-As a special case, there is one exception: Tag 18541 (`= 18568 +
-(-27)`) stands for the combination of a an explicit numeric COSE
-algorithm identifier with a hash value, analogous to the use of
+As a special case, there is one exception: Tag 18556 (`= 18556 + 0`)
+stands for the combination of a an explicit numeric COSE algorithm
+identifier with a hash value in an array, analogous to the use of
 `COSE_CertHash` in {{RFC9360}}:
 
 ~~~ cddl
 Standard_COSE_Hash<alg, value> =
     #6.<hashmiddle .plus (alg .within directhash)>(value)
-General_COSE_Hash<alg, value> = #6.<hashtag>([
+General_COSE_Hash<alg, value> = #6.<hashmiddle>([
     hashAlg: alg .within (int .ne directhash  / tstr),
     hashValue: value .within bstr ])
-hashmiddle = 18568
-directhash = -256 .. 255
-hashtag = hashmiddle .plus (-27) ; 18541
+hashmiddle = 18556
+directhash = (-256 .. -1) / (1 .. 255)
 ~~~
 {: #hashcddl title="Generic CDDL for Tags for Bare Hash Values"}
 
@@ -372,14 +371,14 @@ An example for the SHA-256 hash of "hello world" in CBOR diagnostic
 notation:
 
 ~~~ cbor-diag
-18552(
+18540(
  h'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9')
 ~~~
 
 The same in CBOR pretty printed hex:
 
 ~~~ cbor-pretty
-d9 4878                                 # tag(18552)
+d9 486c                                 # tag(18540)
    58 20                                # bytes(32)
       b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
 ~~~
@@ -390,7 +389,7 @@ algorithm with an identifier not in the standard range, but if
 number could look like:
 
 ~~~ cbor-diag
-18541([-4711, h'1234123412341234123412341234123412341234'])
+18556([-4711, h'1234123412341234123412341234123412341234'])
 ~~~
 
 
@@ -929,8 +928,8 @@ IANA Considerations {#iana}
 In the registry "{{cbor-tags (CBOR Tags)<IANA.cbor-tags}}" {{IANA.cbor-tags}},
 IANA has allocated the first to third tag in {{tab-tag-values}} from the
 FCFS space, with the present document as the specification reference.
-IANA has allocated the tag in the next row, and is requested to
-allocate the tags in the next four rows, from the Specification
+IANA has allocated the tag in the next two rows, and is requested to
+allocate the tags in the next three rows, from the Specification
 Required space, with the present document as the specification reference.
 
 |                        Tag | Data Item    | Semantics                                     | Reference                                                   |
@@ -939,9 +938,9 @@ Required space, with the present document as the specification reference.
 |       18446744073709551615 | (none valid) | always invalid                                | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
 |                         63 | byte string  | Encoded CBOR Sequence {{-seq}}                  | draft-bormann-cbor-notable-tags, {{related-tags}}             |
 |                      21065 | text string  | I-Regexp                                      | draft-bormann-cbor-notable-tags, {{related-tags}}; {{-iregexp}} |
-| 18312 to 18540 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -28)  | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
-|                      18541 | array        | \[COSE algorithm identifier, Bare Hash value] | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
-| 18542 to 18823 (inclusive) | byte string  | Bare Hash value (COSE algorithm -26 to 255)   | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
+| 18300 to 18555 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -1) | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
+|                      18556 | array        | \[COSE algorithm identifier, Bare Hash value] | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
+| 18557 to 18811 (inclusive) | byte string  | Bare Hash value (COSE algorithm 1 to 255)     | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
 {: #tab-tag-values cols='r l l' title="Values for Tags"}
 
 In addition, IANA is requested to allocate the tags from
