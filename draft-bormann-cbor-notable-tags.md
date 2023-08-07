@@ -392,6 +392,18 @@ number could look like:
 18556([-4711, h'1234123412341234123412341234123412341234'])
 ~~~
 
+Note that not all tags assigned in this section do parallel an
+algorithm that is a cryptographic hash algorithm.
+Where this is not the case, there currently is not defined semantics
+for this tag, but the tags are assigned anyway.
+The semantics of tags that parallel algorithm assignments other than
+for cryptographic hash functions could be defined by a future version
+of this specification.
+
+Note also that the cryptographic hashes in the content of the tag are
+not protected; any further protection (confidentiality, integrity)
+needs to be provided in the surrounding data structure, storage
+system, or communication channel.
 
 ## RFC 8392 (CWT)
 
