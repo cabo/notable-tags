@@ -128,10 +128,12 @@ code size, fairly small message size, and extensibility without the
 need for version negotiation.
 
 In CBOR, one point of extensibility is the definition of CBOR tags.
-RFC 8949's original edition, RFC 7049, defined a basic set of tags as well
+RFC 8949's original edition, RFC 7049, defined a basic set of 16 tags as well
 as a registry that can be used to contribute additional tag
-definitions {{-tags}}.  Since RFC 7049 was published, some 80 tag
-definitions have been added to that registry.
+definitions {{-tags}}.
+Since RFC 7049 was published, at the time of writing some 180
+definitions of tags and ranges of tags have been added to that
+registry.
 
 The present document provides a roadmap to a large subset of these tag
 definitions.  Where applicable, it points to a IETF standards or
