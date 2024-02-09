@@ -38,7 +38,7 @@ contributor:
     contribution: |
       Further contributors will be listed here as text is added.
 
-      Plase stay tuned.
+      Please stay tuned.
 
 normative:
   STD63:
