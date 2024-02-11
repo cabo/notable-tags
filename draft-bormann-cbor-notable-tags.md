@@ -384,6 +384,7 @@ d9 486c                                 # tag(18540)
    58 20                                # bytes(32)
       b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
 ~~~
+{: post="fold"}
 
 As none has been registered, no real example can be given for a hash
 algorithm with an identifier not in the standard range, but if
@@ -685,8 +686,8 @@ We suggest copying the definitions in {{time-tags-cddl}} into
 application-specific CDDL as needed.
 
 ~~~ cddl
-caldate = #6.100(int) ; calendar date as a number of days from 1970-01-01
-tcaldate = #6.1004(tstr) ; calendar date as an RFC 3339 full-date string
+caldate = #6.100(int); calendar date as # of days from 1970-01-01
+tcaldate = #6.1004(tstr); calendar date as RFC 3339 full-date string
 ~~~
 {: #time-tags-cddl title="CDDL for calendar date tags (RFC8943)"}
 
