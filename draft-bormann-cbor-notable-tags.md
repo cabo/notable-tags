@@ -753,13 +753,13 @@ be represented as a CBOR text string
 (TO DO: Obtain permission to copy the definitions here.)
 
 | Tag number | Tag content | Short Description                                                          | Reference                                                                                         | Author            |
-|         39 | multiple    | Identifier                                                                 | [https://github.com/lucas-clemente/cbor-specs/blob/master/id.md                                   | Lucas Clemente    |
-|         42 | byte string | IPLD content identifier                                                    | [https://github.com/ipld/cid-cbor/                                                                | Volker Mische     |
-|        103 | array       | Geographic Coordinates                                                     | [https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag103-Geographic-Coordinates.md          | Danilo Vidovic    |
+|         39 | multiple    | Identifier                                                                 | <https://github.com/lucas-clemente/cbor-specs/blob/master/id.md>                                  | Lucas Clemente    |
+|         42 | byte string | IPLD content identifier                                                    | <https://github.com/ipld/cid-cbor/>                                                               | Volker Mische     |
+|        103 | array       | Geographic Coordinates                                                     | <https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag103-Geographic-Coordinates.md>         | Danilo Vidovic    |
 |        104 | multiple    | Geographic Coordinate Reference System  WKT or EPSG number                 | {{?I-D.clarke-cbor-crs}}                                                                           |                   |
-|        120 | multiple    | Internet of Things Data Point                                              | [https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag120-Internet-of-Things-Data-Points.md  | Danilo Vidovic    |
-|        258 | array       | Mathematical finite set                                                    | [https://github.com/input-output-hk/cbor-sets-spec/blob/master/CBOR_SETS.md                       | Alfredo Di Napoli |
-|        259 | map         | Map  datatype with key-value  operations (e.g. `.get ()/.set()/.delete()`) | [https://github.com/shanewholloway/js-cbor-codec/blob/master/docs/CBOR-259-spec--explicit-maps.md | Shane Holloway    |
+|        120 | multiple    | Internet of Things Data Point                                              | <https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag120-Internet-of-Things-Data-Points.md> | Danilo Vidovic    |
+|        258 | array       | Mathematical finite set                                                    | <https://github.com/input-output-hk/cbor-sets-spec/blob/master/CBOR_SETS.md>                      | Alfredo Di Napoli |
+|        259 | map         | Map datatype with key-value operations (e.g. `.get()`/`.set()`/`.delete()`)   | <https://github.com/shanewholloway/js-cbor-codec/blob/master/docs/CBOR-259-spec--explicit-maps.md> | Shane Holloway    |
 
 ## Enumerated Alternative Data Items
 
