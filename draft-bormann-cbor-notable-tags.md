@@ -51,7 +51,6 @@ normative:
   IANA.cose: cose-reg
   IANA.named-information: ni
   RFC8610: cddl
-  RFC8152:
 #    ann: foo
   STD96: cose # includes RFC9052 and RFC9338
   RFC9053: cose-alg
@@ -59,6 +58,7 @@ normative:
   RFC9360: certhash
 
 informative:
+  RFC8152:
   BCP47:
   W3C-STRINGS-BIDI:
     target: https://www.w3.org/International/articles/strings-and-bidi/
