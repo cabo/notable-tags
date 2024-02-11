@@ -91,7 +91,7 @@ informative:
   RFC7493: ijson
   RFC8259: json
   I-D.ietf-cbor-time-tag: time-tag
-  I-D.draft-ietf-jsonpath-iregexp: iregexp
+  RFC9485: iregexp
   RFC9290: probdet
   RFC9254: yang-cbor
   C:
