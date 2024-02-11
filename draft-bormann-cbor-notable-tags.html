@@ -28,24 +28,24 @@ intended to be useful as a reference document for the IANA
 registrations of the CBOR tags the definitions of which have been
 collected. 
     " name="description">
-<meta content="xml2rfc 3.17.5" name="generator">
+<meta content="xml2rfc 3.19.2" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-bormann-cbor-notable-tags-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.17.5
-    Python 3.11.4
-    ConfigArgParse 1.5.3
+  xml2rfc 3.19.2
+    Python 3.11.6
+    ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
-    platformdirs 3.10.0
+    platformdirs 4.2.0
     pycountry 22.3.5
-    PyYAML 6.0
+    PyYAML 6.0.1
     requests 2.31.0
-    setuptools 67.7.2
+    setuptools 68.2.2
     six 1.16.0
-    wcwidth 0.2.6
+    wcwidth 0.2.13
 -->
 <link href="draft-bormann-cbor-notable-tags.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1066,11 +1066,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Notable CBOR Tags</td>
-<td class="right">August 2023</td>
+<td class="right">February 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bormann</td>
-<td class="center">Expires 17 February 2024</td>
+<td class="center">Expires 14 August 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1083,12 +1083,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-bormann-cbor-notable-tags-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-08-16" class="published">16 August 2023</time>
+<time datetime="2024-02-11" class="published">11 February 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-02-17">17 February 2024</time></dd>
+<dd class="expires"><time datetime="2024-08-14">14 August 2024</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1156,7 +1156,7 @@ obtained from tag definition authors to copy over their text.<a href="#section-n
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 17 February 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1165,7 +1165,7 @@ obtained from tag definition authors to copy over their text.<a href="#section-n
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2023 IETF Trust and the persons identified as the
+            Copyright (c) 2024 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1504,25 +1504,28 @@ convenience only.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2.1-1">Separately registered tags that are directly related to the tags
 predefined in RFC 7049 include:<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-2.1-2.1">Tag 63, registered by this document (<a href="#iana" class="auto internal xref">Section 11</a>), is a parallel to tag 24, with
+<li class="normal" id="section-2.1-2.1">
+            <p id="section-2.1-2.1.1">Tag 63, registered by this document (<a href="#iana" class="auto internal xref">Section 11</a>), is a parallel to tag 24, with
 the single difference that its byte string tag content carries a
-CBOR Sequence <span>[<a href="#RFC8742" class="cite xref">RFC8742</a>]</span> instead of a single CBOR data item.<a href="#section-2.1-2.1" class="pilcrow">¶</a>
+CBOR Sequence <span>[<a href="#RFC8742" class="cite xref">RFC8742</a>]</span> instead of a single CBOR data item.<a href="#section-2.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-2.1-2.2">Tag 257, registered by Peter Occil with a specification in
+          <li class="normal" id="section-2.1-2.2">
+            <p id="section-2.1-2.2.1">Tag 257, registered by Peter Occil with a specification in
 <a href="http://peteroupc.github.io/CBOR/binarymime.html">http://peteroupc.github.io/CBOR/binarymime.html</a>, is a parallel to
 tag 36, except that the tag content is a byte string, which
-therefore can also carry binary MIME messages as per <span>[<a href="#RFC2045" class="cite xref">RFC2045</a>]</span>.<a href="#section-2.1-2.2" class="pilcrow">¶</a>
+therefore can also carry binary MIME messages as per <span>[<a href="#RFC2045" class="cite xref">RFC2045</a>]</span>.<a href="#section-2.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-2.1-2.3">Tag 21065, being registered by this document (<a href="#iana" class="auto internal xref">Section 11</a>), is a parallel to tag 35, with
+          <li class="normal" id="section-2.1-2.3">
+            <p id="section-2.1-2.3.1">Tag 21065, being registered by this document (<a href="#iana" class="auto internal xref">Section 11</a>), is a parallel to tag 35, with
 the difference that its text string tag content carries an
-I-Regexp regular expression <span>[<a href="#I-D.draft-ietf-jsonpath-iregexp" class="cite xref">I-D.draft-ietf-jsonpath-iregexp</a>]</span> instead of a regexp of a
+I-Regexp regular expression <span>[<a href="#RFC9485" class="cite xref">RFC9485</a>]</span> instead of a regexp of a
 more unspecified flavor.
 Companion tag 21066, being registered by Joe Hildebrand with a
 specification in
 <a href="https://github.com/hildjj/cbor-specs/blob/main/regexp.md">https://github.com/hildjj/cbor-specs/blob/main/regexp.md</a>, is the
 equivalent for JavaScript (ECMA262), but besides the regular
 expression itself also can include the regular expression flags
-as a separate item.<a href="#section-2.1-2.3" class="pilcrow">¶</a>
+as a separate item.<a href="#section-2.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1703,10 +1706,12 @@ notation:<a href="#section-3.1.1-9" class="pilcrow">¶</a></p>
 </div>
 <p id="section-3.1.1-11">The same in CBOR pretty printed hex:<a href="#section-3.1.1-11" class="pilcrow">¶</a></p>
 <div class="lang-cbor-pretty sourcecode" id="section-3.1.1-12">
-<pre>
+<pre>=============== NOTE: '\' line wrapping per RFC 8792 ================
+
 d9 486c                                 # tag(18540)
    58 20                                # bytes(32)
-      b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
+      \
+     b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
 </pre><a href="#section-3.1.1-12" class="pilcrow">¶</a>
 </div>
 <p id="section-3.1.1-13">As none has been registered, no real example can be given for a hash
@@ -1979,7 +1984,8 @@ numbers or support for them is included in their standard libraries;
 tag number 30 is a way for these platforms to interchange these
 rational numbers in CBOR.<a href="#section-6.1-5.1.4" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.1-5.2">Tag numbers 4 and 5 are limited in the range of the (base 10 or base
+          <li class="normal" id="section-6.1-5.2">
+            <p id="section-6.1-5.2.1">Tag numbers 4 and 5 are limited in the range of the (base 10 or base
 2) exponents by the limited-range integers in the basic generic data
 model.  Tag numbers 264 and 265 are exactly equivalent to 4 and 5,
 respectively, but also allow unlimited-range integers as exponents.
@@ -1987,7 +1993,7 @@ While applications for floating point numbers with exponents outside
 the CBOR basic integer range are limited, tags 264 and 265 allow
 unlimited roundtripping with other formats that allow very large or
 very small exponents, such as those JSON <span>[<a href="#RFC8259" class="cite xref">RFC8259</a>]</span> can provide if the
-limitations of I-JSON <span>[<a href="#RFC7493" class="cite xref">RFC7493</a>]</span> do not apply.<a href="#section-6.1-5.2" class="pilcrow">¶</a>
+limitations of I-JSON <span>[<a href="#RFC7493" class="cite xref">RFC7493</a>]</span> do not apply.<a href="#section-6.1-5.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-6.1-6">The tag numbers 268..270 extend these tags further by providing a way
@@ -2408,8 +2414,8 @@ application-specific CDDL as needed.<a href="#section-7.2-4" class="pilcrow">¶<
 <figure id="figure-3">
           <div class="lang-cddl sourcecode" id="section-7.2-5.1">
 <pre>
-caldate = #6.100(int) ; calendar date as a number of days from 1970-01-01
-tcaldate = #6.1004(tstr) ; calendar date as an RFC 3339 full-date string
+caldate = #6.100(int); calendar date as # of days from 1970-01-01
+tcaldate = #6.1004(tstr); calendar date as RFC 3339 full-date string
 </pre>
 </div>
 <figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
@@ -2582,21 +2588,27 @@ be represented as a CBOR text string
             <td class="text-left" rowspan="1" colspan="1">39</td>
             <td class="text-left" rowspan="1" colspan="1">multiple</td>
             <td class="text-left" rowspan="1" colspan="1">Identifier</td>
-            <td class="text-left" rowspan="1" colspan="1">[https://github.com/lucas-clemente/cbor-specs/blob/master/id.md</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <a href="https://github.com/lucas-clemente/cbor-specs/blob/master/id.md">https://github.com/lucas-clemente/cbor-specs/blob/master/id.md</a>
+</td>
             <td class="text-left" rowspan="1" colspan="1">Lucas Clemente</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">42</td>
             <td class="text-left" rowspan="1" colspan="1">byte string</td>
             <td class="text-left" rowspan="1" colspan="1">IPLD content identifier</td>
-            <td class="text-left" rowspan="1" colspan="1">[https://github.com/ipld/cid-cbor/</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <a href="https://github.com/ipld/cid-cbor/">https://github.com/ipld/cid-cbor/</a>
+</td>
             <td class="text-left" rowspan="1" colspan="1">Volker Mische</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">103</td>
             <td class="text-left" rowspan="1" colspan="1">array</td>
             <td class="text-left" rowspan="1" colspan="1">Geographic Coordinates</td>
-            <td class="text-left" rowspan="1" colspan="1">[https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag103-Geographic-Coordinates.md</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <a href="https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag103-Geographic-Coordinates.md">https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag103-Geographic-Coordinates.md</a>
+</td>
             <td class="text-left" rowspan="1" colspan="1">Danilo Vidovic</td>
           </tr>
           <tr>
@@ -2612,21 +2624,27 @@ be represented as a CBOR text string
             <td class="text-left" rowspan="1" colspan="1">120</td>
             <td class="text-left" rowspan="1" colspan="1">multiple</td>
             <td class="text-left" rowspan="1" colspan="1">Internet of Things Data Point</td>
-            <td class="text-left" rowspan="1" colspan="1">[https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag120-Internet-of-Things-Data-Points.md</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <a href="https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag120-Internet-of-Things-Data-Points.md">https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag120-Internet-of-Things-Data-Points.md</a>
+</td>
             <td class="text-left" rowspan="1" colspan="1">Danilo Vidovic</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">258</td>
             <td class="text-left" rowspan="1" colspan="1">array</td>
             <td class="text-left" rowspan="1" colspan="1">Mathematical finite set</td>
-            <td class="text-left" rowspan="1" colspan="1">[https://github.com/input-output-hk/cbor-sets-spec/blob/master/CBOR_SETS.md</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <a href="https://github.com/input-output-hk/cbor-sets-spec/blob/master/CBOR_SETS.md">https://github.com/input-output-hk/cbor-sets-spec/blob/master/CBOR_SETS.md</a>
+</td>
             <td class="text-left" rowspan="1" colspan="1">Alfredo Di Napoli</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">259</td>
             <td class="text-left" rowspan="1" colspan="1">map</td>
-            <td class="text-left" rowspan="1" colspan="1">Map  datatype with key-value  operations (e.g. <code>.get ()/.set()/.delete()</code>)</td>
-            <td class="text-left" rowspan="1" colspan="1">[https://github.com/shanewholloway/js-cbor-codec/blob/master/docs/CBOR-259-spec--explicit-maps.md</td>
+            <td class="text-left" rowspan="1" colspan="1">Map datatype with key-value operations (e.g. <code>.get()</code>/<code>.set()</code>/<code>.delete()</code>)</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <a href="https://github.com/shanewholloway/js-cbor-codec/blob/master/docs/CBOR-259-spec--explicit-maps.md">https://github.com/shanewholloway/js-cbor-codec/blob/master/docs/CBOR-259-spec--explicit-maps.md</a>
+</td>
             <td class="text-left" rowspan="1" colspan="1">Shane Holloway</td>
           </tr>
         </tbody>
@@ -2684,11 +2702,14 @@ alternative case is entirely application dependent.<a href="#section-9.1-6" clas
 of alternatives, but provide compact encoding for the common cases of
 low numbers of alternatives:<a href="#section-9.1-7" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-9.1-8.1">Alternatives 0..6 can be encoded in 2 bytes;<a href="#section-9.1-8.1" class="pilcrow">¶</a>
+<li class="normal" id="section-9.1-8.1">
+            <p id="section-9.1-8.1.1">Alternatives 0..6 can be encoded in 2 bytes;<a href="#section-9.1-8.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-9.1-8.2">Alternatives 7..127 can be encoded in 3 bytes;<a href="#section-9.1-8.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-9.1-8.2">
+            <p id="section-9.1-8.2.1">Alternatives 7..127 can be encoded in 3 bytes;<a href="#section-9.1-8.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-9.1-8.3">Alternatives 128+ can be encoded in 3-12 bytes.<a href="#section-9.1-8.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-9.1-8.3">
+            <p id="section-9.1-8.3.1">Alternatives 128+ can be encoded in 3-12 bytes.<a href="#section-9.1-8.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-9.1-9">There are no special considerations for deterministic encoding
@@ -2767,9 +2788,11 @@ of which also result in a 3-byte encoding.<a href="#section-9.1.2-7" class="pilc
 <p id="section-9.1.3-1">To elaborate on the example from the introduction, we have a "result"
 that is a failure or success, where:<a href="#section-9.1.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-9.1.3-2.1">the failure detail consists of an integer code and a string;<a href="#section-9.1.3-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-9.1.3-2.1">
+              <p id="section-9.1.3-2.1.1">the failure detail consists of an integer code and a string;<a href="#section-9.1.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
-            <li class="normal" id="section-9.1.3-2.2">the successful result is a byte string.<a href="#section-9.1.3-2.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-9.1.3-2.2">
+              <p id="section-9.1.3-2.2.1">the successful result is a byte string.<a href="#section-9.1.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 <p id="section-9.1.3-3">This corresponds to the following schema, in CDDL notation:<a href="#section-9.1.3-3" class="pilcrow">¶</a></p>
@@ -2909,7 +2932,7 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-right" rowspan="1" colspan="1">21065</td>
             <td class="text-left" rowspan="1" colspan="1">text string</td>
             <td class="text-left" rowspan="1" colspan="1">I-Regexp</td>
-            <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#related-tags" class="auto internal xref">Section 2.1</a>; <span>[<a href="#I-D.draft-ietf-jsonpath-iregexp" class="cite xref">I-D.draft-ietf-jsonpath-iregexp</a>]</span>
+            <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#related-tags" class="auto internal xref">Section 2.1</a>; <span>[<a href="#RFC9485" class="cite xref">RFC9485</a>]</span>
 </td>
           </tr>
           <tr>
@@ -2954,6 +2977,7 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
       <h2 id="name-references">
 <a href="#section-13" class="section-number selfRef">13. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
+<div id="sec-normative-references">
 <section id="section-13.1">
         <h3 id="name-normative-references">
 <a href="#section-13.1" class="section-number selfRef">13.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
@@ -2970,10 +2994,6 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dt id="IANA.named-information">[IANA.named-information]</dt>
         <dd>
 <span class="refAuthor">IANA</span>, <span class="refTitle">"Named Information"</span>, <span>&lt;<a href="http://www.iana.org/assignments/named-information">http://www.iana.org/assignments/named-information</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="RFC8152">[RFC8152]</dt>
-        <dd>
-<span class="refAuthor">Schaad, J.</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE)"</span>, <span class="seriesInfo">RFC 8152</span>, <span class="seriesInfo">DOI 10.17487/RFC8152</span>, <time datetime="2017-07" class="refDate">July 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8152">https://www.rfc-editor.org/rfc/rfc8152</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8392">[RFC8392]</dt>
         <dd>
@@ -3014,13 +3034,16 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dt id="STD96">[STD96]</dt>
       <dd>
 <div class="refInstance" id="RFC9052">
-            <span class="refAuthor">Schaad, J.</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE): Structures and Process"</span>, <span class="seriesInfo">STD 96</span>, <span class="seriesInfo">RFC 9052</span>, <time datetime="2022-08" class="refDate">August 2022</time>. </div>
+            <span class="refAuthor">Schaad, J.</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE): Structures and Process"</span>, <span class="seriesInfo">STD 96</span>, <span class="seriesInfo">RFC 9052</span>, <span class="seriesInfo">DOI 10.17487/RFC9052</span>, <time datetime="2022-08" class="refDate">August 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9052">https://www.rfc-editor.org/info/rfc9052</a>&gt;</span>. </div>
 <div class="refInstance" id="RFC9338">
-            <span class="refAuthor">Schaad, J.</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE): Countersignatures"</span>, <span class="seriesInfo">STD 96</span>, <span class="seriesInfo">RFC 9338</span>, <time datetime="2022-12" class="refDate">December 2022</time>. </div>
+            <span class="refAuthor">Schaad, J.</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE): Countersignatures"</span>, <span class="seriesInfo">STD 96</span>, <span class="seriesInfo">RFC 9338</span>, <span class="seriesInfo">DOI 10.17487/RFC9338</span>, <time datetime="2022-12" class="refDate">December 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9338">https://www.rfc-editor.org/info/rfc9338</a>&gt;</span>. </div>
+<span>&lt;<a href="https://www.rfc-editor.org/info/std96">https://www.rfc-editor.org/info/std96</a>&gt;</span>
 </dd>
 <dd class="break"></dd>
 </dl>
 </section>
+</div>
+<div id="sec-informative-references">
 <section id="section-13.2">
         <h3 id="name-informative-references">
 <a href="#section-13.2" class="section-number selfRef">13.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
@@ -3029,9 +3052,10 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dt id="BCP47">[BCP47]</dt>
         <dd>
 <div class="refInstance" id="RFC4647">
-            <span class="refAuthor">Phillips, A., Ed.</span> and <span class="refAuthor">M. Davis, Ed.</span>, <span class="refTitle">"Matching of Language Tags"</span>, <span class="seriesInfo">BCP 47</span>, <span class="seriesInfo">RFC 4647</span>, <time datetime="2006-09" class="refDate">September 2006</time>. </div>
+            <span class="refAuthor">Phillips, A., Ed.</span> and <span class="refAuthor">M. Davis, Ed.</span>, <span class="refTitle">"Matching of Language Tags"</span>, <span class="seriesInfo">BCP 47</span>, <span class="seriesInfo">RFC 4647</span>, <span class="seriesInfo">DOI 10.17487/RFC4647</span>, <time datetime="2006-09" class="refDate">September 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4647">https://www.rfc-editor.org/info/rfc4647</a>&gt;</span>. </div>
 <div class="refInstance" id="RFC5646">
-            <span class="refAuthor">Phillips, A., Ed.</span> and <span class="refAuthor">M. Davis, Ed.</span>, <span class="refTitle">"Tags for Identifying Languages"</span>, <span class="seriesInfo">BCP 47</span>, <span class="seriesInfo">RFC 5646</span>, <time datetime="2009-09" class="refDate">September 2009</time>. </div>
+            <span class="refAuthor">Phillips, A., Ed.</span> and <span class="refAuthor">M. Davis, Ed.</span>, <span class="refTitle">"Tags for Identifying Languages"</span>, <span class="seriesInfo">BCP 47</span>, <span class="seriesInfo">RFC 5646</span>, <span class="seriesInfo">DOI 10.17487/RFC5646</span>, <time datetime="2009-09" class="refDate">September 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5646">https://www.rfc-editor.org/info/rfc5646</a>&gt;</span>. </div>
+<span>&lt;<a href="https://www.rfc-editor.org/info/bcp47">https://www.rfc-editor.org/info/bcp47</a>&gt;</span>
 </dd>
 <dd class="break"></dd>
 <dt id="C">[C]</dt>
@@ -3050,13 +3074,9 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Clarke, T.</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR) Tag for Coordinate Reference System (CRS) Specification"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-clarke-cbor-crs-02</span>, <time datetime="2020-03-17" class="refDate">17 March 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-clarke-cbor-crs-02">https://datatracker.ietf.org/doc/html/draft-clarke-cbor-crs-02</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="I-D.draft-ietf-jsonpath-iregexp">[I-D.draft-ietf-jsonpath-iregexp]</dt>
-        <dd>
-<span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">T. Bray</span>, <span class="refTitle">"I-Regexp: An Interoperable Regexp Format"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-jsonpath-iregexp-08</span>, <time datetime="2023-06-29" class="refDate">29 June 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-iregexp-08">https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-iregexp-08</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="I-D.ietf-cbor-time-tag">[I-D.ietf-cbor-time-tag]</dt>
         <dd>
-<span class="refAuthor">Bormann, C.</span>, <span class="refAuthor">Gamari, B.</span>, and <span class="refAuthor">H. Birkholz</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR) Tags for Time, Duration, and Period"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-cbor-time-tag-09</span>, <time datetime="2023-07-23" class="refDate">23 July 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-cbor-time-tag-09">https://datatracker.ietf.org/doc/html/draft-ietf-cbor-time-tag-09</a>&gt;</span>. </dd>
+<span class="refAuthor">Bormann, C.</span>, <span class="refAuthor">Gamari, B.</span>, and <span class="refAuthor">H. Birkholz</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR) Tags for Time, Duration, and Period"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-cbor-time-tag-12</span>, <time datetime="2023-10-30" class="refDate">30 October 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-cbor-time-tag-12">https://datatracker.ietf.org/doc/html/draft-ietf-cbor-time-tag-12</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.trammell-rains-protocol">[I-D.trammell-rains-protocol]</dt>
         <dd>
@@ -3102,6 +3122,10 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Lhotka, L.</span>, <span class="refTitle">"JSON Encoding of Data Modeled with YANG"</span>, <span class="seriesInfo">RFC 7951</span>, <span class="seriesInfo">DOI 10.17487/RFC7951</span>, <time datetime="2016-08" class="refDate">August 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7951">https://www.rfc-editor.org/rfc/rfc7951</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC8152">[RFC8152]</dt>
+        <dd>
+<span class="refAuthor">Schaad, J.</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE)"</span>, <span class="seriesInfo">RFC 8152</span>, <span class="seriesInfo">DOI 10.17487/RFC8152</span>, <time datetime="2017-07" class="refDate">July 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8152">https://www.rfc-editor.org/rfc/rfc8152</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8259">[RFC8259]</dt>
         <dd>
 <span class="refAuthor">Bray, T., Ed.</span>, <span class="refTitle">"The JavaScript Object Notation (JSON) Data Interchange Format"</span>, <span class="seriesInfo">STD 90</span>, <span class="seriesInfo">RFC 8259</span>, <span class="seriesInfo">DOI 10.17487/RFC8259</span>, <time datetime="2017-12" class="refDate">December 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a>&gt;</span>. </dd>
@@ -3122,6 +3146,10 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Fossati, T.</span> and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"Concise Problem Details for Constrained Application Protocol (CoAP) APIs"</span>, <span class="seriesInfo">RFC 9290</span>, <span class="seriesInfo">DOI 10.17487/RFC9290</span>, <time datetime="2022-10" class="refDate">October 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9290">https://www.rfc-editor.org/rfc/rfc9290</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC9485">[RFC9485]</dt>
+        <dd>
+<span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">T. Bray</span>, <span class="refTitle">"I-Regexp: An Interoperable Regular Expression Format"</span>, <span class="seriesInfo">RFC 9485</span>, <span class="seriesInfo">DOI 10.17487/RFC9485</span>, <time datetime="2023-10" class="refDate">October 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9485">https://www.rfc-editor.org/rfc/rfc9485</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="W3C-BIDI-USE-CASES">[W3C-BIDI-USE-CASES]</dt>
         <dd>
 <span class="refTitle">"Use cases for bidi and language metadata on the Web"</span>, <time datetime="2021-05-06" class="refDate">6 May 2021</time>, <span>&lt;<a href="https://www.w3.org/International/articles/lang-bidi-use-cases/">https://www.w3.org/International/articles/lang-bidi-use-cases/</a>&gt;</span>. </dd>
@@ -3140,6 +3168,7 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 </dl>
 </section>
+</div>
 </section>
 <div id="acknowledgements">
 <section id="appendix-A">
@@ -3184,7 +3213,7 @@ these tags in this document.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 <div dir="auto" class="left"><span class="org">To do</span></div>
 </address>
 <p id="appendix-B-2">Further contributors will be listed here as text is added.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
-<p id="appendix-B-3">Plase stay tuned.<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<p id="appendix-B-3">Please stay tuned.<a href="#appendix-B-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
