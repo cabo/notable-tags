@@ -98,6 +98,7 @@ informative:
   RFC9254: yang-cbor
   RFC9542: mac
   RFC9164: ip
+  I-D.bormann-cbor-numbers: numbers
   C:
     target: https://www.iso.org/standard/74528.html
     title: Information technology — Programming languages — C
@@ -470,6 +471,9 @@ in UTF-8, which represents rain in a number of languages.)
 # Datatypes
 
 ## Advanced arithmetic
+
+General information about the representation of numbers in CBOR can be
+found in {{STD94}} as well as {{-numbers}}.
 
 A number of tags have been registered for arithmetic representations
 beyond those built into CBOR and defined by tags in {{-orig}}.
