@@ -86,6 +86,7 @@ informative:
 
   RFC2045: mime
   RFC4122: uuid
+  RFC9562: uuid-new
   RFC7049: orig
   RFC8742: seq
   RFC7493: ijson
@@ -93,7 +94,10 @@ informative:
   I-D.ietf-cbor-time-tag: time-tag
   RFC9485: iregexp
   RFC9290: probdet
+  RFC6991: yang-types
   RFC9254: yang-cbor
+  RFC9542: mac
+  RFC9164: ip
   C:
     target: https://www.iso.org/standard/74528.html
     title: Information technology — Programming languages — C
@@ -602,19 +606,43 @@ reproduced in {{arraytags}}.
 (TO DO: Obtain permission to copy the definitions here; explain how
 tags 52 and 54 essentially obsolete 260/261.)
 
-| Tag number | Tag content | Short Description                                               | Reference                                                              | Author         |
-|         37 | byte string | Binary UUID ({{Section 4.1.2 of RFC4122}})                        | https://github.com/lucas-clemente/cbor-specs/blob/master/uuid.md       | Lucas Clemente |
-|        257 | byte string | Binary MIME message                                             | http://peteroupc.github.io/CBOR/binarymime.html                        | Peter Occil    |
-|        260 | byte string | Network Address (IPv4 or IPv6 or MAC Address)                   | http://www.employees.org/~ravir/cbor-network.txt                       | Ravi Raju      |
-|        261 | map         | Network Address Prefix (IPv4 or IPv6 Address + Mask Length)     | https://github.com/toravir/CBOR-Tag-Specs/blob/master/networkPrefix.md | Ravi Raju      |
-|        263 | byte string | Hexadecimal string                                              | https://github.com/toravir/CBOR-Tag-Specs/blob/master/hexString.md     | Ravi Raju      |
-|        266 | text string | Internationalized resource identifier (IRI)                     | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil    |
-|        267 | text string | Internationalized resource identifier reference (IRI reference) | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil    |
+| Tag number | Tag content          | Short Description                                               | Reference                                                              | Author         |
+|         37 | byte string          | Binary UUID ({{Section 4.1.2 of RFC4122}})                        | https://github.com/lucas-clemente/cbor-specs/blob/master/uuid.md       | Lucas Clemente |
+|         48 | byte string          | IEEE MAC Address                                                | {{-mac}}                                                                 |                |
+|         52 | byte string or array | IPv4, [prefixlen,IPv4], [IPv4,prefixpart]                       | {{-ip}}                                                                  |                |
+|         54 | byte string or array | IPv6, [prefixlen,IPv6], [IPv6,prefixpart]                       | {{-ip}}                                                                  |                |
+|        257 | byte string          | Binary MIME message                                             | http://peteroupc.github.io/CBOR/binarymime.html                        | Peter Occil    |
+|        260 | byte string          | Network Address (IPv4 or IPv6 or MAC Address)                   | http://www.employees.org/~ravir/cbor-network.txt                       | Ravi Raju      |
+|        261 | map                  | Network Address Prefix (IPv4 or IPv6 Address + Mask Length)     | https://github.com/toravir/CBOR-Tag-Specs/blob/master/networkPrefix.md | Ravi Raju      |
+|        263 | byte string          | Hexadecimal string                                              | https://github.com/toravir/CBOR-Tag-Specs/blob/master/hexString.md     | Ravi Raju      |
+|        266 | text string          | Internationalized resource identifier (IRI)                     | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil    |
+|        267 | text string          | Internationalized resource identifier reference (IRI reference) | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil    |
+|       1048 | byte string          | IEEE OUI/CID                                                    | {{-mac}}                                                                 |                |
+{: #tab-domain-specific title="Select Domain-Specific Tags"}
+
+Notes:
+
+* In the registration for Tag 37, the reference for UUID points to
+{{RFC4122}}, which has been obsoleted by {{-uuid-new}}.
+The new RFC has a somewhat different internal structure; the
+definition of the layout of a binary UUID is now distributed over
+{{Section 5 of -uuid-new}}.
+
+* Tags 48, 52, and 54 are recommended for new designs that need to
+  represent MAC addresses, IP addresses, and IP address prefixes; they
+  essentially replace tags 260 and 261, which continue to be available
+  for their existing applications.
+
+* Tag 263 describes a different kind of Hexadecimal string
+(sequence of hex digit pairs, same layout as tag 23) from the
+hex-string defined by the YANG data type `hex-string` (sequence of hex
+digit pairs separated by colons, {{Section 3 of -yang-types}}).
 
 ## Human-readable Text
 
 | Tag | Data Item | Semantics              | Reference                |
 |  38 | array     | Language-tagged string | {{Appendix A of -probdet}} |
+{: #tab-text title="Select Tags for Human-readable Text"}
 
 Tag 38 was originally registered by Peter Occil in
 <http://peteroupc.github.io/CBOR/langtags.html>; it has since been
