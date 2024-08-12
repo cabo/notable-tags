@@ -43,10 +43,10 @@ contributor:
 normative:
   STD63:
     -: utf8
-    =: RFC3629
+#    =: RFC3629
   STD94:
     -: cbor
-    =: RFC8949
+#    =: RFC8949
   IANA.cbor-tags: tags
   IANA.cose: cose-reg
   IANA.named-information: ni
@@ -249,10 +249,8 @@ predefined in RFC 7049 include:
 
 ## Tags from RFC 7049 not listed in RFC 8949 {#tag35}
 
-<!-- Note that xml2rfc generates a broken reference for {{Appendix G.3 of -cbor}}, so we -->
-<!-- work around manually: -->
-
-{{section-g.3-9 (Appendix G.3)<STD94}} of {{-cbor}} states:
+{{Appendix G.3 of RFC8949@-cbor}}
+states:
 
 {:quote}
 >
@@ -483,13 +481,13 @@ last pathname component for the URL is given in {{arithtags}}.
 |        270 | array       | Extended rational number                  | extended.html |
 {: #arithtags title="Tags for advanced arithmetic"}
 
-CBOR's basic generic data model ({{Section 2 of -cbor}}) has a number
+CBOR's basic generic data model ({{Section 2 of RFC8949@-cbor}}) has a number
 system with limited-range integers (major types 0 and 1:
 -2<sup>64</sup>..2<sup>64</sup>-1) and floating point numbers that
 cover binary16, binary32, and binary64 (including non-finites) from
 {{IEEE754}}.
 With the tags defined with {{-orig}}, the extended generic data model
-({{Section 2.1 of -cbor}}) adds unlimited-range integers (tag numbers 2
+({{Section 2.1 of RFC8949@-cbor}}) adds unlimited-range integers (tag numbers 2
 and 3, "bigint" in CDDL) as well as floating point values using the bases
 2 (tag number 5, "bigfloat") and 10 (tag number 4, "decfrac").
 
@@ -700,7 +698,7 @@ time.
 ## Perl
 
 (These are actually not as Perl-specific as the title of this section
-suggests.  See also the penultimate paragraph of {{Section 3.4 of -cbor}}.)
+suggests.  See also the penultimate paragraph of {{Section 3.4 of RFC8949@-cbor}}.)
 
 These are all documented under `http://cbor.schmorp.de/`; the
 last pathname component is given in {{perltags}}.
@@ -797,7 +795,7 @@ low numbers of alternatives:
 -   Alternatives 128+ can be encoded in 3-12 bytes.
 
 There are no special considerations for deterministic encoding
-{{Section 4.2 of STD94}}: The case numbers covered by each tag do not
+{{Section 4.2 of RFC8949@-cbor}}: The case numbers covered by each tag do not
 overlap; particularly, tag 101 encoding starts where the more compact
 special encodings for 0..6 and 7..127 end.
 
