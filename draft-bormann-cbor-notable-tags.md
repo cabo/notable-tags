@@ -99,6 +99,7 @@ informative:
   RFC9542: mac
   RFC9164: ip
   I-D.bormann-cbor-numbers: numbers
+  I-D.bormann-cbor-yang-standin: standin
   C:
     target: https://www.iso.org/standard/74528.html
     title: Information technology — Programming languages — C
@@ -444,7 +445,11 @@ YANG data in CBOR.
 |         45 | unsigned integer or text string          | YANG identityref datatype         |                 6.10 |
 |         46 | unsigned integer or text string or array | YANG instance-identifier datatype |                 6.13 |
 |         47 | unsigned integer                         | YANG Schema Item iDentifier (sid) |                  3.2 |
-{: #yangtags title="Tag number defined for YANG-CBOR"}
+{: #yangtags title="Tag numbers defined for YANG-CBOR"}
+
+{{-standin}} proposes to employ additional tags to enable the use of
+efficient binary encodings for certain frequently used YANG data types
+{{-yang-types}}.
 
 # Protocols
 
