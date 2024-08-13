@@ -142,7 +142,7 @@ definitions of tags and ranges of tags have been added to that
 registry.
 
 The present document provides a roadmap to a large subset of these tag
-definitions.  Where applicable, it points to a IETF standards or
+definitions.  Where applicable, it points to an IETF standards or
 standard development document
 that specifies the tag.  Where no such document exists, the intention
 is to collect specification information from the sources of the
@@ -295,7 +295,7 @@ CBOR Object Signing and Encryption (COSE) is defined in a number of RFCs.
 {{RFC8152}} was the initial specification, set up the registries, and
 populated them with an initial set of assignments.
 A revision split this specification into the data
-structure definitions {{RFC9052}}, an Internet Standard {{STD96}}, and a
+structure definitions ({{RFC9052}}), an Internet Standard {{STD96}}, and a
 separate document defining the representation for the algorithms
 employed {{RFC9053}}, which is expected to be updated more frequently
 than the COSE format itself.
@@ -402,7 +402,7 @@ number could look like:
 
 Note that not all tags assigned in this section do parallel an
 algorithm that is a cryptographic hash algorithm.
-Where this is not the case, there currently is not defined semantics
+Where this is not the case, there currently is no defined semantics
 for this tag, but the tags are assigned anyway.
 The semantics of tags that parallel algorithm assignments other than
 for cryptographic hash functions could be defined by a future version
@@ -620,8 +620,8 @@ tags 52 and 54 essentially obsolete 260/261.)
 | Tag number | Tag content          | Short Description                                               | Reference                                                              | Author         |
 |         37 | byte string          | Binary UUID ({{Section 4.1.2 of RFC4122}})                        | https://github.com/lucas-clemente/cbor-specs/blob/master/uuid.md       | Lucas Clemente |
 |         48 | byte string          | IEEE MAC Address                                                | {{-mac}}                                                                 |                |
-|         52 | byte string or array | IPv4, [prefixlen,IPv4], [IPv4,prefixpart]                       | {{-ip}}                                                                  |                |
-|         54 | byte string or array | IPv6, [prefixlen,IPv6], [IPv6,prefixpart]                       | {{-ip}}                                                                  |                |
+|         52 | byte string or array | IPv4, \[prefixlen,IPv4], \[IPv4,prefixpart]                     | {{-ip}}                                                                  |                |
+|         54 | byte string or array | IPv6, \[prefixlen,IPv6], \[IPv6,prefixpart]                     | {{-ip}}                                                                  |                |
 |        257 | byte string          | Binary MIME message                                             | http://peteroupc.github.io/CBOR/binarymime.html                        | Peter Occil    |
 |        260 | byte string          | Network Address (IPv4 or IPv6 or MAC Address)                   | http://www.employees.org/~ravir/cbor-network.txt                       | Ravi Raju      |
 |        261 | map                  | Network Address Prefix (IPv4 or IPv6 Address + Mask Length)     | https://github.com/toravir/CBOR-Tag-Specs/blob/master/networkPrefix.md | Ravi Raju      |
@@ -797,6 +797,7 @@ be represented as a CBOR text string
 |        120 | multiple    | Internet of Things Data Point                                              | <https://github.com/allthingstalk/cbor/blob/master/CBOR-Tag120-Internet-of-Things-Data-Points.md> | Danilo Vidovic    |
 |        258 | array       | Mathematical finite set                                                    | <https://github.com/input-output-hk/cbor-sets-spec/blob/master/CBOR_SETS.md>                      | Alfredo Di Napoli |
 |        259 | map         | Map datatype with key-value operations (e.g. `.get()`/`.set()`/`.delete()`)   | <https://github.com/shanewholloway/js-cbor-codec/blob/master/docs/CBOR-259-spec--explicit-maps.md> | Shane Holloway    |
+{: #tab-apptags cols='r l l' title="Application-specific Tags"}
 
 ## Enumerated Alternative Data Items
 
