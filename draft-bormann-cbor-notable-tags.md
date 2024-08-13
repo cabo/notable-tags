@@ -163,7 +163,7 @@ the CBOR WG github organization, <https://github.com/cbor-wg>.
 
 The current version is true work in progress; some of the sections
 haven't been filled in yet, and in particular, permission has not been
-obtained from tag definition authors to copy over their text.
+obtained from all authors of registered tag definitions to copy over their text.
 
 
 --- middle
@@ -191,7 +191,8 @@ The definitions of {{-cbor}} apply.
 Specifically: The term "byte" is used in its now customary sense as a synonym for
 "octet"; "byte strings" are CBOR data items carrying a sequence of
 zero or more (binary) bytes, while "text strings" are CBOR data items carrying a
-sequence of zero or more Unicode code points, encoded in UTF-8 {{-utf8}}.
+sequence of zero or more Unicode scalar values (code points that can
+be part of a string of Unicode characters), encoded in UTF-8 {{-utf8}}.
 Where bit arithmetic is explained, this document uses the notation
 familiar from the programming language C ({{C}}, including C++14's `0bnnn`
 binary literals {{Cplusplus20}}), except that superscript notation
@@ -300,7 +301,7 @@ employed {{RFC9053}}, which is expected to be updated more frequently
 than the COSE format itself.
 {{RFC9054}} added a separate set of algorithms for cryptographic hash
 functions (Hash functions have been a component of some {{RFC9053}} combined
-algorithms but weren't assigned separate codepoints).
+algorithms but weren't originally assigned separate codepoints themselves).
 A revised COSE counter signature structure was defined in {{RFC9338}}, another part
 of {{STD96}}; this also defines a tag for these.
 
@@ -483,7 +484,8 @@ found in {{STD94}} as well as {{-numbers}}.
 A number of tags have been registered for arithmetic representations
 beyond those built into CBOR and defined by tags in {{-orig}}.
 These are all documented under `http://peteroupc.github.io/CBOR/`; the
-last pathname component for the URL is given in {{arithtags}}.
+last pathname component for the URL is given in the column "Reference"
+of {{arithtags}}.
 
 | Tag number | Tag content | Short Description                         | Reference     |
 |         30 | array       | Rational number                           | rational.html |
@@ -770,10 +772,10 @@ all of type Text String, as they would occur in JSON
 
 (TO DO: Obtain permission to copy the definitions here.)
 
-
 Some variants of UTF-8 are in use in specific areas of application.
-Tags have been registered to be able to carry around strings in these
-variants in case they are not also valid UTF-8 and can therefore not
+Tags have been registered to be able to carry around strings
+identified as to which of these
+variants is used, in case they are not also valid UTF-8 and can therefore not
 be represented as a CBOR text string
 (`https://github.com/svaarala/cbor-specs/blob/master/cbor-nonutf8-string-tags.rst`).
 
