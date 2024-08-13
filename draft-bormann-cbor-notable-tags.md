@@ -113,8 +113,8 @@ informative:
     author:
     - org: International Organization for Standardization
     date: 2020-03
-    seriesinfo:
-      ISO/IEC: ISO/IEC JTC1 SC22 WG21 N 4860
+    rc:
+      ISO/IEC JTC1 SC22 WG21 N4860
   IEEE754:
     target: https://ieeexplore.ieee.org/document/8766229
     title: IEEE Standard for Floating-Point Arithmetic
