@@ -5,7 +5,7 @@ title: >
   Notable CBOR Tags
 abbrev: Notable CBOR Tags
 docname: draft-bormann-cbor-notable-tags-latest
-# date: 2024-02-11
+# date: 2024-08-13
 
 keyword: Internet-Draft
 cat: info
@@ -137,9 +137,11 @@ In CBOR, one point of extensibility is the definition of CBOR tags.
 RFC 8949's original edition, RFC 7049, defined a basic set of 16 tags as well
 as a registry that can be used to contribute additional tag
 definitions {{-tags}}.
-Since RFC 7049 was published, at the time of writing some 180
+Since RFC 7049 was published, at the time of writing some 190
 definitions of tags and ranges of tags have been added to that
 registry.
+
+<!-- TAG_REPORT_SQUASH_RANGES=1 tag-report.rb minus the 16 -->
 
 The present document provides a roadmap to a large subset of these tag
 definitions.  Where applicable, it points to an IETF standards or
@@ -981,8 +983,7 @@ IANA Considerations {#iana}
 In the registry "{{cbor-tags (CBOR Tags)<IANA.cbor-tags}}" {{IANA.cbor-tags}},
 IANA has allocated the first to third tag in {{tab-tag-values}} from the
 FCFS space, with the present document as the specification reference.
-IANA has allocated the tags in the next two rows, and is requested to
-allocate the tags in the next three rows, from the Specification
+IANA also has allocated the tags in the next five rows from the Specification
 Required space, with the present document as the specification reference.
 
 |                        Tag | Data Item    | Semantics                                     | Reference                                                   |
@@ -996,7 +997,7 @@ Required space, with the present document as the specification reference.
 | 18557 to 18811 (inclusive) | byte string  | Bare Hash value (COSE algorithm 1 to 255)     | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
 {: #tab-tag-values cols='r l l' title="Values for Tags"}
 
-In addition, IANA is requested to allocate the tags from
+In addition, IANA has allocated the tags from
 {{tab-tag-enum}}, with a reference to the present document.
 
 Security Considerations
