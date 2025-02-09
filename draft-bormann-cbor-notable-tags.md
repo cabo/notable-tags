@@ -951,12 +951,12 @@ could be encoded using this schema:
 ~~~ cddl
 ; A data type representing simple arithmetic expressions
 
-expr = 121(int)          ; integer literal
-     / 122([expr, expr]) ; addition
-     / 123([expr, expr]) ; subtraction
-     / 124(expr)         ; unary negation
-     / 125([expr, expr]) ; multiplication
-     / 126([expr, expr]) ; integer division
+expr = #6.121(int)          ; integer literal
+     / #6.122([expr, expr]) ; addition
+     / #6.123([expr, expr]) ; subtraction
+     / #6.124(expr)         ; unary negation
+     / #6.125([expr, expr]) ; multiplication
+     / #6.126([expr, expr]) ; integer division
 ~~~
 
 # Implementation aids
