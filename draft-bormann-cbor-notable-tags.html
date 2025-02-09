@@ -15,11 +15,13 @@ need for version negotiation.
 RFC 8949's original edition, RFC 7049, defined a basic set of 16 tags as well
 as a registry that can be used to contribute additional tag
 definitions  .
-Since RFC 7049 was published, at the time of writing some 180
+Since RFC 7049 was published, at the time of writing some 190
 definitions of tags and ranges of tags have been added to that
 registry. 
-       The present document provides a roadmap to a large subset of these tag
-definitions.  Where applicable, it points to a IETF standards or
+       
+
+ The present document provides a roadmap to a large subset of these tag
+definitions.  Where applicable, it points to an IETF standards or
 standard development document
 that specifies the tag.  Where no such document exists, the intention
 is to collect specification information from the sources of the
@@ -28,23 +30,22 @@ intended to be useful as a reference document for the IANA
 registrations of the CBOR tags the definitions of which have been
 collected. 
     " name="description">
-<meta content="xml2rfc 3.19.2" name="generator">
+<meta content="xml2rfc 3.26.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-bormann-cbor-notable-tags-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.19.2
-    Python 3.11.6
+  xml2rfc 3.26.0
+    Python 3.12.8
     ConfigArgParse 1.7
-    google-i18n-address 3.1.0
+    google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.2
-    lxml 4.9.3
-    platformdirs 4.2.0
-    pycountry 22.3.5
-    PyYAML 6.0.1
-    requests 2.31.0
-    setuptools 68.2.2
-    six 1.16.0
+    Jinja2 3.1.5
+    lxml 5.3.0
+    platformdirs 4.3.6
+    pycountry 24.6.1
+    PyYAML 6.0.2
+    requests 2.32.3
+    setuptools 70.3.0
     wcwidth 0.2.13
 -->
 <link href="draft-bormann-cbor-notable-tags.xml" rel="alternate" type="application/rfc+xml">
@@ -668,7 +669,7 @@ sub, sup {
 }
 #toc nav li {
   line-height: 1.3em;
-  margin: 0.75em 0;
+  margin: 2px 0;
   padding-left: 1.2em;
   text-indent: -1.2em;
 }
@@ -761,7 +762,7 @@ hr.addr {
     z-index: 2;
     top: 0;
     right: 0;
-    padding: 0;
+    padding: 1px 0 0 0;
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
@@ -885,16 +886,13 @@ hr.addr {
     border-top: none;
     padding-top: 0;
   }
-  figure, pre {
+  figure, pre, .vcard {
     page-break-inside: avoid;
-  }
-  figure {
-    overflow: scroll;
   }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
   }
-  h2+*, h3+*, h4+*, h5+*, h6+* {
+  :is(h2, h3, h4, h5, h6)+*, dd {
     page-break-before: avoid;
   }
   pre {
@@ -907,6 +905,9 @@ hr.addr {
   }
   td {
     border-top: 1px solid #ddd;
+  }
+  .toplink {
+    display: none;
   }
 }
 
@@ -1008,28 +1009,6 @@ address div.right {
   text-align: right;
 }
 
-/* Give the table caption label the same styling as the figcaption */
-
-@media print {
-  .toplink {
-    display: none;
-  }
-
-  /* avoid overwriting the top border line with the ToC header */
-  #toc {
-    padding-top: 1px;
-  }
-
-  /* Avoid page breaks inside dl and author address entries */
-  dd {
-    page-break-before: avoid;
-  }
-  .vcard {
-    page-break-inside: avoid;
-  }
-
-}
-
 /* Dark mode. */
 @media (prefers-color-scheme: dark) {
 :root {
@@ -1066,11 +1045,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Notable CBOR Tags</td>
-<td class="right">February 2024</td>
+<td class="right">February 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bormann</td>
-<td class="center">Expires 14 August 2024</td>
+<td class="center">Expires 13 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1083,12 +1062,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-bormann-cbor-notable-tags-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-02-11" class="published">11 February 2024</time>
+<time datetime="2025-02-09" class="published">9 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-08-14">14 August 2024</time></dd>
+<dd class="expires"><time datetime="2025-08-13">13 August 2025</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1109,11 +1088,11 @@ need for version negotiation.<a href="#section-abstract-1" class="pilcrow">¶</a
 RFC 8949's original edition, RFC 7049, defined a basic set of 16 tags as well
 as a registry that can be used to contribute additional tag
 definitions <span>[<a href="#IANA.cbor-tags" class="cite xref">IANA.cbor-tags</a>]</span>.
-Since RFC 7049 was published, at the time of writing some 180
+Since RFC 7049 was published, at the time of writing some 190
 definitions of tags and ranges of tags have been added to that
 registry.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 <p id="section-abstract-3">The present document provides a roadmap to a large subset of these tag
-definitions.  Where applicable, it points to a IETF standards or
+definitions.  Where applicable, it points to an IETF standards or
 standard development document
 that specifies the tag.  Where no such document exists, the intention
 is to collect specification information from the sources of the
@@ -1135,7 +1114,7 @@ likely to move to the CBOR WG mailing list and a github repository at
 the CBOR WG github organization, <a href="https://github.com/cbor-wg">https://github.com/cbor-wg</a>.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">The current version is true work in progress; some of the sections
 haven't been filled in yet, and in particular, permission has not been
-obtained from tag definition authors to copy over their text.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+obtained from all authors of registered tag definitions to copy over their text.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1156,7 +1135,7 @@ obtained from tag definition authors to copy over their text.<a href="#section-n
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 14 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 13 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1165,7 +1144,7 @@ obtained from tag definition authors to copy over their text.<a href="#section-n
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2024 IETF Trust and the persons identified as the
+            Copyright (c) 2025 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1303,6 +1282,9 @@ obtained from tag definition authors to copy over their text.<a href="#section-n
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
                 <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-invalid-tag" class="internal xref">Invalid Tag</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-programming-aid-for-simple-" class="internal xref">Programming Aid for Simple Values</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
@@ -1323,13 +1305,19 @@ obtained from tag definition authors to copy over their text.<a href="#section-n
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+            <p id="section-toc.1-1.14.1"><a href="#appendix-A" class="auto internal xref"></a><a href="#name-list-of-figures" class="internal xref">List of Figures</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.15">
-            <p id="section-toc.1-1.15.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+            <p id="section-toc.1-1.15.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-list-of-tables" class="internal xref">List of Tables</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.16">
-            <p id="section-toc.1-1.16.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.16.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-acknowledgements" class="internal xref">Acknowledgements</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.17">
+            <p id="section-toc.1-1.17.1"><a href="#appendix-D" class="auto internal xref"></a><a href="#name-contributors" class="internal xref">Contributors</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.18">
+            <p id="section-toc.1-1.18.1"><a href="#appendix-E" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1349,7 +1337,7 @@ tag definition is (i.e., is the tag specification in a state where it
 can be used).<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">This document can only be a snapshot of a subset of the current registrations.
 The most up to date set of registrations is always available in the
-registry "<a href="http://www.iana.org/assignments/cbor-tags#cbor-tags" class="relref">CBOR Tags</a>" <span>[<a href="#IANA.cbor-tags" class="cite xref">IANA.cbor-tags</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
+registry "<a href="https://www.iana.org/assignments/cbor-tags#cbor-tags" class="relref">CBOR Tags</a>" <span>[<a href="#IANA.cbor-tags" class="cite xref">IANA.cbor-tags</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <div id="terms">
 <section id="section-1.1">
         <h3 id="name-terminology">
@@ -1359,7 +1347,8 @@ registry "<a href="http://www.iana.org/assignments/cbor-tags#cbor-tags" class="r
 Specifically: The term "byte" is used in its now customary sense as a synonym for
 "octet"; "byte strings" are CBOR data items carrying a sequence of
 zero or more (binary) bytes, while "text strings" are CBOR data items carrying a
-sequence of zero or more Unicode code points, encoded in UTF-8 <span>[<a href="#STD63" class="cite xref">STD63</a>]</span>.
+sequence of zero or more Unicode scalar values (code points that can
+be part of a string of Unicode characters), encoded in UTF-8 <span>[<a href="#STD63" class="cite xref">STD63</a>]</span>.
 Where bit arithmetic is explained, this document uses the notation
 familiar from the programming language C (<span>[<a href="#C" class="cite xref">C</a>]</span>, including C++14's <code>0bnnn</code>
 binary literals <span>[<a href="#Cplusplus20" class="cite xref">Cplusplus20</a>]</span>), except that superscript notation
@@ -1371,6 +1360,13 @@ Ranges expressed using <code>..</code> are inclusive of the limits given.
 
 Type names such as "int", "bigint" or "decfrac" are taken from
 <span><a href="https://rfc-editor.org/rfc/rfc8610#appendix-D" class="relref">Appendix D</a> of [<a href="#RFC8610" class="cite xref">RFC8610</a>]</span>, the Concise Data Definition Language (CDDL).<a href="#section-1.1-1" class="pilcrow">¶</a></p>
+<p id="section-1.1-2"><span class="cref" id="cpa">RFC-Editor: This document uses the CPA (code point allocation)
+  convention described in [I-D.bormann-cbor-draft-numbers].  For
+  each usage of the term "CPA", please remove the prefix "CPA"
+  from the indicated value and replace the residue with the value
+  assigned by IANA; perform an analogous substitution for all other
+  occurrences of the prefix "CPA" in the document.  Finally,
+  please remove this note.</span><a href="#section-1.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1509,14 +1505,45 @@ predefined in RFC 7049 include:<a href="#section-2.1-1" class="pilcrow">¶</a></
 the single difference that its byte string tag content carries a
 CBOR Sequence <span>[<a href="#RFC8742" class="cite xref">RFC8742</a>]</span> instead of a single CBOR data item.<a href="#section-2.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-2.1-2.2">
-            <p id="section-2.1-2.2.1">Tag 257, registered by Peter Occil with a specification in
+          <li id="section-2.1-2.2" class="normal">
+<div class="normal" id="expected-tags">
+            <p id="section-2.1-2.2.1">Tag CPA108, requested to be registered by this document (<a href="#iana" class="auto internal xref">Section 11</a>), is
+a parallel to tag 23, with the single difference that the
+hexadecimal form uses lowercase instead of uppercase letters. <span class="cref" id="cpa_1">RFC-Editor: This document uses the CPA (code point allocation)
+  convention described in [I-D.bormann-cbor-draft-numbers].  For
+  each usage of the term "CPA", please remove the prefix "CPA"
+  from the indicated value and replace the residue with the value
+  assigned by IANA; perform an analogous substitution for all other
+  occurrences of the prefix "CPA" in the document.  Finally,
+  please remove this note.</span><a href="#section-2.1-2.2.1" class="pilcrow">¶</a></p>
+<p id="section-2.1-2.2.2"></p>
+<p id="section-2.1-2.2.3"></p>
+<p id="section-2.1-2.2.4"></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2.1-2.2.5.1">
+                <ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2.1-2.2.5.1.1.1">
+                    <p id="section-2.1-2.2.5.1.1.1.1">Note that tag 23 has a serialization that is one byte shorter than
+  tag CPA108, so if all else is equal, tag 23 (and thus upper case
+  hex) would be chosen as it is slightly more efficient than tag CPA108.
+  However, designers of CBOR protocols that use one of these tags
+  may have reason to prefer lowercase hex in the application they
+  are trying to be compatible with, in which case CPA108 provides a
+  solution that is only one byte more expensive.<a href="#section-2.1-2.2.5.1.1.1.1" class="pilcrow">¶</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
+</div>
+          </li>
+<li class="normal" id="section-2.1-2.3">
+            <p id="section-2.1-2.3.1">Tag 257, registered by Peter Occil with a specification in
 <a href="http://peteroupc.github.io/CBOR/binarymime.html">http://peteroupc.github.io/CBOR/binarymime.html</a>, is a parallel to
 tag 36, except that the tag content is a byte string, which
-therefore can also carry binary MIME messages as per <span>[<a href="#RFC2045" class="cite xref">RFC2045</a>]</span>.<a href="#section-2.1-2.2.1" class="pilcrow">¶</a></p>
+therefore can also carry binary MIME messages as per <span>[<a href="#RFC2045" class="cite xref">RFC2045</a>]</span>.<a href="#section-2.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-2.1-2.3">
-            <p id="section-2.1-2.3.1">Tag 21065, being registered by this document (<a href="#iana" class="auto internal xref">Section 11</a>), is a parallel to tag 35, with
+          <li class="normal" id="section-2.1-2.4">
+            <p id="section-2.1-2.4.1">Tag 21065, being registered by this document (<a href="#iana" class="auto internal xref">Section 11</a>), is a parallel to tag 35, with
 the difference that its text string tag content carries an
 I-Regexp regular expression <span>[<a href="#RFC9485" class="cite xref">RFC9485</a>]</span> instead of a regexp of a
 more unspecified flavor.
@@ -1525,7 +1552,7 @@ specification in
 <a href="https://github.com/hildjj/cbor-specs/blob/main/regexp.md">https://github.com/hildjj/cbor-specs/blob/main/regexp.md</a>, is the
 equivalent for JavaScript (ECMA262), but besides the regular
 expression itself also can include the regular expression flags
-as a separate item.<a href="#section-2.1-2.3.1" class="pilcrow">¶</a></p>
+as a separate item.<a href="#section-2.1-2.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 </section>
@@ -1535,7 +1562,8 @@ as a separate item.<a href="#section-2.1-2.3.1" class="pilcrow">¶</a></p>
         <h3 id="name-tags-from-rfc-7049-not-list">
 <a href="#section-2.2" class="section-number selfRef">2.2. </a><a href="#name-tags-from-rfc-7049-not-list" class="section-name selfRef">Tags from RFC 7049 not listed in RFC 8949</a>
         </h3>
-<p id="section-2.2-1"><a href="https://rfc-editor.org/rfc/rfc8949#section-g.3-9" class="relref">Appendix G.3</a> of <span>[<a href="#STD94" class="cite xref">STD94</a>]</span> states:<a href="#section-2.2-1" class="pilcrow">¶</a></p>
+<p id="section-2.2-1">Appendix <a href="https://rfc-editor.org/rfc/rfc8949#appendix-G.3" class="relref">G.3</a> of RFC 8949 <span>[<a href="#STD94" class="cite xref">STD94</a>]</span>
+states:<a href="#section-2.2-1" class="pilcrow">¶</a></p>
 <blockquote id="section-2.2-2">
           <p id="section-2.2-2.1">Tag 35 is not defined by this document; the registration based on the
    definition in RFC 7049 remains in place.<a href="#section-2.2-2.1" class="pilcrow">¶</a></p>
@@ -1576,13 +1604,13 @@ use of CBOR.<a href="#section-3-1" class="pilcrow">¶</a></p>
 <span>[<a href="#RFC8152" class="cite xref">RFC8152</a>]</span> was the initial specification, set up the registries, and
 populated them with an initial set of assignments.
 A revision split this specification into the data
-structure definitions <a href="#RFC9052" class="auto internal xref">RFC9052</a>, an Internet Standard <span>[<a href="#STD96" class="cite xref">STD96</a>]</span>, and a
+structure definitions (<a href="#RFC9052" class="auto internal xref">RFC9052</a>), an Internet Standard <span>[<a href="#STD96" class="cite xref">STD96</a>]</span>, and a
 separate document defining the representation for the algorithms
 employed <span>[<a href="#RFC9053" class="cite xref">RFC9053</a>]</span>, which is expected to be updated more frequently
 than the COSE format itself.
 <span>[<a href="#RFC9054" class="cite xref">RFC9054</a>]</span> added a separate set of algorithms for cryptographic hash
 functions (Hash functions have been a component of some <span>[<a href="#RFC9053" class="cite xref">RFC9053</a>]</span> combined
-algorithms but weren't assigned separate codepoints).
+algorithms but weren't originally assigned separate codepoints themselves).
 A revised COSE counter signature structure was defined in <a href="#RFC9338" class="auto internal xref">RFC9338</a>, another part
 of <span>[<a href="#STD96" class="cite xref">STD96</a>]</span>; this also defines a tag for these.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <span id="name-tag-numbers-defined-in-rfc9"></span><div id="cosetags">
@@ -1654,7 +1682,7 @@ To enable agility, tags need to indicate the hash function used,
 preferably using the COSE algorithms registry as populated by
 <span>[<a href="#RFC9054" class="cite xref">RFC9054</a>]</span>.<a href="#section-3.1.1-2" class="pilcrow">¶</a></p>
 <aside id="section-3.1.1-3">
-            <p id="section-3.1.1-3.1">(Note that there is another registry, "<a href="http://www.iana.org/assignments/named-information#hash-alg" class="relref">Named Information Hash Algorithm Registry</a>"
+            <p id="section-3.1.1-3.1">(Note that there is another registry, "<a href="https://www.iana.org/assignments/named-information#hash-alg" class="relref">Named Information Hash Algorithm Registry</a>"
 <span>[<a href="#IANA.named-information" class="cite xref">IANA.named-information</a>]</span>, that also defines numbers for some hash algorithms.
 We are not using this registry here, as more recent entries seem to
 have stopped assigning numbers.
@@ -1663,7 +1691,7 @@ If desired, tags that employ this registry could be added later.)<a href="#secti
 <p id="section-3.1.1-4">The codepoint range available for the COSE algorithms registry is
 large, but the most likely range to be used for standard Hash
 functions is "Integer values between -256 and 255", which have the
-registry policy "Standards Action With Expert Review" (<span><a href="https://rfc-editor.org/rfc/rfc8152#section-16.4" class="relref">Section 16.4</a> of [<a href="#RFC8152" class="cite xref">RFC8152</a>]</span>, Registry "<a href="http://www.iana.org/assignments/cose#algorithms" class="relref">COSE Algorithms</a>" <span>[<a href="#IANA.cose" class="cite xref">IANA.cose</a>]</span>).<a href="#section-3.1.1-4" class="pilcrow">¶</a></p>
+registry policy "Standards Action With Expert Review" (<span><a href="https://rfc-editor.org/rfc/rfc8152#section-16.4" class="relref">Section 16.4</a> of [<a href="#RFC8152" class="cite xref">RFC8152</a>]</span>, Registry "<a href="https://www.iana.org/assignments/cose#algorithms" class="relref">COSE Algorithms</a>" <span>[<a href="#IANA.cose" class="cite xref">IANA.cose</a>]</span>).<a href="#section-3.1.1-4" class="pilcrow">¶</a></p>
 <p id="section-3.1.1-5">To this end, the present document registers a range of 512 tags from
 18300 to 18811 (inclusive), paralleling the algorithm identifier
 range of <code>-256 .. 255</code> (inclusive).
@@ -1725,7 +1753,7 @@ number could look like:<a href="#section-3.1.1-13" class="pilcrow">¶</a></p>
 </div>
 <p id="section-3.1.1-15">Note that not all tags assigned in this section do parallel an
 algorithm that is a cryptographic hash algorithm.
-Where this is not the case, there currently is not defined semantics
+Where this is not the case, there currently is no defined semantics
 for this tag, but the tags are assigned anyway.
 The semantics of tags that parallel algorithm assignments other than
 for cryptographic hash functions could be defined by a future version
@@ -1792,11 +1820,11 @@ representation format, and <span>[<a href="#RFC7951" class="cite xref">RFC7951</
 <span>[<a href="#RFC8259" class="cite xref">RFC8259</a>]</span> representation format for YANG.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.1-2">YANG-CBOR <span>[<a href="#RFC9254" class="cite xref">RFC9254</a>]</span> is a representation format for
 YANG data in CBOR.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
-<span id="name-tag-number-defined-for-yang"></span><div id="yangtags">
+<span id="name-tag-numbers-defined-for-yan"></span><div id="yangtags">
 <table class="center" id="table-4">
           <caption>
 <a href="#table-4" class="selfRef">Table 4</a>:
-<a href="#name-tag-number-defined-for-yang" class="selfRef">Tag number defined for YANG-CBOR</a>
+<a href="#name-tag-numbers-defined-for-yan" class="selfRef">Tag numbers defined for YANG-CBOR</a>
           </caption>
 <thead>
             <tr>
@@ -1840,6 +1868,9 @@ YANG data in CBOR.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
           </tbody>
         </table>
 </div>
+<p id="section-4.1-4"><span>[<a href="#I-D.bormann-cbor-yang-standin" class="cite xref">I-D.bormann-cbor-yang-standin</a>]</span> proposes to employ additional tags to enable the use of
+efficient binary encodings for certain frequently used YANG data types
+<span>[<a href="#RFC6991" class="cite xref">RFC6991</a>]</span>.<a href="#section-4.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1887,10 +1918,13 @@ in UTF-8, which represents rain in a number of languages.)<a href="#section-5.2-
         <h3 id="name-advanced-arithmetic">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-advanced-arithmetic" class="section-name selfRef">Advanced arithmetic</a>
         </h3>
-<p id="section-6.1-1">A number of tags have been registered for arithmetic representations
+<p id="section-6.1-1">General information about the representation of numbers in CBOR can be
+found in <span>[<a href="#STD94" class="cite xref">STD94</a>]</span> as well as <span>[<a href="#I-D.bormann-cbor-numbers" class="cite xref">I-D.bormann-cbor-numbers</a>]</span>.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-2">A number of tags have been registered for arithmetic representations
 beyond those built into CBOR and defined by tags in <span>[<a href="#RFC7049" class="cite xref">RFC7049</a>]</span>.
 These are all documented under <code>http://peteroupc.github.io/CBOR/</code>; the
-last pathname component for the URL is given in <a href="#arithtags" class="auto internal xref">Table 5</a>.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+last pathname component for the URL is given in the column "Reference"
+of <a href="#arithtags" class="auto internal xref">Table 5</a>.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <span id="name-tags-for-advanced-arithmeti"></span><div id="arithtags">
 <table class="center" id="table-5">
           <caption>
@@ -1945,20 +1979,20 @@ last pathname component for the URL is given in <a href="#arithtags" class="auto
           </tbody>
         </table>
 </div>
-<p id="section-6.1-3">CBOR's basic generic data model (<span><a href="https://rfc-editor.org/rfc/rfc8949#section-2" class="relref">Section 2</a> of [<a href="#STD94" class="cite xref">STD94</a>]</span>) has a number
+<p id="section-6.1-4">CBOR's basic generic data model (Section <a href="https://rfc-editor.org/rfc/rfc8949#section-2" class="relref">2</a> of RFC 8949 <span>[<a href="#STD94" class="cite xref">STD94</a>]</span>) has a number
 system with limited-range integers (major types 0 and 1:
 -2<sup>64</sup>..2<sup>64</sup>-1) and floating point numbers that
 cover binary16, binary32, and binary64 (including non-finites) from
 <span>[<a href="#IEEE754" class="cite xref">IEEE754</a>]</span>.
 With the tags defined with <span>[<a href="#RFC7049" class="cite xref">RFC7049</a>]</span>, the extended generic data model
-(<span><a href="https://rfc-editor.org/rfc/rfc8949#section-2.1" class="relref">Section 2.1</a> of [<a href="#STD94" class="cite xref">STD94</a>]</span>) adds unlimited-range integers (tag numbers 2
+(Section <a href="https://rfc-editor.org/rfc/rfc8949#section-2.1" class="relref">2.1</a> of RFC 8949 <span>[<a href="#STD94" class="cite xref">STD94</a>]</span>) adds unlimited-range integers (tag numbers 2
 and 3, "bigint" in CDDL) as well as floating point values using the bases
-2 (tag number 5, "bigfloat") and 10 (tag number 4, "decfrac").<a href="#section-6.1-3" class="pilcrow">¶</a></p>
-<p id="section-6.1-4">This pre-defined number system has a number of limitations that are
-addressed in three of the tags discussed here:<a href="#section-6.1-4" class="pilcrow">¶</a></p>
+2 (tag number 5, "bigfloat") and 10 (tag number 4, "decfrac").<a href="#section-6.1-4" class="pilcrow">¶</a></p>
+<p id="section-6.1-5">This pre-defined number system has a number of limitations that are
+addressed in three of the tags discussed here:<a href="#section-6.1-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-5.1">
-            <p id="section-6.1-5.1.1">Tag number 30 allows the representation of rational numbers as a
+<li class="normal" id="section-6.1-6.1">
+            <p id="section-6.1-6.1.1">Tag number 30 allows the representation of rational numbers as a
 ratio of two integers: a numerator (usually written as the top part
 of a fraction), and a denominator (the bottom part), where both
 integers can be limited-range basic and unlimited-range integers.
@@ -1967,25 +2001,25 @@ by the denominator.
 This tag can express all numbers that the extended generic data
 model of <span>[<a href="#RFC7049" class="cite xref">RFC7049</a>]</span> can express, except for non-finites <span>[<a href="#IEEE754" class="cite xref">IEEE754</a>]</span>; it
 also can express rational numbers that cannot be expressed with
-denominators that are a power of 2 or a power of 10.<a href="#section-6.1-5.1.1" class="pilcrow">¶</a></p>
-<p id="section-6.1-5.1.2">
-For example, the rational number 1/3 is encoded:<a href="#section-6.1-5.1.2" class="pilcrow">¶</a></p>
-<div class="lang-cbor-pretty sourcecode" id="section-6.1-5.1.3">
+denominators that are a power of 2 or a power of 10.<a href="#section-6.1-6.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.1-6.1.2">
+For example, the rational number 1/3 is encoded:<a href="#section-6.1-6.1.2" class="pilcrow">¶</a></p>
+<div class="lang-cbor-pretty sourcecode" id="section-6.1-6.1.3">
 <pre>
   d8 1e      ---- Tag 30
      82      ---- Array length 2
         01   ---- 1
         03   ---- 3
-</pre><a href="#section-6.1-5.1.3" class="pilcrow">¶</a>
+</pre><a href="#section-6.1-6.1.3" class="pilcrow">¶</a>
 </div>
-<p id="section-6.1-5.1.4">
+<p id="section-6.1-6.1.4">
 Many programming languages have built-in support for rational
 numbers or support for them is included in their standard libraries;
 tag number 30 is a way for these platforms to interchange these
-rational numbers in CBOR.<a href="#section-6.1-5.1.4" class="pilcrow">¶</a></p>
+rational numbers in CBOR.<a href="#section-6.1-6.1.4" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.1-5.2">
-            <p id="section-6.1-5.2.1">Tag numbers 4 and 5 are limited in the range of the (base 10 or base
+          <li class="normal" id="section-6.1-6.2">
+            <p id="section-6.1-6.2.1">Tag numbers 4 and 5 are limited in the range of the (base 10 or base
 2) exponents by the limited-range integers in the basic generic data
 model.  Tag numbers 264 and 265 are exactly equivalent to 4 and 5,
 respectively, but also allow unlimited-range integers as exponents.
@@ -1993,10 +2027,10 @@ While applications for floating point numbers with exponents outside
 the CBOR basic integer range are limited, tags 264 and 265 allow
 unlimited roundtripping with other formats that allow very large or
 very small exponents, such as those JSON <span>[<a href="#RFC8259" class="cite xref">RFC8259</a>]</span> can provide if the
-limitations of I-JSON <span>[<a href="#RFC7493" class="cite xref">RFC7493</a>]</span> do not apply.<a href="#section-6.1-5.2.1" class="pilcrow">¶</a></p>
+limitations of I-JSON <span>[<a href="#RFC7493" class="cite xref">RFC7493</a>]</span> do not apply.<a href="#section-6.1-6.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.1-6">The tag numbers 268..270 extend these tags further by providing a way
+<p id="section-6.1-7">The tag numbers 268..270 extend these tags further by providing a way
 to express non-finites within a tag with this number.  This does not
 increase the expressiveness of the data model (the non-finites can
 already be expressed using major type 7 floating point numbers), but
@@ -2004,12 +2038,12 @@ does allow both finite and non-finite values to carry the same tag.
 In most applications, a choice that includes some of the three tags
 30, 264, 265 for finite values and major type 7 floating point values
 for non-finites (as well as possibly other parts of the CBOR number
-system) will be the preferred solution.<a href="#section-6.1-6" class="pilcrow">¶</a></p>
-<p id="section-6.1-7">This document suggests using the CDDL typenames defined in
-<a href="#arith-tags-cddl" class="auto internal xref">Figure 2</a> for the three most useful tag numbers in this section.<a href="#section-6.1-7" class="pilcrow">¶</a></p>
+system) will be the preferred solution.<a href="#section-6.1-7" class="pilcrow">¶</a></p>
+<p id="section-6.1-8">This document suggests using the CDDL typenames defined in
+<a href="#arith-tags-cddl" class="auto internal xref">Figure 2</a> for the three most useful tag numbers in this section.<a href="#section-6.1-8" class="pilcrow">¶</a></p>
 <span id="name-cddl-for-extended-arithmeti"></span><div id="arith-tags-cddl">
 <figure id="figure-2">
-          <div class="lang-cddl sourcecode" id="section-6.1-8.1">
+          <div class="lang-cddl sourcecode" id="section-6.1-9.1">
 <pre>
 rational = #6.30([numerator: integer, denominator: integer .ne 0])
 rational_of&lt;N,D&gt; = #6.30([numerator: N, denominator: D])
@@ -2207,8 +2241,12 @@ reproduced in <a href="#arraytags" class="auto internal xref">Table 6</a>.<a hre
       </h2>
 <p id="section-7-1">(TO DO: Obtain permission to copy the definitions here; explain how
 tags 52 and 54 essentially obsolete 260/261.)<a href="#section-7-1" class="pilcrow">¶</a></p>
+<span id="name-select-domain-specific-tags"></span><div id="tab-domain-specific">
 <table class="center" id="table-7">
-        <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
+        <caption>
+<a href="#table-7" class="selfRef">Table 7</a>:
+<a href="#name-select-domain-specific-tags" class="selfRef">Select Domain-Specific Tags</a>
+        </caption>
 <thead>
           <tr>
             <th class="text-left" rowspan="1" colspan="1">Tag number</th>
@@ -2225,6 +2263,33 @@ tags 52 and 54 essentially obsolete 260/261.)<a href="#section-7-1" class="pilcr
             <td class="text-left" rowspan="1" colspan="1">Binary UUID (<span><a href="https://rfc-editor.org/rfc/rfc4122#section-4.1.2" class="relref">Section 4.1.2</a> of [<a href="#RFC4122" class="cite xref">RFC4122</a>]</span>)</td>
             <td class="text-left" rowspan="1" colspan="1">https://github.com/lucas-clemente/cbor-specs/blob/master/uuid.md</td>
             <td class="text-left" rowspan="1" colspan="1">Lucas Clemente</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">48</td>
+            <td class="text-left" rowspan="1" colspan="1">byte string</td>
+            <td class="text-left" rowspan="1" colspan="1">IEEE MAC Address</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <span>[<a href="#RFC9542" class="cite xref">RFC9542</a>]</span>
+</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">52</td>
+            <td class="text-left" rowspan="1" colspan="1">byte string or array</td>
+            <td class="text-left" rowspan="1" colspan="1">IPv4, [prefixlen,IPv4], [IPv4,prefixpart]</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <span>[<a href="#RFC9164" class="cite xref">RFC9164</a>]</span>
+</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">54</td>
+            <td class="text-left" rowspan="1" colspan="1">byte string or array</td>
+            <td class="text-left" rowspan="1" colspan="1">IPv6, [prefixlen,IPv6], [IPv6,prefixpart]</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <span>[<a href="#RFC9164" class="cite xref">RFC9164</a>]</span>
+</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">257</td>
@@ -2268,15 +2333,51 @@ tags 52 and 54 essentially obsolete 260/261.)<a href="#section-7-1" class="pilcr
             <td class="text-left" rowspan="1" colspan="1">https://peteroupc.github.io/CBOR/iri.html</td>
             <td class="text-left" rowspan="1" colspan="1">Peter Occil</td>
           </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">1048</td>
+            <td class="text-left" rowspan="1" colspan="1">byte string</td>
+            <td class="text-left" rowspan="1" colspan="1">IEEE OUI/CID</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <span>[<a href="#RFC9542" class="cite xref">RFC9542</a>]</span>
+</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
         </tbody>
       </table>
+</div>
+<p id="section-7-3">Notes:<a href="#section-7-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-7-4.1">
+          <p id="section-7-4.1.1">In the registration for Tag 37, the reference for UUID points to
+<span>[<a href="#RFC4122" class="cite xref">RFC4122</a>]</span>, which has been obsoleted by <span>[<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.
+The new RFC has a somewhat different internal structure; the
+definition of the layout of a binary UUID is now distributed over
+<span><a href="https://rfc-editor.org/rfc/rfc9562#section-5" class="relref">Section 5</a> of [<a href="#RFC9562" class="cite xref">RFC9562</a>]</span>.<a href="#section-7-4.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-7-4.2">
+          <p id="section-7-4.2.1">Tags 48, 52, and 54 are recommended for new designs that need to
+represent MAC addresses, IP addresses, and IP address prefixes; they
+essentially replace tags 260 and 261, which continue to be available
+for their existing applications.<a href="#section-7-4.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li class="normal" id="section-7-4.3">
+          <p id="section-7-4.3.1">Tag 263 describes a different kind of Hexadecimal string
+(sequence of hex digit pairs, same layout as tag 23) from the
+hex-string defined by the YANG data type <code>hex-string</code> (sequence of hex
+digit pairs separated by colons, <span><a href="https://rfc-editor.org/rfc/rfc6991#section-3" class="relref">Section 3</a> of [<a href="#RFC6991" class="cite xref">RFC6991</a>]</span>).<a href="#section-7-4.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
 <div id="human-readable-text">
 <section id="section-7.1">
         <h3 id="name-human-readable-text">
 <a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-human-readable-text" class="section-name selfRef">Human-readable Text</a>
         </h3>
+<span id="name-select-tags-for-human-reada"></span><div id="tab-text">
 <table class="center" id="table-8">
-          <caption><a href="#table-8" class="selfRef">Table 8</a></caption>
+          <caption>
+<a href="#table-8" class="selfRef">Table 8</a>:
+<a href="#name-select-tags-for-human-reada" class="selfRef">Select Tags for Human-readable Text</a>
+          </caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Tag</th>
@@ -2296,6 +2397,7 @@ tags 52 and 54 essentially obsolete 260/261.)<a href="#section-7-1" class="pilcr
             </tr>
           </tbody>
         </table>
+</div>
 <p id="section-7.1-2">Tag 38 was originally registered by Peter Occil in
 <a href="http://peteroupc.github.io/CBOR/langtags.html">http://peteroupc.github.io/CBOR/langtags.html</a>; it has since been
 adopted and extended in <span><a href="https://rfc-editor.org/rfc/rfc9290#appendix-A" class="relref">Appendix A</a> of [<a href="#RFC9290" class="cite xref">RFC9290</a>]</span>, where a detailed
@@ -2440,7 +2542,7 @@ time.<a href="#section-7.2-6" class="pilcrow">¶</a></p>
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-perl" class="section-name selfRef">Perl</a>
         </h3>
 <p id="section-8.1-1">(These are actually not as Perl-specific as the title of this section
-suggests.  See also the penultimate paragraph of <span><a href="https://rfc-editor.org/rfc/rfc8949#section-3.4" class="relref">Section 3.4</a> of [<a href="#STD94" class="cite xref">STD94</a>]</span>.)<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+suggests.  See also the penultimate paragraph of Section <a href="https://rfc-editor.org/rfc/rfc8949#section-3.4" class="relref">3.4</a> of RFC 8949 <span>[<a href="#STD94" class="cite xref">STD94</a>]</span>.)<a href="#section-8.1-1" class="pilcrow">¶</a></p>
 <p id="section-8.1-2">These are all documented under <code>http://cbor.schmorp.de/</code>; the
 last pathname component is given in <a href="#perltags" class="auto internal xref">Table 10</a>.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
 <p id="section-8.1-3">(TO DO: Obtain permission to copy the definitions here.)<a href="#section-8.1-3" class="pilcrow">¶</a></p>
@@ -2526,8 +2628,9 @@ all of type Text String, as they would occur in JSON
         </h3>
 <p id="section-8.3-1">(TO DO: Obtain permission to copy the definitions here.)<a href="#section-8.3-1" class="pilcrow">¶</a></p>
 <p id="section-8.3-2">Some variants of UTF-8 are in use in specific areas of application.
-Tags have been registered to be able to carry around strings in these
-variants in case they are not also valid UTF-8 and can therefore not
+Tags have been registered to be able to carry around strings
+identified as to which of these
+variants is used, in case they are not also valid UTF-8 and can therefore not
 be represented as a CBOR text string
 (<code>https://github.com/svaarala/cbor-specs/blob/master/cbor-nonutf8-string-tags.rst</code>).<a href="#section-8.3-2" class="pilcrow">¶</a></p>
 <span id="name-tag-numbers-for-utf-8-varia"></span><div id="weirdtags">
@@ -2572,11 +2675,15 @@ be represented as a CBOR text string
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-application-specific" class="section-name selfRef">Application-specific</a>
       </h2>
 <p id="section-9-1">(TO DO: Obtain permission to copy the definitions here.)<a href="#section-9-1" class="pilcrow">¶</a></p>
+<span id="name-application-specific-tags"></span><div id="tab-apptags">
 <table class="center" id="table-12">
-        <caption><a href="#table-12" class="selfRef">Table 12</a></caption>
+        <caption>
+<a href="#table-12" class="selfRef">Table 12</a>:
+<a href="#name-application-specific-tags" class="selfRef">Application-specific Tags</a>
+        </caption>
 <thead>
           <tr>
-            <th class="text-left" rowspan="1" colspan="1">Tag number</th>
+            <th class="text-right" rowspan="1" colspan="1">Tag number</th>
             <th class="text-left" rowspan="1" colspan="1">Tag content</th>
             <th class="text-left" rowspan="1" colspan="1">Short Description</th>
             <th class="text-left" rowspan="1" colspan="1">Reference</th>
@@ -2585,7 +2692,7 @@ be represented as a CBOR text string
         </thead>
         <tbody>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">39</td>
+            <td class="text-right" rowspan="1" colspan="1">39</td>
             <td class="text-left" rowspan="1" colspan="1">multiple</td>
             <td class="text-left" rowspan="1" colspan="1">Identifier</td>
             <td class="text-left" rowspan="1" colspan="1">
@@ -2594,7 +2701,7 @@ be represented as a CBOR text string
             <td class="text-left" rowspan="1" colspan="1">Lucas Clemente</td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">42</td>
+            <td class="text-right" rowspan="1" colspan="1">42</td>
             <td class="text-left" rowspan="1" colspan="1">byte string</td>
             <td class="text-left" rowspan="1" colspan="1">IPLD content identifier</td>
             <td class="text-left" rowspan="1" colspan="1">
@@ -2603,7 +2710,7 @@ be represented as a CBOR text string
             <td class="text-left" rowspan="1" colspan="1">Volker Mische</td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">103</td>
+            <td class="text-right" rowspan="1" colspan="1">103</td>
             <td class="text-left" rowspan="1" colspan="1">array</td>
             <td class="text-left" rowspan="1" colspan="1">Geographic Coordinates</td>
             <td class="text-left" rowspan="1" colspan="1">
@@ -2612,7 +2719,7 @@ be represented as a CBOR text string
             <td class="text-left" rowspan="1" colspan="1">Danilo Vidovic</td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">104</td>
+            <td class="text-right" rowspan="1" colspan="1">104</td>
             <td class="text-left" rowspan="1" colspan="1">multiple</td>
             <td class="text-left" rowspan="1" colspan="1">Geographic Coordinate Reference System  WKT or EPSG number</td>
             <td class="text-left" rowspan="1" colspan="1">
@@ -2621,7 +2728,7 @@ be represented as a CBOR text string
             <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">120</td>
+            <td class="text-right" rowspan="1" colspan="1">120</td>
             <td class="text-left" rowspan="1" colspan="1">multiple</td>
             <td class="text-left" rowspan="1" colspan="1">Internet of Things Data Point</td>
             <td class="text-left" rowspan="1" colspan="1">
@@ -2630,7 +2737,7 @@ be represented as a CBOR text string
             <td class="text-left" rowspan="1" colspan="1">Danilo Vidovic</td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">258</td>
+            <td class="text-right" rowspan="1" colspan="1">258</td>
             <td class="text-left" rowspan="1" colspan="1">array</td>
             <td class="text-left" rowspan="1" colspan="1">Mathematical finite set</td>
             <td class="text-left" rowspan="1" colspan="1">
@@ -2639,7 +2746,7 @@ be represented as a CBOR text string
             <td class="text-left" rowspan="1" colspan="1">Alfredo Di Napoli</td>
           </tr>
           <tr>
-            <td class="text-left" rowspan="1" colspan="1">259</td>
+            <td class="text-right" rowspan="1" colspan="1">259</td>
             <td class="text-left" rowspan="1" colspan="1">map</td>
             <td class="text-left" rowspan="1" colspan="1">Map datatype with key-value operations (e.g. <code>.get()</code>/<code>.set()</code>/<code>.delete()</code>)</td>
             <td class="text-left" rowspan="1" colspan="1">
@@ -2649,6 +2756,7 @@ be represented as a CBOR text string
           </tr>
         </tbody>
       </table>
+</div>
 <div id="enumerated-alternative-data-items">
 <section id="section-9.1">
         <h3 id="name-enumerated-alternative-data">
@@ -2713,7 +2821,7 @@ low numbers of alternatives:<a href="#section-9.1-7" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-9.1-9">There are no special considerations for deterministic encoding
-<span><a href="https://rfc-editor.org/rfc/rfc8949#section-4.2" class="relref">Section 4.2</a> of [<a href="#STD94" class="cite xref">STD94</a>]</span>: The case numbers covered by each tag do not
+Section <a href="https://rfc-editor.org/rfc/rfc8949#section-4.2" class="relref">4.2</a> of RFC 8949 <span>[<a href="#STD94" class="cite xref">STD94</a>]</span>: The case numbers covered by each tag do not
 overlap; particularly, tag 101 encoding starts where the more compact
 special encodings for 0..6 and 7..127 end.<a href="#section-9.1-9" class="pilcrow">¶</a></p>
 <p id="section-9.1-10">For cases 0..6 and 7..127, the tag value indicates the value of the alternative.
@@ -2833,12 +2941,12 @@ could be encoded using this schema:<a href="#section-9.1.3-10" class="pilcrow">�
 <pre>
 ; A data type representing simple arithmetic expressions
 
-expr = 121(int)          ; integer literal
-     / 122([expr, expr]) ; addition
-     / 123([expr, expr]) ; subtraction
-     / 124(expr)         ; unary negation
-     / 125([expr, expr]) ; multiplication
-     / 126([expr, expr]) ; integer division
+expr = #6.121(int)          ; integer literal
+     / #6.122([expr, expr]) ; addition
+     / #6.123([expr, expr]) ; subtraction
+     / #6.124(expr)         ; unary negation
+     / #6.125([expr, expr]) ; multiplication
+     / #6.126([expr, expr]) ; integer division
 </pre><a href="#section-9.1.3-11" class="pilcrow">¶</a>
 </div>
 </section>
@@ -2871,6 +2979,27 @@ raise an error if an Invalid Tag occurs in a CBOR data item even if
 there is no validity checking implemented otherwise.<a href="#section-10.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="invalid-simple">
+<section id="section-10.2">
+        <h3 id="name-programming-aid-for-simple-">
+<a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-programming-aid-for-simple-" class="section-name selfRef">Programming Aid for Simple Values</a>
+        </h3>
+<p id="section-10.2-1">In a similar way, the present document also requests to register tag
+number CPA21334 as a fourth Invalid Tag.
+This tag is set aside specifically for use by CBOR implementations
+that have no natural way to represent Simple Values (Section <a href="https://rfc-editor.org/rfc/rfc8949#section-3.3" class="relref">3.3</a> of RFC 8949 <span>[<a href="#STD94" class="cite xref">STD94</a>]</span>) beyond false, true, or null in their programming
+interface.
+For instance, such implementations can represent simple(123) as
+CPA21334(123) in the programming interface.<a href="#section-10.2-1" class="pilcrow">¶</a></p>
+<p id="section-10.2-2"><span class="cref" id="cpa_2">RFC-Editor: This document uses the CPA (code point allocation)
+  convention described in [I-D.bormann-cbor-draft-numbers].  For
+  each usage of the term "CPA", please remove the prefix "CPA"
+  from the indicated value and replace the residue with the value
+  assigned by IANA; perform an analogous substitution for all other
+  occurrences of the prefix "CPA" in the document.  Finally,
+  please remove this note.</span><a href="#section-10.2-2" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="iana">
@@ -2878,12 +3007,14 @@ there is no validity checking implemented otherwise.<a href="#section-10.1-2" cl
       <h2 id="name-iana-considerations">
 <a href="#section-11" class="section-number selfRef">11. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-11-1">In the registry "<a href="http://www.iana.org/assignments/cbor-tags#cbor-tags" class="relref">CBOR Tags</a>" <span>[<a href="#IANA.cbor-tags" class="cite xref">IANA.cbor-tags</a>]</span>,
+<p id="section-11-1">In the registry "<a href="https://www.iana.org/assignments/cbor-tags#cbor-tags" class="relref">CBOR Tags</a>" <span>[<a href="#IANA.cbor-tags" class="cite xref">IANA.cbor-tags</a>]</span>,
 IANA has allocated the first to third tag in <a href="#tab-tag-values" class="auto internal xref">Table 14</a> from the
 FCFS space, with the present document as the specification reference.
-IANA has allocated the tags in the next two rows, and is requested to
-allocate the tags in the next three rows, from the Specification
-Required space, with the present document as the specification reference.<a href="#section-11-1" class="pilcrow">¶</a></p>
+IANA also has allocated the tags in the next five rows from the Specification
+Required space, with the present document as the specification reference.
+Finally, IANA is requested to register the tags in the last two rows
+(marked with CPA) from the Specification Required space, with the
+present document as the specification reference.<a href="#section-11-1" class="pilcrow">¶</a></p>
 <span id="name-values-for-tags"></span><div id="tab-tag-values">
 <table class="center" id="table-14">
         <caption>
@@ -2896,6 +3027,7 @@ Required space, with the present document as the specification reference.<a href
             <th class="text-left" rowspan="1" colspan="1">Data Item</th>
             <th class="text-left" rowspan="1" colspan="1">Semantics</th>
             <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            <th class="text-left" rowspan="1" colspan="1"> </th>
           </tr>
         </thead>
         <tbody>
@@ -2905,6 +3037,7 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">always invalid</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#invalid-tag" class="auto internal xref">Section 10.1</a>
 </td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">4294967295</td>
@@ -2912,6 +3045,7 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">always invalid</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#invalid-tag" class="auto internal xref">Section 10.1</a>
 </td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">18446744073709551615</td>
@@ -2919,6 +3053,7 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">always invalid</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#invalid-tag" class="auto internal xref">Section 10.1</a>
 </td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">63</td>
@@ -2927,6 +3062,7 @@ Required space, with the present document as the specification reference.<a href
 </td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#related-tags" class="auto internal xref">Section 2.1</a>
 </td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">21065</td>
@@ -2934,6 +3070,7 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">I-Regexp</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#related-tags" class="auto internal xref">Section 2.1</a>; <span>[<a href="#RFC9485" class="cite xref">RFC9485</a>]</span>
 </td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">18300 to 18555 (inclusive)</td>
@@ -2941,6 +3078,7 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">Bare Hash value (COSE algorithm -256 to -1)</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#hashtags" class="auto internal xref">Section 3.1.1</a>
 </td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">18556</td>
@@ -2948,6 +3086,7 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">[COSE algorithm identifier, Bare Hash value]</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#hashtags" class="auto internal xref">Section 3.1.1</a>
 </td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">18557 to 18811 (inclusive)</td>
@@ -2955,11 +3094,29 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">Bare Hash value (COSE algorithm 1 to 255)</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#hashtags" class="auto internal xref">Section 3.1.1</a>
 </td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-right" rowspan="1" colspan="1">CPA108</td>
+            <td class="text-left" rowspan="1" colspan="1">byte string</td>
+            <td class="text-left" rowspan="1" colspan="1">Expected conversion to base16 encoding (lowercase)</td>
+            <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#expected-tags" class="auto internal xref">Section 2.1, Paragraph 2, Item 2</a>
+</td>
+            <td class="text-left" rowspan="1" colspan="1"> </td>
+          </tr>
+          <tr>
+            <td class="text-right" rowspan="1" colspan="1">CPA21334</td>
+            <td class="text-left" rowspan="1" colspan="1">uint</td>
+            <td class="text-left" rowspan="1" colspan="1">(always invalid in interchange)<br>programming aid for simple values</td>
+            <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#invalid-simple" class="auto internal xref">Section 10.2</a>
+</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              </td>
           </tr>
         </tbody>
       </table>
 </div>
-<p id="section-11-3">In addition, IANA is requested to allocate the tags from
+<p id="section-11-3">In addition, IANA has allocated the tags from
 <a href="#tab-tag-enum" class="auto internal xref">Table 13</a>, with a reference to the present document.<a href="#section-11-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2973,6 +3130,7 @@ may also have specific security considerations that are mentioned in
 their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="sec-combined-references">
 <section id="section-13">
       <h2 id="name-references">
 <a href="#section-13" class="section-number selfRef">13. </a><a href="#name-references" class="section-name selfRef">References</a>
@@ -2985,15 +3143,15 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dl class="references">
 <dt id="IANA.cbor-tags">[IANA.cbor-tags]</dt>
         <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR) Tags"</span>, <span>&lt;<a href="http://www.iana.org/assignments/cbor-tags">http://www.iana.org/assignments/cbor-tags</a>&gt;</span>. </dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR) Tags"</span>, <span>&lt;<a href="https://www.iana.org/assignments/cbor-tags">https://www.iana.org/assignments/cbor-tags</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="IANA.cose">[IANA.cose]</dt>
         <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE)"</span>, <span>&lt;<a href="http://www.iana.org/assignments/cose">http://www.iana.org/assignments/cose</a>&gt;</span>. </dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE)"</span>, <span>&lt;<a href="https://www.iana.org/assignments/cose">https://www.iana.org/assignments/cose</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="IANA.named-information">[IANA.named-information]</dt>
         <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"Named Information"</span>, <span>&lt;<a href="http://www.iana.org/assignments/named-information">http://www.iana.org/assignments/named-information</a>&gt;</span>. </dd>
+<span class="refAuthor">IANA</span>, <span class="refTitle">"Named Information"</span>, <span>&lt;<a href="https://www.iana.org/assignments/named-information">https://www.iana.org/assignments/named-information</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8392">[RFC8392]</dt>
         <dd>
@@ -3025,19 +3183,28 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="STD63">[STD63]</dt>
         <dd>
-<span class="refAuthor">Yergeau, F.</span>, <span class="refTitle">"UTF-8, a transformation format of ISO 10646"</span>, <span class="seriesInfo">STD 63</span>, <span class="seriesInfo">RFC 3629</span>, <span class="seriesInfo">DOI 10.17487/RFC3629</span>, <time datetime="2003-11" class="refDate">November 2003</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3629">https://www.rfc-editor.org/rfc/rfc3629</a>&gt;</span>. </dd>
+<div class="refInstance">Internet Standard 63, <span>&lt;<a href="https://www.rfc-editor.org/info/std63">https://www.rfc-editor.org/info/std63</a>&gt;</span>.<br><span>At the time of writing, this STD comprises the following:</span>
+</div>
+<div class="refInstance" id="RFC3629">
+            <span class="refAuthor">Yergeau, F.</span>, <span class="refTitle">"UTF-8, a transformation format of ISO 10646"</span>, <span class="seriesInfo">STD 63</span>, <span class="seriesInfo">RFC 3629</span>, <span class="seriesInfo">DOI 10.17487/RFC3629</span>, <time datetime="2003-11" class="refDate">November 2003</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3629">https://www.rfc-editor.org/info/rfc3629</a>&gt;</span>. </div>
+</dd>
 <dd class="break"></dd>
 <dt id="STD94">[STD94]</dt>
         <dd>
-<span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR)"</span>, <span class="seriesInfo">STD 94</span>, <span class="seriesInfo">RFC 8949</span>, <span class="seriesInfo">DOI 10.17487/RFC8949</span>, <time datetime="2020-12" class="refDate">December 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8949">https://www.rfc-editor.org/rfc/rfc8949</a>&gt;</span>. </dd>
+<div class="refInstance">Internet Standard 94, <span>&lt;<a href="https://www.rfc-editor.org/info/std94">https://www.rfc-editor.org/info/std94</a>&gt;</span>.<br><span>At the time of writing, this STD comprises the following:</span>
+</div>
+<div class="refInstance" id="RFC8949">
+            <span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR)"</span>, <span class="seriesInfo">STD 94</span>, <span class="seriesInfo">RFC 8949</span>, <span class="seriesInfo">DOI 10.17487/RFC8949</span>, <time datetime="2020-12" class="refDate">December 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8949">https://www.rfc-editor.org/info/rfc8949</a>&gt;</span>. </div>
+</dd>
 <dd class="break"></dd>
 <dt id="STD96">[STD96]</dt>
       <dd>
+<div class="refInstance">Internet Standard 96, <span>&lt;<a href="https://www.rfc-editor.org/info/std96">https://www.rfc-editor.org/info/std96</a>&gt;</span>.<br><span>At the time of writing, this STD comprises the following:</span>
+</div>
 <div class="refInstance" id="RFC9052">
             <span class="refAuthor">Schaad, J.</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE): Structures and Process"</span>, <span class="seriesInfo">STD 96</span>, <span class="seriesInfo">RFC 9052</span>, <span class="seriesInfo">DOI 10.17487/RFC9052</span>, <time datetime="2022-08" class="refDate">August 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9052">https://www.rfc-editor.org/info/rfc9052</a>&gt;</span>. </div>
 <div class="refInstance" id="RFC9338">
             <span class="refAuthor">Schaad, J.</span>, <span class="refTitle">"CBOR Object Signing and Encryption (COSE): Countersignatures"</span>, <span class="seriesInfo">STD 96</span>, <span class="seriesInfo">RFC 9338</span>, <span class="seriesInfo">DOI 10.17487/RFC9338</span>, <time datetime="2022-12" class="refDate">December 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9338">https://www.rfc-editor.org/info/rfc9338</a>&gt;</span>. </div>
-<span>&lt;<a href="https://www.rfc-editor.org/info/std96">https://www.rfc-editor.org/info/std96</a>&gt;</span>
 </dd>
 <dd class="break"></dd>
 </dl>
@@ -3051,11 +3218,12 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dl class="references">
 <dt id="BCP47">[BCP47]</dt>
         <dd>
+<div class="refInstance">Best Current Practice 47, <span>&lt;<a href="https://www.rfc-editor.org/info/bcp47">https://www.rfc-editor.org/info/bcp47</a>&gt;</span>.<br><span>At the time of writing, this BCP comprises the following:</span>
+</div>
 <div class="refInstance" id="RFC4647">
             <span class="refAuthor">Phillips, A., Ed.</span> and <span class="refAuthor">M. Davis, Ed.</span>, <span class="refTitle">"Matching of Language Tags"</span>, <span class="seriesInfo">BCP 47</span>, <span class="seriesInfo">RFC 4647</span>, <span class="seriesInfo">DOI 10.17487/RFC4647</span>, <time datetime="2006-09" class="refDate">September 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc4647">https://www.rfc-editor.org/info/rfc4647</a>&gt;</span>. </div>
 <div class="refInstance" id="RFC5646">
             <span class="refAuthor">Phillips, A., Ed.</span> and <span class="refAuthor">M. Davis, Ed.</span>, <span class="refTitle">"Tags for Identifying Languages"</span>, <span class="seriesInfo">BCP 47</span>, <span class="seriesInfo">RFC 5646</span>, <span class="seriesInfo">DOI 10.17487/RFC5646</span>, <time datetime="2009-09" class="refDate">September 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5646">https://www.rfc-editor.org/info/rfc5646</a>&gt;</span>. </div>
-<span>&lt;<a href="https://www.rfc-editor.org/info/bcp47">https://www.rfc-editor.org/info/bcp47</a>&gt;</span>
 </dd>
 <dd class="break"></dd>
 <dt id="C">[C]</dt>
@@ -3064,11 +3232,19 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dd class="break"></dd>
 <dt id="Cplusplus20">[Cplusplus20]</dt>
         <dd>
-<span class="refAuthor">International Organization for Standardization</span>, <span class="refTitle">"Programming languages — C++"</span>, <span class="seriesInfo">ISO/IEC ISO/IEC JTC1 SC22 WG21 N 4860</span>, <time datetime="2020-03" class="refDate">March 2020</time>, <span>&lt;<a href="https://isocpp.org/files/papers/N4860.pdf">https://isocpp.org/files/papers/N4860.pdf</a>&gt;</span>. </dd>
+<span class="refAuthor">International Organization for Standardization</span>, <span class="refTitle">"Programming languages — C++"</span>, <span class="refContent">ISO/IEC JTC1 SC22 WG21 N4860</span>, <time datetime="2020-03" class="refDate">March 2020</time>, <span>&lt;<a href="https://isocpp.org/files/papers/N4860.pdf">https://isocpp.org/files/papers/N4860.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="HTML">[HTML]</dt>
         <dd>
 <span class="refAuthor">WHATWG</span>, <span class="refTitle">"HTML — Living Standard"</span>, <span>&lt;<a href="https://html.spec.whatwg.org">https://html.spec.whatwg.org</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.bormann-cbor-numbers">[I-D.bormann-cbor-numbers]</dt>
+        <dd>
+<span class="refAuthor">Bormann, C.</span>, <span class="refTitle">"On Numbers in CBOR"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-bormann-cbor-numbers-01</span>, <time datetime="2025-01-08" class="refDate">8 January 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-bormann-cbor-numbers-01">https://datatracker.ietf.org/doc/html/draft-bormann-cbor-numbers-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.bormann-cbor-yang-standin">[I-D.bormann-cbor-yang-standin]</dt>
+        <dd>
+<span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">M. Matějka</span>, <span class="refTitle">"Stand-in Tags for YANG-CBOR"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-bormann-cbor-yang-standin-00</span>, <time datetime="2024-02-21" class="refDate">21 February 2024</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-bormann-cbor-yang-standin-00">https://datatracker.ietf.org/doc/html/draft-bormann-cbor-yang-standin-00</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.clarke-cbor-crs">[I-D.clarke-cbor-crs]</dt>
         <dd>
@@ -3097,6 +3273,10 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dt id="RFC6241">[RFC6241]</dt>
         <dd>
 <span class="refAuthor">Enns, R., Ed.</span>, <span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refAuthor">Schoenwaelder, J., Ed.</span>, and <span class="refAuthor">A. Bierman, Ed.</span>, <span class="refTitle">"Network Configuration Protocol (NETCONF)"</span>, <span class="seriesInfo">RFC 6241</span>, <span class="seriesInfo">DOI 10.17487/RFC6241</span>, <time datetime="2011-06" class="refDate">June 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6241">https://www.rfc-editor.org/rfc/rfc6241</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6991">[RFC6991]</dt>
+        <dd>
+<span class="refAuthor">Schoenwaelder, J., Ed.</span>, <span class="refTitle">"Common YANG Data Types"</span>, <span class="seriesInfo">RFC 6991</span>, <span class="seriesInfo">DOI 10.17487/RFC6991</span>, <time datetime="2013-07" class="refDate">July 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6991">https://www.rfc-editor.org/rfc/rfc6991</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7049">[RFC7049]</dt>
         <dd>
@@ -3138,6 +3318,10 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Jones, M.</span>, <span class="refAuthor">Nadalin, A.</span>, and <span class="refAuthor">J. Richter</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR) Tags for Date"</span>, <span class="seriesInfo">RFC 8943</span>, <span class="seriesInfo">DOI 10.17487/RFC8943</span>, <time datetime="2020-11" class="refDate">November 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8943">https://www.rfc-editor.org/rfc/rfc8943</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC9164">[RFC9164]</dt>
+        <dd>
+<span class="refAuthor">Richardson, M.</span> and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR) Tags for IPv4 and IPv6 Addresses and Prefixes"</span>, <span class="seriesInfo">RFC 9164</span>, <span class="seriesInfo">DOI 10.17487/RFC9164</span>, <time datetime="2021-12" class="refDate">December 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9164">https://www.rfc-editor.org/rfc/rfc9164</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC9254">[RFC9254]</dt>
         <dd>
 <span class="refAuthor">Veillette, M., Ed.</span>, <span class="refAuthor">Petrov, I., Ed.</span>, <span class="refAuthor">Pelov, A.</span>, <span class="refAuthor">Bormann, C.</span>, and <span class="refAuthor">M. Richardson</span>, <span class="refTitle">"Encoding of Data Modeled with YANG in the Concise Binary Object Representation (CBOR)"</span>, <span class="seriesInfo">RFC 9254</span>, <span class="seriesInfo">DOI 10.17487/RFC9254</span>, <time datetime="2022-07" class="refDate">July 2022</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9254">https://www.rfc-editor.org/rfc/rfc9254</a>&gt;</span>. </dd>
@@ -3149,6 +3333,14 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <dt id="RFC9485">[RFC9485]</dt>
         <dd>
 <span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">T. Bray</span>, <span class="refTitle">"I-Regexp: An Interoperable Regular Expression Format"</span>, <span class="seriesInfo">RFC 9485</span>, <span class="seriesInfo">DOI 10.17487/RFC9485</span>, <time datetime="2023-10" class="refDate">October 2023</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9485">https://www.rfc-editor.org/rfc/rfc9485</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9542">[RFC9542]</dt>
+        <dd>
+<span class="refAuthor">Eastlake 3rd, D.</span>, <span class="refAuthor">Abley, J.</span>, and <span class="refAuthor">Y. Li</span>, <span class="refTitle">"IANA Considerations and IETF Protocol and Documentation Usage for IEEE 802 Parameters"</span>, <span class="seriesInfo">BCP 141</span>, <span class="seriesInfo">RFC 9542</span>, <span class="seriesInfo">DOI 10.17487/RFC9542</span>, <time datetime="2024-04" class="refDate">April 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9542">https://www.rfc-editor.org/rfc/rfc9542</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC9562">[RFC9562]</dt>
+        <dd>
+<span class="refAuthor">Davis, K.</span>, <span class="refAuthor">Peabody, B.</span>, and <span class="refAuthor">P. Leach</span>, <span class="refTitle">"Universally Unique IDentifiers (UUIDs)"</span>, <span class="seriesInfo">RFC 9562</span>, <span class="seriesInfo">DOI 10.17487/RFC9562</span>, <time datetime="2024-05" class="refDate">May 2024</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc9562">https://www.rfc-editor.org/rfc/rfc9562</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="W3C-BIDI-USE-CASES">[W3C-BIDI-USE-CASES]</dt>
         <dd>
@@ -3170,16 +3362,86 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
-<div id="acknowledgements">
+</div>
+<div id="list-of-figures">
 <section id="appendix-A">
+      <h2 id="name-list-of-figures">
+<a href="#name-list-of-figures" class="section-name selfRef">List of Figures</a>
+      </h2>
+<ol start="1" type="1" class="compact type-1" id="appendix-A-1">
+<li id="appendix-A-1.1">
+          <p id="appendix-A-1.1.1"><span><a href="#hashcddl" class="internal xref">Generic CDDL for Tags for Bare Hash Values</a> (<a href="#hashcddl" class="auto internal xref">Figure 1</a>)</span><a href="#appendix-A-1.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-A-1.2">
+          <p id="appendix-A-1.2.1"><span><a href="#arith-tags-cddl" class="internal xref">CDDL for extended arithmetic tags</a> (<a href="#arith-tags-cddl" class="auto internal xref">Figure 2</a>)</span><a href="#appendix-A-1.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-A-1.3">
+          <p id="appendix-A-1.3.1"><span><a href="#time-tags-cddl" class="internal xref">CDDL for calendar date tags (RFC8943)</a> (<a href="#time-tags-cddl" class="auto internal xref">Figure 3</a>)</span><a href="#appendix-A-1.3.1" class="pilcrow">¶</a></p>
+</li>
+      </ol>
+</section>
+</div>
+<div id="list-of-tables">
+<section id="appendix-B">
+      <h2 id="name-list-of-tables">
+<a href="#name-list-of-tables" class="section-name selfRef">List of Tables</a>
+      </h2>
+<ol start="1" type="1" class="compact type-1" id="appendix-B-1">
+<li id="appendix-B-1.1">
+          <p id="appendix-B-1.1.1"><span><a href="#origtags" class="internal xref">Tag numbers defined in RFC 7049</a> (<a href="#origtags" class="auto internal xref">Table 1</a>)</span><a href="#appendix-B-1.1.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.2">
+          <p id="appendix-B-1.2.1"><span><a href="#cosetags" class="internal xref">Tag numbers defined in RFC9052, COSE, and RFC 9338</a> (<a href="#cosetags" class="auto internal xref">Table 2</a>)</span><a href="#appendix-B-1.2.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.3">
+          <p id="appendix-B-1.3.1"><span><a href="#cwttags" class="internal xref">Tag number defined for RFC 8392 CBOR Web Token (CWT)</a> (<a href="#cwttags" class="auto internal xref">Table 3</a>)</span><a href="#appendix-B-1.3.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.4">
+          <p id="appendix-B-1.4.1"><span><a href="#yangtags" class="internal xref">Tag numbers defined for YANG-CBOR</a> (<a href="#yangtags" class="auto internal xref">Table 4</a>)</span><a href="#appendix-B-1.4.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.5">
+          <p id="appendix-B-1.5.1"><span><a href="#arithtags" class="internal xref">Tags for advanced arithmetic</a> (<a href="#arithtags" class="auto internal xref">Table 5</a>)</span><a href="#appendix-B-1.5.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.6">
+          <p id="appendix-B-1.6.1"><span><a href="#arraytags" class="internal xref">Tag numbers defined for Arrays</a> (<a href="#arraytags" class="auto internal xref">Table 6</a>)</span><a href="#appendix-B-1.6.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.7">
+          <p id="appendix-B-1.7.1"><span><a href="#tab-domain-specific" class="internal xref">Select Domain-Specific Tags</a> (<a href="#tab-domain-specific" class="auto internal xref">Table 7</a>)</span><a href="#appendix-B-1.7.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.8">
+          <p id="appendix-B-1.8.1"><span><a href="#tab-text" class="internal xref">Select Tags for Human-readable Text</a> (<a href="#tab-text" class="auto internal xref">Table 8</a>)</span><a href="#appendix-B-1.8.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.9">
+          <p id="appendix-B-1.9.1"><span><a href="#timetags" class="internal xref">Tag numbers for date and time</a> (<a href="#timetags" class="auto internal xref">Table 9</a>)</span><a href="#appendix-B-1.9.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.10">
+          <p id="appendix-B-1.10.1"><span><a href="#perltags" class="internal xref">Tag numbers that aid the Perl platform</a> (<a href="#perltags" class="auto internal xref">Table 10</a>)</span><a href="#appendix-B-1.10.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.11">
+          <p id="appendix-B-1.11.1"><span><a href="#weirdtags" class="internal xref">Tag numbers for UTF-8 variants</a> (<a href="#weirdtags" class="auto internal xref">Table 11</a>)</span><a href="#appendix-B-1.11.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.12">
+          <p id="appendix-B-1.12.1"><span><a href="#tab-apptags" class="internal xref">Application-specific Tags</a> (<a href="#tab-apptags" class="auto internal xref">Table 12</a>)</span><a href="#appendix-B-1.12.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.13">
+          <p id="appendix-B-1.13.1"><span><a href="#tab-tag-enum" class="internal xref">Tags for Enumerated Alternative Data Items</a> (<a href="#tab-tag-enum" class="auto internal xref">Table 13</a>)</span><a href="#appendix-B-1.13.1" class="pilcrow">¶</a></p>
+</li>
+        <li id="appendix-B-1.14">
+          <p id="appendix-B-1.14.1"><span><a href="#tab-tag-values" class="internal xref">Values for Tags</a> (<a href="#tab-tag-values" class="auto internal xref">Table 14</a>)</span><a href="#appendix-B-1.14.1" class="pilcrow">¶</a></p>
+</li>
+      </ol>
+</section>
+</div>
+<div id="acknowledgements">
+<section id="appendix-C">
       <h2 id="name-acknowledgements">
 <a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
-<p id="appendix-A-1">(Many, TBD)<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<p id="appendix-C-1">(Many, TBD)<a href="#appendix-C-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="contributors">
-<section id="appendix-B">
+<section id="appendix-D">
       <h2 id="name-contributors">
 <a href="#name-contributors" class="section-name selfRef">Contributors</a>
       </h2>
@@ -3190,10 +3452,10 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <a href="mailto:poccil14%20at%20gmail%20dot%20com" class="email">poccil14 at gmail dot com</a>
 </div>
 </address>
-<p id="appendix-B-1">Peter Occil registered tags 30, 264, 265, 268–270
+<p id="appendix-D-1">Peter Occil registered tags 30, 264, 265, 268–270
 (<a href="#advanced-arithmetic" class="auto internal xref">Section 6.1</a>), 38, 257, 266 and 267
 (<a href="#domain-specific" class="auto internal xref">Section 7</a>), and contributed much of the text about
-these tags in this document.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
+these tags in this document.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Duncan Coutts</span></div>
 <div class="email">
@@ -3212,12 +3474,12 @@ these tags in this document.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
         <div dir="auto" class="left"><span class="fn nameRole">Jane Doe</span></div>
 <div dir="auto" class="left"><span class="org">To do</span></div>
 </address>
-<p id="appendix-B-2">Further contributors will be listed here as text is added.<a href="#appendix-B-2" class="pilcrow">¶</a></p>
-<p id="appendix-B-3">Please stay tuned.<a href="#appendix-B-3" class="pilcrow">¶</a></p>
+<p id="appendix-D-2">Further contributors will be listed here as text is added.<a href="#appendix-D-2" class="pilcrow">¶</a></p>
+<p id="appendix-D-3">Please stay tuned.<a href="#appendix-D-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-C">
+<section id="appendix-E">
       <h2 id="name-authors-address">
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>

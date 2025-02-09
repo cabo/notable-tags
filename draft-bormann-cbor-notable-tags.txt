@@ -4,8 +4,8 @@
 
 Network Working Group                                         C. Bormann
 Internet-Draft                                    Universität Bremen TZI
-Intended status: Informational                          11 February 2024
-Expires: 14 August 2024
+Intended status: Informational                           9 February 2025
+Expires: 13 August 2025
 
 
                            Notable CBOR Tags
@@ -22,11 +22,11 @@ Abstract
    RFC 8949's original edition, RFC 7049, defined a basic set of 16 tags
    as well as a registry that can be used to contribute additional tag
    definitions [IANA.cbor-tags].  Since RFC 7049 was published, at the
-   time of writing some 180 definitions of tags and ranges of tags have
+   time of writing some 190 definitions of tags and ranges of tags have
    been added to that registry.
 
    The present document provides a roadmap to a large subset of these
-   tag definitions.  Where applicable, it points to a IETF standards or
+   tag definitions.  Where applicable, it points to an IETF standards or
    standard development document that specifies the tag.  Where no such
    document exists, the intention is to collect specification
    information from the sources of the registrations.  After some more
@@ -48,14 +48,14 @@ Note to Readers
 
    The current version is true work in progress; some of the sections
    haven't been filled in yet, and in particular, permission has not
-   been obtained from tag definition authors to copy over their text.
+   been obtained from all authors of registered tag definitions to copy
+   over their text.
 
 
 
-
-Bormann                  Expires 14 August 2024                 [Page 1]
+Bormann                  Expires 13 August 2025                 [Page 1]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
 Status of This Memo
@@ -73,11 +73,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 August 2024.
+   This Internet-Draft will expire on 13 August 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -96,49 +96,52 @@ Table of Contents
    2.  RFC 7049 (original CBOR specification)  . . . . . . . . . . .   4
      2.1.  Tags Related to Those Defined in RFC 7049 . . . . . . . .   5
      2.2.  Tags from RFC 7049 not listed in RFC 8949 . . . . . . . .   6
-   3.  Security  . . . . . . . . . . . . . . . . . . . . . . . . . .   6
+   3.  Security  . . . . . . . . . . . . . . . . . . . . . . . . . .   7
      3.1.  COSE  . . . . . . . . . . . . . . . . . . . . . . . . . .   7
-       3.1.1.  Tags for Bare Hash Values . . . . . . . . . . . . . .   7
-     3.2.  RFC 8392 (CWT)  . . . . . . . . . . . . . . . . . . . . .   9
+       3.1.1.  Tags for Bare Hash Values . . . . . . . . . . . . . .   8
+     3.2.  RFC 8392 (CWT)  . . . . . . . . . . . . . . . . . . . . .  10
    4.  CBOR-based Representation Formats . . . . . . . . . . . . . .  10
      4.1.  YANG-CBOR . . . . . . . . . . . . . . . . . . . . . . . .  10
    5.  Protocols . . . . . . . . . . . . . . . . . . . . . . . . . .  11
      5.1.  DOTS  . . . . . . . . . . . . . . . . . . . . . . . . . .  11
      5.2.  RAINS . . . . . . . . . . . . . . . . . . . . . . . . . .  11
-   6.  Datatypes . . . . . . . . . . . . . . . . . . . . . . . . . .  11
+   6.  Datatypes . . . . . . . . . . . . . . . . . . . . . . . . . .  12
 
 
 
-Bormann                  Expires 14 August 2024                 [Page 2]
+Bormann                  Expires 13 August 2025                 [Page 2]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
-     6.1.  Advanced arithmetic . . . . . . . . . . . . . . . . . . .  11
+     6.1.  Advanced arithmetic . . . . . . . . . . . . . . . . . . .  12
      6.2.  Variants of undefined . . . . . . . . . . . . . . . . . .  14
      6.3.  Typed and Homogeneous Arrays  . . . . . . . . . . . . . .  14
    7.  Domain-Specific . . . . . . . . . . . . . . . . . . . . . . .  15
-     7.1.  Human-readable Text . . . . . . . . . . . . . . . . . . .  16
-     7.2.  Extended Time Formats . . . . . . . . . . . . . . . . . .  17
-   8.  Platform-oriented . . . . . . . . . . . . . . . . . . . . . .  18
+     7.1.  Human-readable Text . . . . . . . . . . . . . . . . . . .  17
+     7.2.  Extended Time Formats . . . . . . . . . . . . . . . . . .  18
+   8.  Platform-oriented . . . . . . . . . . . . . . . . . . . . . .  19
      8.1.  Perl  . . . . . . . . . . . . . . . . . . . . . . . . . .  19
-     8.2.  JSON  . . . . . . . . . . . . . . . . . . . . . . . . . .  19
+     8.2.  JSON  . . . . . . . . . . . . . . . . . . . . . . . . . .  20
      8.3.  Weird text encodings  . . . . . . . . . . . . . . . . . .  20
-   9.  Application-specific  . . . . . . . . . . . . . . . . . . . .  20
-     9.1.  Enumerated Alternative Data Items . . . . . . . . . . . .  21
-       9.1.1.  Semantics . . . . . . . . . . . . . . . . . . . . . .  23
-       9.1.2.  Rationale . . . . . . . . . . . . . . . . . . . . . .  23
-       9.1.3.  Examples  . . . . . . . . . . . . . . . . . . . . . .  24
-   10. Implementation aids . . . . . . . . . . . . . . . . . . . . .  25
-     10.1.  Invalid Tag  . . . . . . . . . . . . . . . . . . . . . .  25
-   11. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  25
-   12. Security Considerations . . . . . . . . . . . . . . . . . . .  27
-   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  27
-     13.1.  Normative References . . . . . . . . . . . . . . . . . .  27
-     13.2.  Informative References . . . . . . . . . . . . . . . . .  28
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  31
-   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  31
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  32
+   9.  Application-specific  . . . . . . . . . . . . . . . . . . . .  21
+     9.1.  Enumerated Alternative Data Items . . . . . . . . . . . .  22
+       9.1.1.  Semantics . . . . . . . . . . . . . . . . . . . . . .  24
+       9.1.2.  Rationale . . . . . . . . . . . . . . . . . . . . . .  24
+       9.1.3.  Examples  . . . . . . . . . . . . . . . . . . . . . .  25
+   10. Implementation aids . . . . . . . . . . . . . . . . . . . . .  26
+     10.1.  Invalid Tag  . . . . . . . . . . . . . . . . . . . . . .  26
+     10.2.  Programming Aid for Simple Values  . . . . . . . . . . .  26
+   11. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  27
+   12. Security Considerations . . . . . . . . . . . . . . . . . . .  28
+   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  28
+     13.1.  Normative References . . . . . . . . . . . . . . . . . .  28
+     13.2.  Informative References . . . . . . . . . . . . . . . . .  30
+   List of Figures . . . . . . . . . . . . . . . . . . . . . . . . .  34
+   List of Tables  . . . . . . . . . . . . . . . . . . . . . . . . .  34
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  34
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  35
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  35
 
 1.  Introduction
 
@@ -162,12 +165,9 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 
 
-
-
-
-Bormann                  Expires 14 August 2024                 [Page 3]
+Bormann                  Expires 13 August 2025                 [Page 3]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
 1.1.  Terminology
@@ -176,10 +176,11 @@ Internet-Draft              Notable CBOR Tags              February 2024
    used in its now customary sense as a synonym for "octet"; "byte
    strings" are CBOR data items carrying a sequence of zero or more
    (binary) bytes, while "text strings" are CBOR data items carrying a
-   sequence of zero or more Unicode code points, encoded in UTF-8
-   [STD63].  Where bit arithmetic is explained, this document uses the
-   notation familiar from the programming language C ([C], including
-   C++14's 0bnnn binary literals [Cplusplus20]), except that superscript
+   sequence of zero or more Unicode scalar values (code points that can
+   be part of a string of Unicode characters), encoded in UTF-8 [STD63].
+   Where bit arithmetic is explained, this document uses the notation
+   familiar from the programming language C ([C], including C++14's
+   0bnnn binary literals [Cplusplus20]), except that superscript
    notation (example for two to the power of 64: 2^64) denotes
    exponentiation; in the plain text version of this document,
    superscript notation is rendered in paragraph text by C-incompatible
@@ -187,6 +188,15 @@ Internet-Draft              Notable CBOR Tags              February 2024
    .. are inclusive of the limits given.  Type names such as "int",
    "bigint" or "decfrac" are taken from Appendix D of [RFC8610], the
    Concise Data Definition Language (CDDL).
+
+
+   // RFC-Editor: This document uses the CPA (code point allocation)
+   // convention described in [I-D.bormann-cbor-draft-numbers].  For
+   // each usage of the term "CPA", please remove the prefix "CPA" from
+   // the indicated value and replace the residue with the value
+   // assigned by IANA; perform an analogous substitution for all other
+   // occurrences of the prefix "CPA" in the document.  Finally, please
+   // remove this note.
 
 2.  RFC 7049 (original CBOR specification)
 
@@ -208,6 +218,14 @@ Internet-Draft              Notable CBOR Tags              February 2024
      +------------+-------------+-----------------------+------------+
      | 4          | array       | Decimal fraction      | 2.4.3      |
      +------------+-------------+-----------------------+------------+
+
+
+
+Bormann                  Expires 13 August 2025                 [Page 4]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
      | 5          | array       | Bigfloat              | 2.4.3      |
      +------------+-------------+-----------------------+------------+
      | 21         | multiple    | Expected conversion   | 2.4.4.2    |
@@ -218,14 +236,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
      +------------+-------------+-----------------------+------------+
      | 23         | multiple    | Expected conversion   | 2.4.4.2    |
      |            |             | to base16 encoding    |            |
-
-
-
-Bormann                  Expires 14 August 2024                 [Page 4]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
      +------------+-------------+-----------------------+------------+
      | 24         | byte string | Encoded CBOR data     | 2.4.4.1    |
      |            |             | item                  |            |
@@ -260,27 +270,46 @@ Internet-Draft              Notable CBOR Tags              February 2024
       content carries a CBOR Sequence [RFC8742] instead of a single CBOR
       data item.
 
+   *  Tag CPA108, requested to be registered by this document
+      (Section 11), is a parallel to tag 23, with the single difference
+      that the hexadecimal form uses lowercase instead of uppercase
+      letters.
+
+
+
+Bormann                  Expires 13 August 2025                 [Page 5]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
+      // RFC-Editor: This document uses the CPA (code point allocation)
+      // convention described in [I-D.bormann-cbor-draft-numbers].  For
+      // each usage of the term "CPA", please remove the prefix "CPA"
+      from
+      // the indicated value and replace the residue with the value
+      // assigned by IANA; perform an analogous substitution for all
+      other
+      // occurrences of the prefix "CPA" in the document.  Finally,
+      please
+      // remove this note.
+
+
+
+
+         Note that tag 23 has a serialization that is one byte
+            shorter than tag CPA108, so if all else is equal, tag 23
+            (and thus upper case hex) would be chosen as it is slightly
+            more efficient than tag CPA108.  However, designers of CBOR
+            protocols that use one of these tags may have reason to
+            prefer lowercase hex in the application they are trying to
+            be compatible with, in which case CPA108 provides a solution
+            that is only one byte more expensive.
+
    *  Tag 257, registered by Peter Occil with a specification in
       http://peteroupc.github.io/CBOR/binarymime.html
       (http://peteroupc.github.io/CBOR/binarymime.html), is a parallel
       to tag 36, except that the tag content is a byte string, which
       therefore can also carry binary MIME messages as per [RFC2045].
-
-
-
-
-
-
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                 [Page 5]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
 
    *  Tag 21065, being registered by this document (Section 11), is a
       parallel to tag 35, with the difference that its text string tag
@@ -295,10 +324,19 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 2.2.  Tags from RFC 7049 not listed in RFC 8949
 
-   Appendix G.3 of [STD94] states:
+   Appendix G.3 of RFC 8949 [STD94] states:
 
    |  Tag 35 is not defined by this document; the registration based on
    |  the definition in RFC 7049 remains in place.
+
+
+
+
+
+Bormann                  Expires 13 August 2025                 [Page 6]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
 
    The reason for this exclusion is that the definition of Tag 35 in
    Section 2.4.4.3 of [RFC7049], leaves too much open to ensure
@@ -324,35 +362,37 @@ Internet-Draft              Notable CBOR Tags              February 2024
    A number of CBOR tags are defined in security specifications that
    make use of CBOR.
 
-
-
-
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                 [Page 6]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
 3.1.  COSE
 
    CBOR Object Signing and Encryption (COSE) is defined in a number of
    RFCs.  [RFC8152] was the initial specification, set up the
    registries, and populated them with an initial set of assignments.  A
    revision split this specification into the data structure definitions
-   RFC9052, an Internet Standard [STD96], and a separate document
+   (RFC9052), an Internet Standard [STD96], and a separate document
    defining the representation for the algorithms employed [RFC9053],
    which is expected to be updated more frequently than the COSE format
    itself.  [RFC9054] added a separate set of algorithms for
    cryptographic hash functions (Hash functions have been a component of
-   some [RFC9053] combined algorithms but weren't assigned separate
-   codepoints).  A revised COSE counter signature structure was defined
-   in RFC9338, another part of [STD96]; this also defines a tag for
-   these.
+   some [RFC9053] combined algorithms but weren't originally assigned
+   separate codepoints themselves).  A revised COSE counter signature
+   structure was defined in RFC9338, another part of [STD96]; this also
+   defines a tag for these.
+
+
+
+
+
+
+
+
+
+
+
+
+Bormann                  Expires 13 August 2025                 [Page 7]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
 
     +============+=======================+============================+
     | Tag number | Tag content           | Short Description          |
@@ -384,16 +424,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
    rightly notes that Hash values are often used in structures that are
    application-specific and should be defined with those applications.
 
-
-
-
-
-
-Bormann                  Expires 14 August 2024                 [Page 7]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
    However, there are many cases where just a bare hash value is
    required, and for these cases common tags are useful.  In one use
    case, these tags occur in a data structure that is specified to
@@ -408,6 +438,17 @@ Internet-Draft              Notable CBOR Tags              February 2024
       |  registry here, as more recent entries seem to have stopped
       |  assigning numbers.  If desired, tags that employ this registry
       |  could be added later.)
+
+
+
+
+
+
+
+Bormann                  Expires 13 August 2025                 [Page 8]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
 
    The codepoint range available for the COSE algorithms registry is
    large, but the most likely range to be used for standard Hash
@@ -441,15 +482,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
             Figure 1: Generic CDDL for Tags for Bare Hash Values
 
-
-
-
-
-Bormann                  Expires 14 August 2024                 [Page 8]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
    An example for the SHA-256 hash of "hello world" in CBOR diagnostic
    notation:
 
@@ -465,6 +497,15 @@ Internet-Draft              Notable CBOR Tags              February 2024
          \
         b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9
 
+
+
+
+
+Bormann                  Expires 13 August 2025                 [Page 9]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
    As none has been registered, no real example can be given for a hash
    algorithm with an identifier not in the standard range, but if -4711
    were such an identifier, a hash with an explicit algorithm number
@@ -474,7 +515,7 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
    Note that not all tags assigned in this section do parallel an
    algorithm that is a cryptographic hash algorithm.  Where this is not
-   the case, there currently is not defined semantics for this tag, but
+   the case, there currently is no defined semantics for this tag, but
    the tags are assigned anyway.  The semantics of tags that parallel
    algorithm assignments other than for cryptographic hash functions
    could be defined by a future version of this specification.
@@ -490,21 +531,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
    define a CBOR variant of the JOSE Web Token (JWT), [RFC7519], a
    standardized security token that has found use in the area of web
    applications, but is not technically limited to those.
-
-
-
-
-
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                 [Page 9]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
 
        +============+======================+======================+
        | Tag number | Tag content          | Short Description    |
@@ -528,6 +554,14 @@ Internet-Draft              Notable CBOR Tags              February 2024
    and [RFC7951] defines a JSON-based [RFC8259] representation format
    for YANG.
 
+
+
+
+Bormann                  Expires 13 August 2025                [Page 10]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
    YANG-CBOR [RFC9254] is a representation format for YANG data in CBOR.
 
    +========+======================+=====================+============+
@@ -549,18 +583,11 @@ Internet-Draft              Notable CBOR Tags              February 2024
    |        |                      | iDentifier (sid)    |            |
    +--------+----------------------+---------------------+------------+
 
-                Table 4: Tag number defined for YANG-CBOR
+                Table 4: Tag numbers defined for YANG-CBOR
 
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 10]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
+   [I-D.bormann-cbor-yang-standin] proposes to employ additional tags to
+   enable the use of efficient binary encodings for certain frequently
+   used YANG data types [RFC6991].
 
 5.  Protocols
 
@@ -582,41 +609,27 @@ Internet-Draft              Notable CBOR Tags              February 2024
    contains the Unicode character "雨" (U+96E8) in UTF-8, which
    represents rain in a number of languages.)
 
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 11]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
 6.  Datatypes
 
 6.1.  Advanced arithmetic
 
+   General information about the representation of numbers in CBOR can
+   be found in [STD94] as well as [I-D.bormann-cbor-numbers].
+
    A number of tags have been registered for arithmetic representations
    beyond those built into CBOR and defined by tags in [RFC7049].  These
    are all documented under http://peteroupc.github.io/CBOR/; the last
-   pathname component for the URL is given in Table 5.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 11]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
+   pathname component for the URL is given in the column "Reference" of
+   Table 5.
 
    +============+=============+=======================+===============+
    | Tag number | Tag content | Short Description     | Reference     |
@@ -640,17 +653,26 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
                   Table 5: Tags for advanced arithmetic
 
-   CBOR's basic generic data model (Section 2 of [STD94]) has a number
-   system with limited-range integers (major types 0 and 1:
+   CBOR's basic generic data model (Section 2 of RFC 8949 [STD94]) has a
+   number system with limited-range integers (major types 0 and 1:
    -2^64..2^64-1) and floating point numbers that cover binary16,
    binary32, and binary64 (including non-finites) from [IEEE754].  With
    the tags defined with [RFC7049], the extended generic data model
-   (Section 2.1 of [STD94]) adds unlimited-range integers (tag numbers 2
-   and 3, "bigint" in CDDL) as well as floating point values using the
-   bases 2 (tag number 5, "bigfloat") and 10 (tag number 4, "decfrac").
+   (Section 2.1 of RFC 8949 [STD94]) adds unlimited-range integers (tag
+   numbers 2 and 3, "bigint" in CDDL) as well as floating point values
+   using the bases 2 (tag number 5, "bigfloat") and 10 (tag number 4,
+   "decfrac").
 
    This pre-defined number system has a number of limitations that are
    addressed in three of the tags discussed here:
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 12]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
 
    *  Tag number 30 allows the representation of rational numbers as a
       ratio of two integers: a numerator (usually written as the top
@@ -664,15 +686,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
       are a power of 2 or a power of 10.
 
       For example, the rational number 1/3 is encoded:
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 12]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
 
         d8 1e      ---- Tag 30
            82      ---- Array length 2
@@ -708,6 +721,15 @@ Internet-Draft              Notable CBOR Tags              February 2024
    This document suggests using the CDDL typenames defined in Figure 2
    for the three most useful tag numbers in this section.
 
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 13]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
    rational = #6.30([numerator: integer, denominator: integer .ne 0])
    rational_of<N,D> = #6.30([numerator: N, denominator: D])
    ; the value 1/3 can be notated as rational_of<1, 3>
@@ -716,19 +738,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
    extended_bigfloat = #6.265([e2: integer, m: integer])
 
                 Figure 2: CDDL for extended arithmetic tags
-
-
-
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 13]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
 
 6.2.  Variants of undefined
 
@@ -769,6 +778,14 @@ Internet-Draft              Notable CBOR Tags              February 2024
    +------+-------------+---------------------------------------------+
    | 74   | byte string | sint32, big endian, Typed Array             |
    +------+-------------+---------------------------------------------+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 14]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
    | 75   | byte string | sint64, big endian, Typed Array             |
    +------+-------------+---------------------------------------------+
    | 76   | byte string | (reserved)                                  |
@@ -778,14 +795,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
    | 78   | byte string | sint32, little endian, Typed Array          |
    +------+-------------+---------------------------------------------+
    | 79   | byte string | sint64, little endian, Typed Array          |
-
-
-
-Bormann                  Expires 14 August 2024                [Page 14]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
    +------+-------------+---------------------------------------------+
    | 80   | byte string | IEEE 754 binary16, big endian, Typed Array  |
    +------+-------------+---------------------------------------------+
@@ -828,18 +837,9 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 
 
-
-
-
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 15]
+Bormann                  Expires 13 August 2025                [Page 15]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
    +======+=======+=================+=================================+========+
@@ -849,6 +849,19 @@ Internet-Draft              Notable CBOR Tags              February 2024
    |37    |byte   |Binary UUID      |https://github.com/lucas-        |Lucas   |
    |      |string |(Section 4.1.2 of|clemente/cbor-specs/blob/master/ |Clemente|
    |      |       |[RFC4122])       |uuid.md                          |        |
+   +------+-------+-----------------+---------------------------------+--------+
+   |48    |byte   |IEEE MAC Address |[RFC9542]                        |        |
+   |      |string |                 |                                 |        |
+   +------+-------+-----------------+---------------------------------+--------+
+   |52    |byte   |IPv4,            |[RFC9164]                        |        |
+   |      |string |[prefixlen,IPv4],|                                 |        |
+   |      |or     |[IPv4,prefixpart]|                                 |        |
+   |      |array  |                 |                                 |        |
+   +------+-------+-----------------+---------------------------------+--------+
+   |54    |byte   |IPv6,            |[RFC9164]                        |        |
+   |      |string |[prefixlen,IPv6],|                                 |        |
+   |      |or     |[IPv6,prefixpart]|                                 |        |
+   |      |array  |                 |                                 |        |
    +------+-------+-----------------+---------------------------------+--------+
    |257   |byte   |Binary MIME      |http://peteroupc.github.io/CBOR/ |Peter   |
    |      |string |message          |binarymime.html                  |Occil   |
@@ -876,8 +889,37 @@ Internet-Draft              Notable CBOR Tags              February 2024
    |      |       |reference (IRI   |                                 |        |
    |      |       |reference)       |                                 |        |
    +------+-------+-----------------+---------------------------------+--------+
+   |1048  |byte   |IEEE OUI/CID     |[RFC9542]                        |        |
 
-                                  Table 7
+
+
+Bormann                  Expires 13 August 2025                [Page 16]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
+   |      |string |                 |                                 |        |
+   +------+-------+-----------------+---------------------------------+--------+
+
+                    Table 7: Select Domain-Specific Tags
+
+   Notes:
+
+   *  In the registration for Tag 37, the reference for UUID points to
+      [RFC4122], which has been obsoleted by [RFC9562].  The new RFC has
+      a somewhat different internal structure; the definition of the
+      layout of a binary UUID is now distributed over Section 5 of
+      [RFC9562].
+
+   *  Tags 48, 52, and 54 are recommended for new designs that need to
+      represent MAC addresses, IP addresses, and IP address prefixes;
+      they essentially replace tags 260 and 261, which continue to be
+      available for their existing applications.
+
+   *  Tag 263 describes a different kind of Hexadecimal string (sequence
+      of hex digit pairs, same layout as tag 23) from the hex-string
+      defined by the YANG data type hex-string (sequence of hex digit
+      pairs separated by colons, Section 3 of [RFC6991]).
 
 7.1.  Human-readable Text
 
@@ -888,15 +930,7 @@ Internet-Draft              Notable CBOR Tags              February 2024
         |     |           |                        | of [RFC9290] |
         +-----+-----------+------------------------+--------------+
 
-                                  Table 8
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 16]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
+                Table 8: Select Tags for Human-readable Text
 
    Tag 38 was originally registered by Peter Occil in
    http://peteroupc.github.io/CBOR/langtags.html
@@ -911,6 +945,14 @@ Internet-Draft              Notable CBOR Tags              February 2024
    define the characters, additional information about the human
    language in use and the writing direction appropriate for the text
    given are often required.
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 17]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
 
    The need to provide language information with text has been well-
    known for a while and led to a common form for this information, the
@@ -941,19 +983,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
    Additional tag definitions have been provided for date and time
    values.
 
-
-
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 17]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
     +======+===========+===================+==========================+
     |  Tag | Data Item | Semantics         | Reference                |
     +======+===========+===================+==========================+
@@ -971,6 +1000,15 @@ Internet-Draft              Notable CBOR Tags              February 2024
     +------+-----------+-------------------+--------------------------+
 
                    Table 9: Tag numbers for date and time
+
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 18]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
 
    Note that tags 100 and 1004 are for calendar dates that are not
    anchored to a specific time zone; they are meant to specify calendar
@@ -998,28 +1036,35 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 8.  Platform-oriented
 
-
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 18]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
 8.1.  Perl
 
    (These are actually not as Perl-specific as the title of this section
-   suggests.  See also the penultimate paragraph of Section 3.4 of
-   [STD94].)
+   suggests.  See also the penultimate paragraph of Section 3.4 of RFC
+   8949 [STD94].)
 
    These are all documented under http://cbor.schmorp.de/; the last
    pathname component is given in Table 10.
 
    (TO DO: Obtain permission to copy the definitions here.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 19]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
 
       +=======+==========+========================+================+
       |   Tag | Data     | Semantics              | Reference      |
@@ -1057,15 +1102,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
    (TO DO: Obtain permission to copy the definitions here.)
 
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 19]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
    Tag number 262 has been registered to identify byte strings that
    carry embedded JSON text (https://github.com/toravir/CBOR-Tag-
    Specs/blob/master/embeddedJSON.md).
@@ -1078,11 +1114,20 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
    (TO DO: Obtain permission to copy the definitions here.)
 
+
+
+
+Bormann                  Expires 13 August 2025                [Page 20]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
    Some variants of UTF-8 are in use in specific areas of application.
-   Tags have been registered to be able to carry around strings in these
-   variants in case they are not also valid UTF-8 and can therefore not
-   be represented as a CBOR text string (https://github.com/svaarala/
-   cbor-specs/blob/master/cbor-nonutf8-string-tags.rst).
+   Tags have been registered to be able to carry around strings
+   identified as to which of these variants is used, in case they are
+   not also valid UTF-8 and can therefore not be represented as a CBOR
+   text string (https://github.com/svaarala/cbor-specs/blob/master/cbor-
+   nonutf8-string-tags.rst).
 
           +============+=============+=========================+
           | Tag Number | Data Item   | Semantics               |
@@ -1117,49 +1162,60 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 
 
-Bormann                  Expires 14 August 2024                [Page 20]
+
+
+
+
+
+
+
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 21]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
    +======+========+========================+===================================================+========+
-   |Tag   |Tag     |Short Description       |Reference                                          |Author  |
+   |   Tag|Tag     |Short Description       |Reference                                          |Author  |
    |number|content |                        |                                                   |        |
    +======+========+========================+===================================================+========+
-   |39    |multiple|Identifier              |https://github.com/lucas-clemente/cbor-            |Lucas   |
+   |    39|multiple|Identifier              |https://github.com/lucas-clemente/cbor-            |Lucas   |
    |      |        |                        |specs/blob/master/id.md (https://github.com/lucas- |Clemente|
    |      |        |                        |clemente/cbor-specs/blob/master/id.md)             |        |
    +------+--------+------------------------+---------------------------------------------------+--------+
-   |42    |byte    |IPLD content identifier |https://github.com/ipld/cid-cbor/                  |Volker  |
+   |    42|byte    |IPLD content identifier |https://github.com/ipld/cid-cbor/                  |Volker  |
    |      |string  |                        |(https://github.com/ipld/cid-cbor/)                |Mische  |
    +------+--------+------------------------+---------------------------------------------------+--------+
-   |103   |array   |Geographic Coordinates  |https://github.com/allthingstalk/cbor/blob/master/ |Danilo  |
+   |   103|array   |Geographic Coordinates  |https://github.com/allthingstalk/cbor/blob/master/ |Danilo  |
    |      |        |                        |CBOR-Tag103-Geographic-Coordinates.md              |Vidovic |
    |      |        |                        |(https://github.com/allthingstalk/cbor/blob/master/|        |
    |      |        |                        |CBOR-Tag103-Geographic-Coordinates.md)             |        |
    +------+--------+------------------------+---------------------------------------------------+--------+
-   |104   |multiple|Geographic Coordinate   |[I-D.clarke-cbor-crs]                              |        |
+   |   104|multiple|Geographic Coordinate   |[I-D.clarke-cbor-crs]                              |        |
    |      |        |Reference System WKT or |                                                   |        |
    |      |        |EPSG number             |                                                   |        |
    +------+--------+------------------------+---------------------------------------------------+--------+
-   |120   |multiple|Internet of Things Data |https://github.com/allthingstalk/cbor/blob/master/ |Danilo  |
+   |   120|multiple|Internet of Things Data |https://github.com/allthingstalk/cbor/blob/master/ |Danilo  |
    |      |        |Point                   |CBOR-Tag120-Internet-of-Things-Data-Points.md      |Vidovic |
    |      |        |                        |(https://github.com/allthingstalk/cbor/blob/master/|        |
    |      |        |                        |CBOR-Tag120-Internet-of-Things-Data-Points.md)     |        |
    +------+--------+------------------------+---------------------------------------------------+--------+
-   |258   |array   |Mathematical finite set |https://github.com/input-output-hk/cbor-sets-      |Alfredo |
+   |   258|array   |Mathematical finite set |https://github.com/input-output-hk/cbor-sets-      |Alfredo |
    |      |        |                        |spec/blob/master/CBOR_SETS.md (https://github.com/ |Di      |
    |      |        |                        |input-output-hk/cbor-sets-spec/blob/master/        |Napoli  |
    |      |        |                        |CBOR_SETS.md)                                      |        |
    +------+--------+------------------------+---------------------------------------------------+--------+
-   |259   |map     |Map datatype with key-  |https://github.com/shanewholloway/js-cbor-         |Shane   |
+   |   259|map     |Map datatype with key-  |https://github.com/shanewholloway/js-cbor-         |Shane   |
    |      |        |value operations (e.g.  |codec/blob/master/docs/CBOR-259-spec--explicit-    |Holloway|
    |      |        |.get()/.set()/.delete())|maps.md (https://github.com/shanewholloway/js-cbor-|        |
    |      |        |                        |codec/blob/master/docs/CBOR-259-spec--explicit-    |        |
    |      |        |                        |maps.md)                                           |        |
    +------+--------+------------------------+---------------------------------------------------+--------+
 
-                                  Table 12
+                    Table 12: Application-specific Tags
 
 9.1.  Enumerated Alternative Data Items
 
@@ -1173,9 +1229,9 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 
 
-Bormann                  Expires 14 August 2024                [Page 21]
+Bormann                  Expires 13 August 2025                [Page 22]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
      +============+=============+===================================+
@@ -1213,9 +1269,9 @@ Internet-Draft              Notable CBOR Tags              February 2024
    *  Alternatives 128+ can be encoded in 3-12 bytes.
 
    There are no special considerations for deterministic encoding
-   Section 4.2 of [STD94]: The case numbers covered by each tag do not
-   overlap; particularly, tag 101 encoding starts where the more compact
-   special encodings for 0..6 and 7..127 end.
+   Section 4.2 of RFC 8949 [STD94]: The case numbers covered by each tag
+   do not overlap; particularly, tag 101 encoding starts where the more
+   compact special encodings for 0..6 and 7..127 end.
 
    For cases 0..6 and 7..127, the tag value indicates the value of the
    alternative.  For cases 128+, a single tag number is used with an
@@ -1229,9 +1285,9 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 
 
-Bormann                  Expires 14 August 2024                [Page 22]
+Bormann                  Expires 13 August 2025                [Page 23]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
 9.1.1.  Semantics
@@ -1285,9 +1341,9 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 
 
-Bormann                  Expires 14 August 2024                [Page 23]
+Bormann                  Expires 13 August 2025                [Page 24]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
    In functional programming languages, the primary way of forming new
@@ -1341,9 +1397,9 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 
 
-Bormann                  Expires 14 August 2024                [Page 24]
+Bormann                  Expires 13 August 2025                [Page 25]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
    -- A data type representing simple arithmetic expressions
@@ -1360,12 +1416,12 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
    ; A data type representing simple arithmetic expressions
 
-   expr = 121(int)          ; integer literal
-        / 122([expr, expr]) ; addition
-        / 123([expr, expr]) ; subtraction
-        / 124(expr)         ; unary negation
-        / 125([expr, expr]) ; multiplication
-        / 126([expr, expr]) ; integer division
+   expr = #6.121(int)          ; integer literal
+        / #6.122([expr, expr]) ; addition
+        / #6.123([expr, expr]) ; subtraction
+        / #6.124(expr)         ; unary negation
+        / #6.125([expr, expr]) ; multiplication
+        / #6.126([expr, expr]) ; integer division
 
 10.  Implementation aids
 
@@ -1385,78 +1441,115 @@ Internet-Draft              Notable CBOR Tags              February 2024
    raise an error if an Invalid Tag occurs in a CBOR data item even if
    there is no validity checking implemented otherwise.
 
+10.2.  Programming Aid for Simple Values
+
+   In a similar way, the present document also requests to register tag
+   number CPA21334 as a fourth Invalid Tag. This tag is set aside
+   specifically for use by CBOR implementations that have no natural way
+   to represent Simple Values (Section 3.3 of RFC 8949 [STD94]) beyond
+   false, true, or null in their programming interface.  For instance,
+   such implementations can represent simple(123) as CPA21334(123) in
+   the programming interface.
+
+
+
+Bormann                  Expires 13 August 2025                [Page 26]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
+   // RFC-Editor: This document uses the CPA (code point allocation)
+   // convention described in [I-D.bormann-cbor-draft-numbers].  For
+   // each usage of the term "CPA", please remove the prefix "CPA" from
+   // the indicated value and replace the residue with the value
+   // assigned by IANA; perform an analogous substitution for all other
+   // occurrences of the prefix "CPA" in the document.  Finally, please
+   // remove this note.
+
 11.  IANA Considerations
 
    In the registry "CBOR Tags" [IANA.cbor-tags], IANA has allocated the
    first to third tag in Table 14 from the FCFS space, with the present
-   document as the specification reference.  IANA has allocated the tags
-   in the next two rows, and is requested to allocate the tags in the
-   next three rows, from the Specification Required space, with the
-   present document as the specification reference.
+   document as the specification reference.  IANA also has allocated the
+   tags in the next five rows from the Specification Required space,
+   with the present document as the specification reference.  Finally,
+   IANA is requested to register the tags in the last two rows (marked
+   with CPA) from the Specification Required space, with the present
+   document as the specification reference.
+
+   +======================+========+===============+===============+==+
+   |                  Tag | Data   | Semantics     | Reference     |  |
+   |                      | Item   |               |               |  |
+   +======================+========+===============+===============+==+
+   |                65535 | (none  | always        | draft-        |  |
+   |                      | valid) | invalid       | bormann-cbor- |  |
+   |                      |        |               | notable-tags, |  |
+   |                      |        |               | Section 10.1  |  |
+   +----------------------+--------+---------------+---------------+--+
+   |           4294967295 | (none  | always        | draft-        |  |
+   |                      | valid) | invalid       | bormann-cbor- |  |
+   |                      |        |               | notable-tags, |  |
+   |                      |        |               | Section 10.1  |  |
+   +----------------------+--------+---------------+---------------+--+
+   | 18446744073709551615 | (none  | always        | draft-        |  |
+   |                      | valid) | invalid       | bormann-cbor- |  |
+   |                      |        |               | notable-tags, |  |
+   |                      |        |               | Section 10.1  |  |
+   +----------------------+--------+---------------+---------------+--+
+   |                   63 | byte   | Encoded CBOR  | draft-        |  |
+   |                      | string | Sequence      | bormann-cbor- |  |
+   |                      |        | [RFC8742]     | notable-tags, |  |
+   |                      |        |               | Section 2.1   |  |
+   +----------------------+--------+---------------+---------------+--+
+   |                21065 | text   | I-Regexp      | draft-        |  |
+   |                      | string |               | bormann-cbor- |  |
+   |                      |        |               | notable-tags, |  |
+   |                      |        |               | Section 2.1;  |  |
+   |                      |        |               | [RFC9485]     |  |
 
 
 
-
-Bormann                  Expires 14 August 2024                [Page 25]
+Bormann                  Expires 13 August 2025                [Page 27]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
-   +======================+========+=============+====================+
-   |                  Tag | Data   | Semantics   | Reference          |
-   |                      | Item   |             |                    |
-   +======================+========+=============+====================+
-   |                65535 | (none  | always      | draft-bormann-     |
-   |                      | valid) | invalid     | cbor-notable-tags, |
-   |                      |        |             | Section 10.1       |
-   +----------------------+--------+-------------+--------------------+
-   |           4294967295 | (none  | always      | draft-bormann-     |
-   |                      | valid) | invalid     | cbor-notable-tags, |
-   |                      |        |             | Section 10.1       |
-   +----------------------+--------+-------------+--------------------+
-   | 18446744073709551615 | (none  | always      | draft-bormann-     |
-   |                      | valid) | invalid     | cbor-notable-tags, |
-   |                      |        |             | Section 10.1       |
-   +----------------------+--------+-------------+--------------------+
-   |                   63 | byte   | Encoded     | draft-bormann-     |
-   |                      | string | CBOR        | cbor-notable-tags, |
-   |                      |        | Sequence    | Section 2.1        |
-   |                      |        | [RFC8742]   |                    |
-   +----------------------+--------+-------------+--------------------+
-   |                21065 | text   | I-Regexp    | draft-bormann-     |
-   |                      | string |             | cbor-notable-tags, |
-   |                      |        |             | Section 2.1;       |
-   |                      |        |             | [RFC9485]          |
-   +----------------------+--------+-------------+--------------------+
-   |       18300 to 18555 | byte   | Bare Hash   | draft-bormann-     |
-   |          (inclusive) | string | value (COSE | cbor-notable-tags, |
-   |                      |        | algorithm   | Section 3.1.1      |
-   |                      |        | -256 to -1) |                    |
-   +----------------------+--------+-------------+--------------------+
-   |                18556 | array  | [COSE       | draft-bormann-     |
-   |                      |        | algorithm   | cbor-notable-tags, |
-   |                      |        | identifier, | Section 3.1.1      |
-   |                      |        | Bare Hash   |                    |
-   |                      |        | value]      |                    |
-   +----------------------+--------+-------------+--------------------+
-   |       18557 to 18811 | byte   | Bare Hash   | draft-bormann-     |
-   |          (inclusive) | string | value (COSE | cbor-notable-tags, |
-   |                      |        | algorithm 1 | Section 3.1.1      |
-   |                      |        | to 255)     |                    |
-   +----------------------+--------+-------------+--------------------+
+   +----------------------+--------+---------------+---------------+--+
+   |       18300 to 18555 | byte   | Bare Hash     | draft-        |  |
+   |          (inclusive) | string | value (COSE   | bormann-cbor- |  |
+   |                      |        | algorithm     | notable-tags, |  |
+   |                      |        | -256 to -1)   | Section 3.1.1 |  |
+   +----------------------+--------+---------------+---------------+--+
+   |                18556 | array  | [COSE         | draft-        |  |
+   |                      |        | algorithm     | bormann-cbor- |  |
+   |                      |        | identifier,   | notable-tags, |  |
+   |                      |        | Bare Hash     | Section 3.1.1 |  |
+   |                      |        | value]        |               |  |
+   +----------------------+--------+---------------+---------------+--+
+   |       18557 to 18811 | byte   | Bare Hash     | draft-        |  |
+   |          (inclusive) | string | value (COSE   | bormann-cbor- |  |
+   |                      |        | algorithm 1   | notable-tags, |  |
+   |                      |        | to 255)       | Section 3.1.1 |  |
+   +----------------------+--------+---------------+---------------+--+
+   |               CPA108 | byte   | Expected      | draft-        |  |
+   |                      | string | conversion to | bormann-cbor- |  |
+   |                      |        | base16        | notable-tags, |  |
+   |                      |        | encoding      | Section 2.1,  |  |
+   |                      |        | (lowercase)   | Paragraph 2,  |  |
+   |                      |        |               | Item 2        |  |
+   +----------------------+--------+---------------+---------------+--+
+   |             CPA21334 | uint   | (always       | draft-        |  |
+   |                      |        | invalid in    | bormann-cbor- |  |
+   |                      |        | interchange)  | notable-tags, |  |
+   |                      |        | programming   | Section 10.2  |  |
+   |                      |        | aid for       |               |  |
+   |                      |        | simple values |               |  |
+   +----------------------+--------+---------------+---------------+--+
 
                         Table 14: Values for Tags
 
-   In addition, IANA is requested to allocate the tags from Table 13,
-   with a reference to the present document.
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 26]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
+   In addition, IANA has allocated the tags from Table 13, with a
+   reference to the present document.
 
 12.  Security Considerations
 
@@ -1468,17 +1561,26 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 13.1.  Normative References
 
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 28]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
    [IANA.cbor-tags]
               IANA, "Concise Binary Object Representation (CBOR) Tags",
-              <http://www.iana.org/assignments/cbor-tags>.
+              <https://www.iana.org/assignments/cbor-tags>.
 
    [IANA.cose]
               IANA, "CBOR Object Signing and Encryption (COSE)",
-              <http://www.iana.org/assignments/cose>.
+              <https://www.iana.org/assignments/cose>.
 
    [IANA.named-information]
               IANA, "Named Information",
-              <http://www.iana.org/assignments/named-information>.
+              <https://www.iana.org/assignments/named-information>.
 
    [RFC8392]  Jones, M., Wahlstroem, E., Erdtman, S., and H. Tschofenig,
               "CBOR Web Token (CWT)", RFC 8392, DOI 10.17487/RFC8392,
@@ -1503,17 +1605,6 @@ Internet-Draft              Notable CBOR Tags              February 2024
               Hash Algorithms", RFC 9054, DOI 10.17487/RFC9054, August
               2022, <https://www.rfc-editor.org/rfc/rfc9054>.
 
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 27]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
    [RFC9132]  Boucadair, M., Ed., Shallow, J., and T. Reddy.K,
               "Distributed Denial-of-Service Open Threat Signaling
               (DOTS) Signal Channel Specification", RFC 9132,
@@ -1525,16 +1616,36 @@ Internet-Draft              Notable CBOR Tags              February 2024
               Certificates", RFC 9360, DOI 10.17487/RFC9360, February
               2023, <https://www.rfc-editor.org/rfc/rfc9360>.
 
-   [STD63]    Yergeau, F., "UTF-8, a transformation format of ISO
-              10646", STD 63, RFC 3629, DOI 10.17487/RFC3629, November
-              2003, <https://www.rfc-editor.org/rfc/rfc3629>.
+   [STD63]    Internet Standard 63,
+              <https://www.rfc-editor.org/info/std63>.
 
-   [STD94]    Bormann, C. and P. Hoffman, "Concise Binary Object
+
+
+Bormann                  Expires 13 August 2025                [Page 29]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
+              At the time of writing, this STD comprises the following:
+
+              Yergeau, F., "UTF-8, a transformation format of ISO
+              10646", STD 63, RFC 3629, DOI 10.17487/RFC3629, November
+              2003, <https://www.rfc-editor.org/info/rfc3629>.
+
+   [STD94]    Internet Standard 94,
+              <https://www.rfc-editor.org/info/std94>.
+              At the time of writing, this STD comprises the following:
+
+              Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", STD 94, RFC 8949,
               DOI 10.17487/RFC8949, December 2020,
-              <https://www.rfc-editor.org/rfc/rfc8949>.
+              <https://www.rfc-editor.org/info/rfc8949>.
 
-   [STD96]    Schaad, J., "CBOR Object Signing and Encryption (COSE):
+   [STD96]    Internet Standard 96,
+              <https://www.rfc-editor.org/info/std96>.
+              At the time of writing, this STD comprises the following:
+
+              Schaad, J., "CBOR Object Signing and Encryption (COSE):
               Structures and Process", STD 96, RFC 9052,
               DOI 10.17487/RFC9052, August 2022,
               <https://www.rfc-editor.org/info/rfc9052>.
@@ -1544,19 +1655,19 @@ Internet-Draft              Notable CBOR Tags              February 2024
               DOI 10.17487/RFC9338, December 2022,
               <https://www.rfc-editor.org/info/rfc9338>.
 
-              <https://www.rfc-editor.org/info/std96>
-
 13.2.  Informative References
 
-   [BCP47]    Phillips, A., Ed. and M. Davis, Ed., "Matching of Language
+   [BCP47]    Best Current Practice 47,
+              <https://www.rfc-editor.org/info/bcp47>.
+              At the time of writing, this BCP comprises the following:
+
+              Phillips, A., Ed. and M. Davis, Ed., "Matching of Language
               Tags", BCP 47, RFC 4647, DOI 10.17487/RFC4647, September
               2006, <https://www.rfc-editor.org/info/rfc4647>.
 
               Phillips, A., Ed. and M. Davis, Ed., "Tags for Identifying
               Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646,
               September 2009, <https://www.rfc-editor.org/info/rfc5646>.
-
-              <https://www.rfc-editor.org/info/bcp47>
 
    [C]        International Organization for Standardization,
               "Information technology — Programming languages — C", ISO/
@@ -1565,19 +1676,33 @@ Internet-Draft              Notable CBOR Tags              February 2024
 
 
 
-Bormann                  Expires 14 August 2024                [Page 28]
+
+Bormann                  Expires 13 August 2025                [Page 30]
 
-Internet-Draft              Notable CBOR Tags              February 2024
+Internet-Draft              Notable CBOR Tags              February 2025
 
 
    [Cplusplus20]
               International Organization for Standardization,
-              "Programming languages — C++", ISO/IEC ISO/IEC JTC1 SC22
-              WG21 N 4860, March 2020,
+              "Programming languages — C++", ISO/IEC JTC1 SC22 WG21
+              N4860, March 2020,
               <https://isocpp.org/files/papers/N4860.pdf>.
 
    [HTML]     WHATWG, "HTML — Living Standard",
               <https://html.spec.whatwg.org>.
+
+   [I-D.bormann-cbor-numbers]
+              Bormann, C., "On Numbers in CBOR", Work in Progress,
+              Internet-Draft, draft-bormann-cbor-numbers-01, 8 January
+              2025, <https://datatracker.ietf.org/doc/html/draft-
+              bormann-cbor-numbers-01>.
+
+   [I-D.bormann-cbor-yang-standin]
+              Bormann, C. and M. Matějka, "Stand-in Tags for YANG-CBOR",
+              Work in Progress, Internet-Draft, draft-bormann-cbor-yang-
+              standin-00, 21 February 2024,
+              <https://datatracker.ietf.org/doc/html/draft-bormann-cbor-
+              yang-standin-00>.
 
    [I-D.clarke-cbor-crs]
               Clarke, T., "Concise Binary Object Representation (CBOR)
@@ -1605,6 +1730,14 @@ Internet-Draft              Notable CBOR Tags              February 2024
               Std 754-2019, DOI 10.1109/IEEESTD.2019.8766229,
               <https://ieeexplore.ieee.org/document/8766229>.
 
+
+
+
+Bormann                  Expires 13 August 2025                [Page 31]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
    [RFC2045]  Freed, N. and N. Borenstein, "Multipurpose Internet Mail
               Extensions (MIME) Part One: Format of Internet Message
               Bodies", RFC 2045, DOI 10.17487/RFC2045, November 1996,
@@ -1615,21 +1748,14 @@ Internet-Draft              Notable CBOR Tags              February 2024
               DOI 10.17487/RFC4122, July 2005,
               <https://www.rfc-editor.org/rfc/rfc4122>.
 
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 29]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
-
    [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
               and A. Bierman, Ed., "Network Configuration Protocol
               (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
               <https://www.rfc-editor.org/rfc/rfc6241>.
+
+   [RFC6991]  Schoenwaelder, J., Ed., "Common YANG Data Types",
+              RFC 6991, DOI 10.17487/RFC6991, July 2013,
+              <https://www.rfc-editor.org/rfc/rfc6991>.
 
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
@@ -1659,6 +1785,15 @@ Internet-Draft              Notable CBOR Tags              February 2024
               RFC 8152, DOI 10.17487/RFC8152, July 2017,
               <https://www.rfc-editor.org/rfc/rfc8152>.
 
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 32]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
+
    [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
               Interchange Format", STD 90, RFC 8259,
               DOI 10.17487/RFC8259, December 2017,
@@ -1673,14 +1808,10 @@ Internet-Draft              Notable CBOR Tags              February 2024
               DOI 10.17487/RFC8943, November 2020,
               <https://www.rfc-editor.org/rfc/rfc8943>.
 
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 30]
-
-Internet-Draft              Notable CBOR Tags              February 2024
-
+   [RFC9164]  Richardson, M. and C. Bormann, "Concise Binary Object
+              Representation (CBOR) Tags for IPv4 and IPv6 Addresses and
+              Prefixes", RFC 9164, DOI 10.17487/RFC9164, December 2021,
+              <https://www.rfc-editor.org/rfc/rfc9164>.
 
    [RFC9254]  Veillette, M., Ed., Petrov, I., Ed., Pelov, A., Bormann,
               C., and M. Richardson, "Encoding of Data Modeled with YANG
@@ -1697,6 +1828,27 @@ Internet-Draft              Notable CBOR Tags              February 2024
               Regular Expression Format", RFC 9485,
               DOI 10.17487/RFC9485, October 2023,
               <https://www.rfc-editor.org/rfc/rfc9485>.
+
+   [RFC9542]  Eastlake 3rd, D., Abley, J., and Y. Li, "IANA
+              Considerations and IETF Protocol and Documentation Usage
+              for IEEE 802 Parameters", BCP 141, RFC 9542,
+              DOI 10.17487/RFC9542, April 2024,
+              <https://www.rfc-editor.org/rfc/rfc9542>.
+
+   [RFC9562]  Davis, K., Peabody, B., and P. Leach, "Universally Unique
+              IDentifiers (UUIDs)", RFC 9562, DOI 10.17487/RFC9562, May
+              2024, <https://www.rfc-editor.org/rfc/rfc9562>.
+
+
+
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 33]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
 
    [W3C-BIDI-USE-CASES]
               "Use cases for bidi and language metadata on the Web", 6
@@ -1718,24 +1870,46 @@ Internet-Draft              Notable CBOR Tags              February 2024
               <https://www.w3.org/International/articles/inline-bidi-
               markup/uba-basics>.
 
+List of Figures
+
+   1.  Generic CDDL for Tags for Bare Hash Values (Figure 1)
+   2.  CDDL for extended arithmetic tags (Figure 2)
+   3.  CDDL for calendar date tags (RFC8943) (Figure 3)
+
+List of Tables
+
+   1.   Tag numbers defined in RFC 7049 (Table 1)
+   2.   Tag numbers defined in RFC9052, COSE, and RFC 9338 (Table 2)
+   3.   Tag number defined for RFC 8392 CBOR Web Token (CWT) (Table 3)
+   4.   Tag numbers defined for YANG-CBOR (Table 4)
+   5.   Tags for advanced arithmetic (Table 5)
+   6.   Tag numbers defined for Arrays (Table 6)
+   7.   Select Domain-Specific Tags (Table 7)
+   8.   Select Tags for Human-readable Text (Table 8)
+   9.   Tag numbers for date and time (Table 9)
+   10.  Tag numbers that aid the Perl platform (Table 10)
+   11.  Tag numbers for UTF-8 variants (Table 11)
+   12.  Application-specific Tags (Table 12)
+   13.  Tags for Enumerated Alternative Data Items (Table 13)
+   14.  Values for Tags (Table 14)
+
 Acknowledgements
 
    (Many, TBD)
+
+
+
+
+
+Bormann                  Expires 13 August 2025                [Page 34]
+
+Internet-Draft              Notable CBOR Tags              February 2025
+
 
 Contributors
 
    Peter Occil
    Email: poccil14 at gmail dot com
-
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 31]
-
-Internet-Draft              Notable CBOR Tags              February 2024
 
 
    Peter Occil registered tags 30, 264, 265, 268–270 (Section 6.1), 38,
@@ -1783,10 +1957,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-Bormann                  Expires 14 August 2024                [Page 32]
+Bormann                  Expires 13 August 2025                [Page 35]
