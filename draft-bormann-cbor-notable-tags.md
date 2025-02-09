@@ -207,6 +207,17 @@ Ranges expressed using `..` are inclusive of the limits given.
 Type names such as "int", "bigint" or "decfrac" are taken from
 {{Section D of -cddl}}, the Concise Data Definition Language (CDDL).
 
+[^cpa]
+
+[^cpa]: RFC-Editor: This document uses the CPA (code point allocation)
+      convention described in [I-D.bormann-cbor-draft-numbers].  For
+      each usage of the term "CPA", please remove the prefix "CPA"
+      from the indicated value and replace the residue with the value
+      assigned by IANA; perform an analogous substitution for all other
+      occurrences of the prefix "CPA" in the document.  Finally,
+      please remove this note.
+
+
 # RFC 7049 (original CBOR specification)
 
 {{-orig}} defines a number of tags that are listed here for
@@ -239,6 +250,22 @@ predefined in RFC 7049 include:
 * Tag 63, registered by this document ({{iana}}), is a parallel to tag 24, with
   the single difference that its byte string tag content carries a
   CBOR Sequence {{-seq}} instead of a single CBOR data item.
+
+* {: #expected-tags} Tag CPA108, requested to be registered by this document ({{iana}}), is
+  a parallel to tag 23, with the single difference that the
+  hexadecimal form uses lowercase instead of uppercase letters. [^cpa]
+
+  <!-- {:aside} -->
+  <!-- This should be an aside, but xml2rfc's grammar doesn't allow -->
+  <!-- that as of 3.27.0. -->
+  > >
+    Note that tag 23 has a serialization that is one byte shorter than
+    tag CPA108, so if all else is equal, tag 23 (and thus upper case
+    hex) would be chosen as it is slightly more efficient than tag CPA108.
+    However, designers of CBOR protocols that use one of these tags
+    may have reason to prefer lowercase hex in the application they
+    are trying to be compatible with, in which case CPA108 provides a
+    solution that is only one byte more expensive.
 
 * Tag 257, registered by Peter Occil with a specification in
   <http://peteroupc.github.io/CBOR/binarymime.html>, is a parallel to
@@ -977,6 +1004,19 @@ data items.  Generic CBOR decoder implementations are encouraged to
 raise an error if an Invalid Tag occurs in a CBOR data item even if
 there is no validity checking implemented otherwise.
 
+## Programming Aid for Simple Values {#invalid-simple}
+
+In a similar way, the present document also requests to register tag
+number CPA21334 as a fourth Invalid Tag.
+This tag is set aside specifically for use by CBOR implementations
+that have no natural way to represent Simple Values ({{Section 3.3 of
+RFC8949@-cbor}}) beyond false, true, or null in their programming
+interface.
+For instance, such implementations can represent simple(123) as
+CPA21334(123) in the programming interface.
+
+[^cpa]
+
 IANA Considerations {#iana}
 ============
 
@@ -985,16 +1025,21 @@ IANA has allocated the first to third tag in {{tab-tag-values}} from the
 FCFS space, with the present document as the specification reference.
 IANA also has allocated the tags in the next five rows from the Specification
 Required space, with the present document as the specification reference.
+Finally, IANA is requested to register the tags in the last two rows
+(marked with CPA) from the Specification Required space, with the
+present document as the specification reference.
 
-|                        Tag | Data Item    | Semantics                                     | Reference                                                   |
-|                      65535 | (none valid) | always invalid                                | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
-|                 4294967295 | (none valid) | always invalid                                | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
-|       18446744073709551615 | (none valid) | always invalid                                | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
-|                         63 | byte string  | Encoded CBOR Sequence {{-seq}}                  | draft-bormann-cbor-notable-tags, {{related-tags}}             |
-|                      21065 | text string  | I-Regexp                                      | draft-bormann-cbor-notable-tags, {{related-tags}}; {{-iregexp}} |
-| 18300 to 18555 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -1) | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
-|                      18556 | array        | \[COSE algorithm identifier, Bare Hash value] | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
-| 18557 to 18811 (inclusive) | byte string  | Bare Hash value (COSE algorithm 1 to 255)     | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
+|                        Tag | Data Item    | Semantics                                                         | Reference                                                   |           |
+|                      65535 | (none valid) | always invalid                                                    | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |           |
+|                 4294967295 | (none valid) | always invalid                                                    | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |           |
+|       18446744073709551615 | (none valid) | always invalid                                                    | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |           |
+|                         63 | byte string  | Encoded CBOR Sequence {{-seq}}                                      | draft-bormann-cbor-notable-tags, {{related-tags}}             |           |
+|                      21065 | text string  | I-Regexp                                                          | draft-bormann-cbor-notable-tags, {{related-tags}}; {{-iregexp}} |           |
+| 18300 to 18555 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -1)                       | draft-bormann-cbor-notable-tags, {{hashtags}}                 |           |
+|                      18556 | array        | \[COSE algorithm identifier, Bare Hash value]                     | draft-bormann-cbor-notable-tags, {{hashtags}}                 |           |
+| 18557 to 18811 (inclusive) | byte string  | Bare Hash value (COSE algorithm 1 to 255)                         | draft-bormann-cbor-notable-tags, {{hashtags}}                 |           |
+|                     CPA108 | byte string  | Expected conversion to base16 encoding (lowercase)                | draft-bormann-cbor-notable-tags, {{expected-tags}}            |           |
+|                   CPA21334 | uint         | (always invalid in interchange)<br>programming aid for simple values | draft-bormann-cbor-notable-tags, {{invalid-simple}}           | <!--  --> |
 {: #tab-tag-values cols='r l l' title="Values for Tags"}
 
 In addition, IANA has allocated the tags from
