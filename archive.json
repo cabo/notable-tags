@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-05-18T00:33:25.021843+00:00",
+  "timestamp": "2025-02-11T01:12:31.566276+00:00",
   "repo": "cabo/notable-tags",
   "labels": [
     {
@@ -49,7 +49,24 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 5,
+      "id": "I_kwDOD9UdRc5zwhX1",
+      "title": "Guidance for the development of tags",
+      "url": "https://github.com/cabo/notable-tags/issues/5",
+      "state": "OPEN",
+      "author": "chrysn",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "People who register tags apparently lack guidance of what to state w/rt future evolvability -- even though their registry allows them to later mutate the tag's use through their spec.\r\n\r\nA few IETFs ago I've filed https://datatracker.ietf.org/meeting/114/materials/slides-114-cbor-cbor-tag-registry-development-and-maintenance-00 but we went over time and I didn't present it.\r\n\r\nI'll yet have to turn it into text that could go into some document, but I think core lines are already:\r\n* Tags that describe some format (especially CDDL) are not evolvable compatibly: Any deviation should be treated as an input error by consumers. (This is different from the default that appears to have emerged in the JSON community -- there, unknown keys in maps are ignored).\r\n* Tag authors are encouraged to state where non-matching data can occur and would be ignored. For data structures that can carry more items, this might say that \"additional entries in the array are ignored\" or \"additional entries in the map are ignored if they match this and that condition\" (with a popular choice of condition being the sign of the numeric argument). For scalar values (both top-level in the data item and inside nested structures) it's harder to declare ignore-it policies because then a value is missing; still, it may make sense in some situations (eg. in positions that are already optional).\r\n\r\n  In CDDL, this can take the form of a `[blah, * (any .feature \"extensions\")]`.\r\n\r\n* Authors may also make statements about unprocessability of the item as a whole as an extension point, effectively creating an extensibility shield -- for example like CRIs do this.\r\n\r\n  In CDDL, this can take the form of a `blah / (any .feature \"extensions\")`, and effectively makes any well-formed CBOR a valid data item for the tag.\r\n\r\n  Such a statement needs to be accompanied by a statement on how operations on that item are performed (coming back to CRIs: they're treated as opaque identifiers). For applications targeting embedded systems, it is preferable if that operation only needs to consider the opaque CBOR encoded bytes.\r\n\r\n* There is probably something to be said about the precedence of evaluating tags, especially when they are subject to packed's equivalence principle, but I don't know what to put there. (Other than referencing the old C preprocessor joke where you `define SIX 1 + 5`, `define NINE 8 + 1` and then evaluate SIX * NINE to 42.",
+      "createdAt": "2023-10-13T14:45:36Z",
+      "updatedAt": "2023-10-13T14:45:36Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -153,7 +170,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2022-07-05T21:42:46Z",
-      "updatedAt": "2022-07-11T20:25:23Z",
+      "updatedAt": "2023-07-29T20:39:32Z",
       "baseRepository": "cabo/notable-tags",
       "baseRefName": "main",
       "baseRefOid": "a3f58e9cc6d2f4bc0b208f23313ad740966cca68",
@@ -165,6 +182,126 @@
       "mergedBy": "cabo",
       "mergeCommit": {
         "oid": "8e6e19cc114719fdbcab878aa13d895114706c26"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOD9UdRc5WuBRd",
+      "title": "Update COSE information; add hashtags",
+      "url": "https://github.com/cabo/notable-tags/pull/3",
+      "state": "MERGED",
+      "author": "cabo",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-07-29T20:36:50Z",
+      "updatedAt": "2023-08-08T12:15:04Z",
+      "baseRepository": "cabo/notable-tags",
+      "baseRefName": "main",
+      "baseRefOid": "c0c3226f3f24471752da3c7499511b75795904ab",
+      "headRepository": "cabo/notable-tags",
+      "headRefName": "cose-update",
+      "headRefOid": "a7ee76de142c4afcfc6f0ab7299752f855b1b98d",
+      "closedAt": "2023-08-01T21:26:15Z",
+      "mergedAt": "2023-08-01T21:26:15Z",
+      "mergedBy": "cabo",
+      "mergeCommit": {
+        "oid": "ac4e837ac137ef975c55afe82f91a5c444c7d42e"
+      },
+      "comments": [
+        {
+          "author": "chrysn",
+          "authorAssociation": "NONE",
+          "body": "A few notes with my designated-expert hat on:\r\n* 512 out of 1+2 are roughly equivalent to 2 out of 1+1 (but actually have less impact, for 1+2 is less heavily contested)\r\n* Still, it's worth comparing the construction with a 1+1 allocation and using the numbers: for a hash with encoded size k (typically byte strings 1+1+data, as data's length is > 24), the proposal results in 1+2+k=3+k bytes, whereas using a 1+1 tag (`tagged = #6.x([regnum, hash])`)  results in 1+1+1+e+k bytes, with e being 1, 2 or (for larger numbers) 3, for a total of at least 4+k bytes (often more), so the encoding is relatively efficient.\r\n\r\nAnd questions:\r\n* This reserves a range, of which some (eg. -27, although that does receive special handling) will not actually be usable because their COSE entries are not hash functions. Will those be freed up as soon as the COSE registry is populated? If so, what'll be the mechanism for those to happen? (Like, informal mail to IANA, or a document just asking for one of the tags?)\r\n* Is there a particular reason -27 was chosen? There's a large range below -25 that'd be eligible.",
+          "createdAt": "2023-08-01T19:46:51Z",
+          "updatedAt": "2023-08-01T19:46:51Z"
+        },
+        {
+          "author": "chrysn",
+          "authorAssociation": "NONE",
+          "body": "More questions:\r\n* Does the presence of the tag have any equivalence behavior of cbor-packed? I.e. does the hash stand in for the hashed content, or for the CBOR item that would be serialized into the hashed content?\r\n* There is another registry for hash values, the [\"Named Information Hash Algorithm Registry\"](https://www.iana.org/assignments/named-information/named-information.xhtml), which is more dense. COSE hopefully had good reasons to have its relatively weakly typed registry and not go with that one; do the same reasons apply here?",
+          "createdAt": "2023-08-01T19:52:50Z",
+          "updatedAt": "2023-08-01T19:52:50Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "OWNER",
+          "body": "Unfortunately, tags are always unary (one data item), and therefore 1+1+array+1+0 is usually more expensive than 1+2.\r\n-27 cannot be used here as defined in the COSE registry, because the data structure expected is not a byte string.  That is why we allocate it to the more wide-ranged structure with the embedded array.  That way we also don't have an ugly hole.",
+          "createdAt": "2023-08-01T20:09:26Z",
+          "updatedAt": "2023-08-01T20:09:26Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "OWNER",
+          "body": "I don't think the hashes get full stand-in power unless that is conferred by the structures around it.  That could be clarified in the text.",
+          "createdAt": "2023-08-01T20:10:28Z",
+          "updatedAt": "2023-08-01T20:10:28Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "OWNER",
+          "body": "Tag numbers for the ni hash registry could be added when or if they are needed.\r\nNew registrations unfortunately don't seem to have numbers, making the ni registry less useful.\r\nOne recent example for an important embedded protocol is SUIT, which also uses COSE hash algorithm numbers (in a more complex overall structure, so they don't need this set of tags).\r\n",
+          "createdAt": "2023-08-01T20:15:37Z",
+          "updatedAt": "2023-08-01T20:15:37Z"
+        },
+        {
+          "author": "chrysn",
+          "authorAssociation": "NONE",
+          "body": "Thanks for the update -- I agree that they better not stand in in general.\r\n\r\nIf the numeric component of the ni registry has fallen into disuses, that'd be a good point to state when picking the COSE registry as the base of hash values (like, \"there's that other one but it isn't used with numbers any more\").\r\n\r\nI still don't understand why -27 is special (from what is in the COSE registry, -25 and -26 also are ECDH algorithms that are not hash algorithms), and the question about repurposing clearly-not-a-hash tag values (as is done already in the document for 18541).",
+          "createdAt": "2023-08-01T20:23:38Z",
+          "updatedAt": "2023-08-01T20:23:38Z"
+        },
+        {
+          "author": "cabo",
+          "authorAssociation": "OWNER",
+          "body": "18541 *is* -27.  Maybe I don't follow... -27 is taken by RFC 9360.  The data structure it uses, COSE_Certhash, is actually the same we use for General_COSE_Hash<alg, value>, so the analogy is kept up every further.",
+          "createdAt": "2023-08-01T20:28:16Z",
+          "updatedAt": "2023-08-01T20:28:16Z"
+        },
+        {
+          "author": "chrysn",
+          "authorAssociation": "NONE",
+          "body": "Aren't we mixing up registries here?\r\n\r\nThe range that's being requested is mapped to \"COSE Algorithms\". There, -16 is SHA256 (as the current draft points out). -27 in the same registry is ECDH-SS + HKDF-256, which is not a hash function.\r\n\r\nThe -27 registered in 9360 is \"Thumbprint for the sender's X.509 certificate\", and matches the use in the draft, but is in \"COSE Header Algorithm Parameters\".\r\n\r\nThis mixing works here because \"ECDH-SS + HKDF-256\" is not a hash function. But that's coincidence and not a pattern I'd consider practical to establish.\r\n\r\nSo, coming back to my original questions:\r\n* \"ECDH-SS + HKDF-256\" being -27 in COSE Algorithms means that 18541 is not used in the range allocated for Standard_COSE_Hash. The same is true for about 3/4 of the other code points that are currently allocated, and will become true over time. Is it the general idea that those are now or later freed up for use by whatever else could use them?\r\n  * In particular, should we (not for immediate action but for futureproofness) consider that some tags could be allocated for \"This data item describes a symmetric {A128GCM, ...} key\"? Those could then even use the same range, because no entry in COSE algorithms is both a hash function and symmetric encryption algorithm (or could it be)?\r\n  \r\n  If we have any shenanigans like that in mind, I think we should keep the full range reserved. If not, I think we should state that any number registered in COSE algorithms that is not a hash function (eg. -27 which is some ECDH) is for grabs again (and this document does grab a particular one).\r\n* With that, is there any particular rationale for picking 18541 for the extension point? Its value is arbitrary within that range (with `hashmiddle .plus (-27)` having purely mnemonic value, just in case someone knows hashmiddle and the 27 by heart), and I think it's more confusing than helpful.",
+          "createdAt": "2023-08-04T11:23:29Z",
+          "updatedAt": "2023-08-04T11:23:29Z"
+        },
+        {
+          "author": "chrysn",
+          "authorAssociation": "NONE",
+          "body": "The changes in #4 address my concerns by placing the special tag at offset 0 which is reserved. An added note states that non-hash tags could still be used, retaining change control of them (\"could be defined by a future version of this specification\") which is fine.\r\n\r\nAs for the rationale of the pivot point, it is helpful to look at the ASCII version of the binary produced for common hash functions\r\n\r\nThis addresses my questions, clearing the latest allocation request.",
+          "createdAt": "2023-08-08T12:15:03Z",
+          "updatedAt": "2023-08-08T12:15:03Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOD9UdRc5XWy9J",
+      "title": "Cose update fix",
+      "url": "https://github.com/cabo/notable-tags/pull/4",
+      "state": "MERGED",
+      "author": "cabo",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-08-07T16:36:21Z",
+      "updatedAt": "2023-08-09T04:46:24Z",
+      "baseRepository": "cabo/notable-tags",
+      "baseRefName": "main",
+      "baseRefOid": "ac4e837ac137ef975c55afe82f91a5c444c7d42e",
+      "headRepository": "cabo/notable-tags",
+      "headRefName": "cose-update-fix",
+      "headRefOid": "edb1dd7dd421fab3ee819b38a38baa19d4d95fd3",
+      "closedAt": "2023-08-09T04:46:24Z",
+      "mergedAt": "2023-08-09T04:46:24Z",
+      "mergedBy": "cabo",
+      "mergeCommit": {
+        "oid": "5eb54545b2f8ecb546e611ac867507bd449c3bb9"
       },
       "comments": [],
       "reviews": []
