@@ -5,7 +5,7 @@ title: >
   Notable CBOR Tags
 abbrev: Notable CBOR Tags
 docname: draft-bormann-cbor-notable-tags-latest
-# date: 2024-08-13
+# date: 2025-02-12
 
 keyword: Internet-Draft
 cat: info
@@ -263,7 +263,7 @@ predefined in RFC 7049 include:
     tag CPA108, so if all else is equal, tag 23 (and thus upper case
     hex) would be chosen as it is slightly more efficient than tag CPA108.
     However, designers of CBOR protocols that use one of these tags
-    may have reason to prefer lowercase hex in the application they
+    often have reason to prefer lowercase hex in the application they
     are trying to be compatible with, in which case CPA108 provides a
     solution that is only one byte more expensive.
 
@@ -272,11 +272,11 @@ predefined in RFC 7049 include:
   tag 36, except that the tag content is a byte string, which
   therefore can also carry binary MIME messages as per {{-mime}}.
 
-* Tag 21065, being registered by this document ({{iana}}), is a parallel to tag 35, with
+* Tag 21065, having been registered by this document ({{iana}}), is a parallel to tag 35, with
   the difference that its text string tag content carries an
   I-Regexp regular expression {{-iregexp}} instead of a regexp of a
   more unspecified flavor.
-  Companion tag 21066, being registered by Joe Hildebrand with a
+  Companion tag 21066, having been registered by Joe Hildebrand with a
   specification in
   <https://github.com/hildjj/cbor-specs/blob/main/regexp.md>, is the
   equivalent for JavaScript (ECMA262), but besides the regular
