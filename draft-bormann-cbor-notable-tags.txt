@@ -4,8 +4,8 @@
 
 Network Working Group                                         C. Bormann
 Internet-Draft                                    Universität Bremen TZI
-Intended status: Informational                           9 February 2025
-Expires: 13 August 2025
+Intended status: Informational                          12 February 2025
+Expires: 16 August 2025
 
 
                            Notable CBOR Tags
@@ -53,7 +53,7 @@ Note to Readers
 
 
 
-Bormann                  Expires 13 August 2025                 [Page 1]
+Bormann                  Expires 16 August 2025                 [Page 1]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -73,7 +73,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 August 2025.
+   This Internet-Draft will expire on 16 August 2025.
 
 Copyright Notice
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Bormann                  Expires 13 August 2025                 [Page 2]
+Bormann                  Expires 16 August 2025                 [Page 2]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -165,7 +165,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                 [Page 3]
+Bormann                  Expires 16 August 2025                 [Page 3]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -221,7 +221,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                 [Page 4]
+Bormann                  Expires 16 August 2025                 [Page 4]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -277,7 +277,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                 [Page 5]
+Bormann                  Expires 16 August 2025                 [Page 5]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -300,7 +300,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
             shorter than tag CPA108, so if all else is equal, tag 23
             (and thus upper case hex) would be chosen as it is slightly
             more efficient than tag CPA108.  However, designers of CBOR
-            protocols that use one of these tags may have reason to
+            protocols that use one of these tags often have reason to
             prefer lowercase hex in the application they are trying to
             be compatible with, in which case CPA108 provides a solution
             that is only one byte more expensive.
@@ -311,16 +311,16 @@ Internet-Draft              Notable CBOR Tags              February 2025
       to tag 36, except that the tag content is a byte string, which
       therefore can also carry binary MIME messages as per [RFC2045].
 
-   *  Tag 21065, being registered by this document (Section 11), is a
-      parallel to tag 35, with the difference that its text string tag
-      content carries an I-Regexp regular expression [RFC9485] instead
-      of a regexp of a more unspecified flavor.  Companion tag 21066,
-      being registered by Joe Hildebrand with a specification in
-      https://github.com/hildjj/cbor-specs/blob/main/regexp.md
-      (https://github.com/hildjj/cbor-specs/blob/main/regexp.md), is the
-      equivalent for JavaScript (ECMA262), but besides the regular
-      expression itself also can include the regular expression flags as
-      a separate item.
+   *  Tag 21065, having been registered by this document (Section 11),
+      is a parallel to tag 35, with the difference that its text string
+      tag content carries an I-Regexp regular expression [RFC9485]
+      instead of a regexp of a more unspecified flavor.  Companion tag
+      21066, having been registered by Joe Hildebrand with a
+      specification in https://github.com/hildjj/cbor-specs/blob/main/
+      regexp.md (https://github.com/hildjj/cbor-specs/blob/main/
+      regexp.md), is the equivalent for JavaScript (ECMA262), but
+      besides the regular expression itself also can include the regular
+      expression flags as a separate item.
 
 2.2.  Tags from RFC 7049 not listed in RFC 8949
 
@@ -333,7 +333,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                 [Page 6]
+Bormann                  Expires 16 August 2025                 [Page 6]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -389,7 +389,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                 [Page 7]
+Bormann                  Expires 16 August 2025                 [Page 7]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -445,7 +445,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                 [Page 8]
+Bormann                  Expires 16 August 2025                 [Page 8]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -501,7 +501,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                 [Page 9]
+Bormann                  Expires 16 August 2025                 [Page 9]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -557,7 +557,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 10]
+Bormann                  Expires 16 August 2025                [Page 10]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -613,7 +613,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 11]
+Bormann                  Expires 16 August 2025                [Page 11]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -669,7 +669,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 12]
+Bormann                  Expires 16 August 2025                [Page 12]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -725,7 +725,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 13]
+Bormann                  Expires 16 August 2025                [Page 13]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -781,7 +781,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 14]
+Bormann                  Expires 16 August 2025                [Page 14]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -837,7 +837,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 15]
+Bormann                  Expires 16 August 2025                [Page 15]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -893,7 +893,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 16]
+Bormann                  Expires 16 August 2025                [Page 16]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -949,7 +949,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 17]
+Bormann                  Expires 16 August 2025                [Page 17]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1005,7 +1005,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 18]
+Bormann                  Expires 16 August 2025                [Page 18]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1061,7 +1061,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 19]
+Bormann                  Expires 16 August 2025                [Page 19]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1117,7 +1117,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 20]
+Bormann                  Expires 16 August 2025                [Page 20]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1173,7 +1173,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 21]
+Bormann                  Expires 16 August 2025                [Page 21]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1229,7 +1229,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 22]
+Bormann                  Expires 16 August 2025                [Page 22]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1285,7 +1285,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 23]
+Bormann                  Expires 16 August 2025                [Page 23]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1341,7 +1341,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 24]
+Bormann                  Expires 16 August 2025                [Page 24]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1397,7 +1397,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 25]
+Bormann                  Expires 16 August 2025                [Page 25]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1453,7 +1453,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 26]
+Bormann                  Expires 16 August 2025                [Page 26]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1509,7 +1509,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 27]
+Bormann                  Expires 16 August 2025                [Page 27]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1565,7 +1565,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 28]
+Bormann                  Expires 16 August 2025                [Page 28]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1621,7 +1621,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 29]
+Bormann                  Expires 16 August 2025                [Page 29]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1677,7 +1677,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 30]
+Bormann                  Expires 16 August 2025                [Page 30]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1733,7 +1733,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 31]
+Bormann                  Expires 16 August 2025                [Page 31]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1789,7 +1789,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 32]
+Bormann                  Expires 16 August 2025                [Page 32]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1845,7 +1845,7 @@ Internet-Draft              Notable CBOR Tags              February 2025
 
 
 
-Bormann                  Expires 13 August 2025                [Page 33]
+Bormann                  Expires 16 August 2025                [Page 33]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1901,7 +1901,7 @@ Acknowledgements
 
 
 
-Bormann                  Expires 13 August 2025                [Page 34]
+Bormann                  Expires 16 August 2025                [Page 34]
 
 Internet-Draft              Notable CBOR Tags              February 2025
 
@@ -1957,4 +1957,4 @@ Author's Address
 
 
 
-Bormann                  Expires 13 August 2025                [Page 35]
+Bormann                  Expires 16 August 2025                [Page 35]
