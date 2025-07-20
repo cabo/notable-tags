@@ -1,3 +1,4 @@
+TEXT_PAGINATION := true
 LIBDIR := lib
 include $(LIBDIR)/main.mk
 
@@ -9,3 +10,7 @@ else
 	git clone -q --depth 10 $(CLONE_ARGS) \
 	    -b main https://github.com/martinthomson/i-d-template $(LIBDIR)
 endif
+
+notable-tags-lists.md: draft-bormann-cbor-notable-tags.xml
+	kramdown-rfc-extract-figures-tables -trfc $< >$@.new
+	mv $@.new $@
