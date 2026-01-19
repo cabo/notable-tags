@@ -12,6 +12,5 @@ else
 endif
 
 notable-tags-lists.md: draft-bormann-cbor-notable-tags.xml
-	# !!!  -trfc
-	kramdown-rfc-extract-figures-tables $< >$@.new
+	kramdown-rfc-extract-figures-tables -trfc $< >$@.new
 	mv $@.new $@
