@@ -5,7 +5,7 @@ title: >
   Notable CBOR Tags
 abbrev: Notable CBOR Tags
 docname: draft-bormann-cbor-notable-tags-latest
-# date: 2025-02-12
+# date: 2025-07-20
 
 keyword: Internet-Draft
 cat: info
@@ -58,6 +58,7 @@ normative:
   RFC9360: certhash
 
 informative:
+  BCP26:
   RFC8152:
   BCP47:
   W3C-STRINGS-BIDI:
@@ -91,7 +92,7 @@ informative:
   RFC8742: seq
   RFC7493: ijson
   RFC8259: json
-  I-D.ietf-cbor-time-tag: time-tag
+  RFC9581: time-tag
   RFC9485: iregexp
   RFC9290: probdet
   RFC6991: yang-types
@@ -185,6 +186,60 @@ can be used).
 This document can only be a snapshot of a subset of the current registrations.
 The most up to date set of registrations is always available in the
 registry "{{cbor-tags (CBOR Tags)<IANA.cbor-tags}}" {{IANA.cbor-tags}}.
+
+The CBOR Tags Registry
+----------------------
+
+CBOR tags are an extension point of CBOR, and that extension point is
+managed through an IANA registry ({{-tags}} as set up {{Section 9.2 of
+RFC8949@STD94}}), not through publishing documents.
+
+Some tag ranges require a stable specification to be publicly
+available under the "Specification Required" policy ({{Section 4.6 of
+RFC8126@BCP26}}).
+That stable availability can be provided by any suitable means, such
+as a (specific revision of a) GitHub repository, a document published
+by an SDO or other entity, or even by a specific revision of an
+Internet-Draft, or an RFC if that happens to be in the pipeline.
+(In the latter case, while the RFC is being developed, the allocation
+will probably be made when that RFC still is in Internet-Draft state,
+which is then referenced in the registry and is usually updated to the
+RFC number when that is published.)
+
+An example for this is provided by {{enumerated-alternative-data-items}} of
+the present document.
+A few allocations were made for these tags (101, 121-127, 1280-1400)
+that are now a permanent part of the CBOR Tags registry.
+These allocations do reference revision –07 of the present
+Internet-Draft, because that contains an explanation of what these
+tags are supposed to be used for.
+That document revision –07 is part of the permanent record of the IETF
+and is not going away, so we are able to use it as a stable part of
+the information provided with the allocation.
+(In more recent revisions of the present document, some glue text was
+updated and a clerical error in illustrative CDDL code was fixed;
+eventually, there may be some incentive to update the registry entry
+to a newer revision of the present document.)
+
+As with other stable specifications referenced this way, there is no
+need for the present document to be a published RFC before the tags
+become useful; i.e., the publication action that makes the tag numbers
+available for wide use in interchange is the acceptance of the tags
+into the IANA CBOR Tags registry.
+
+{:aside}
+>
+One example of an Internet-Draft-based specification document that
+eventually did get published as an RFC is given by the CBOR Tags for
+Time, Duration, and Period {{-time-tag}}.
+These were originally registered around 2017 (under the original
+policy for these registrations) with a reference to
+{{?I-D.draft-bormann-cbor-time-tag-01}}.
+Over time, the document evolved into a WG document without a need to
+update the reference.
+The registration was finally updated to point to {{-time-tag}} when
+that was published, which was also the time additional registries were
+created for some of the inner workings of the time tags.
 
 Terminology         {#terms}
 ------------
