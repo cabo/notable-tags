@@ -86,7 +86,7 @@ informative:
     date: false
 
   RFC2045: mime
-  RFC4122: uuid
+  RFC4122: uuid-old
   RFC9562: uuid-new
   RFC7049: orig
   RFC8742: seq
@@ -95,7 +95,8 @@ informative:
   RFC9581: time-tag
   RFC9485: iregexp
   RFC9290: probdet
-  RFC6991: yang-types
+# RFC6991: yang-types
+  RFC9911: yang-types
   RFC9254: yang-cbor
   RFC9542: mac
   RFC9164: ip
@@ -138,7 +139,7 @@ In CBOR, one point of extensibility is the definition of CBOR tags.
 RFC 8949's original edition, RFC 7049, defined a basic set of 16 tags as well
 as a registry that can be used to contribute additional tag
 definitions {{-tags}}.
-Since RFC 7049 was published, at the time of writing some 190
+Since RFC 7049 was published, at the time of writing some 250
 definitions of tags and ranges of tags have been added to that
 registry.
 
@@ -185,13 +186,13 @@ can be used).
 
 This document can only be a snapshot of a subset of the current registrations.
 The most up to date set of registrations is always available in the
-registry "{{cbor-tags (CBOR Tags)<IANA.cbor-tags}}" {{IANA.cbor-tags}}.
+registry "{{tags (CBOR Tags)<IANA.cbor-tags}}" {{IANA.cbor-tags}}.
 
 The CBOR Tags Registry
 ----------------------
 
 CBOR tags are an extension point of CBOR, and that extension point is
-managed through an IANA registry ({{-tags}} as set up {{Section 9.2 of
+managed through an IANA registry ({{-tags}} as set up in {{Section 9.2 of
 RFC8949@STD94}}), not through publishing documents.
 
 Some tag ranges require a stable specification to be publicly
@@ -304,7 +305,7 @@ predefined in RFC 7049 include:
 
 * Tag 63, registered by this document ({{iana}}), is a parallel to tag 24, with
   the single difference that its byte string tag content carries a
-  CBOR Sequence {{-seq}} instead of a single CBOR data item.
+  CBOR Sequence {{-seq}} instead of a single encoded CBOR data item.
 
 * {: #expected-tags} Tag CPA108, requested to be registered by this document ({{iana}}), is
   a parallel to tag 23, with the single difference that the
@@ -701,24 +702,24 @@ reproduced in {{arraytags}}.
 (TO DO: Obtain permission to copy the definitions here; explain how
 tags 52 and 54 essentially obsolete 260/261.)
 
-| Tag number | Tag content          | Short Description                                               | Reference                                                              | Author         |
-|         37 | byte string          | Binary UUID ({{Section 4.1.2 of RFC4122}})                        | https://github.com/lucas-clemente/cbor-specs/blob/master/uuid.md       | Lucas Clemente |
-|         48 | byte string          | IEEE MAC Address                                                | {{-mac}}                                                                 |                |
-|         52 | byte string or array | IPv4, \[prefixlen,IPv4], \[IPv4,prefixpart]                     | {{-ip}}                                                                  |                |
-|         54 | byte string or array | IPv6, \[prefixlen,IPv6], \[IPv6,prefixpart]                     | {{-ip}}                                                                  |                |
-|        257 | byte string          | Binary MIME message                                             | http://peteroupc.github.io/CBOR/binarymime.html                        | Peter Occil    |
-|        260 | byte string          | Network Address (IPv4 or IPv6 or MAC Address)                   | http://www.employees.org/~ravir/cbor-network.txt                       | Ravi Raju      |
-|        261 | map                  | Network Address Prefix (IPv4 or IPv6 Address + Mask Length)     | https://github.com/toravir/CBOR-Tag-Specs/blob/master/networkPrefix.md | Ravi Raju      |
-|        263 | byte string          | Hexadecimal string                                              | https://github.com/toravir/CBOR-Tag-Specs/blob/master/hexString.md     | Ravi Raju      |
-|        266 | text string          | Internationalized resource identifier (IRI)                     | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil    |
-|        267 | text string          | Internationalized resource identifier reference (IRI reference) | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil    |
-|       1048 | byte string          | IEEE OUI/CID                                                    | {{-mac}}                                                                 |                |
+| Tag number | Tag content          | Short Description                                               | Reference                                                              | Author          |   |
+|         37 | byte string          | Binary UUID ({{RFC9562, Section 4}})                              | https://github.com/lucas-clemente/cbor-specs/blob/master/uuid.md       | Lucas_Clemente  |   |
+|         48 | byte string          | IEEE MAC Address                                                | {{-mac}}                                                                 |                 |   |
+|         52 | byte string or array | IPv4, \[prefixlen,IPv4], \[IPv4,prefixpart]                     | {{-ip}}                                                                  |                 |   |
+|         54 | byte string or array | IPv6, \[prefixlen,IPv6], \[IPv6,prefixpart]                     | {{-ip}}                                                                  |                 |   |
+|        257 | byte string          | Binary MIME message                                             | http://peteroupc.github.io/CBOR/binarymime.html                        | Peter Occil     |   |
+|        260 | byte string          | Network Address (IPv4 or IPv6 or MAC Address)                   | http://www.employees.org/~ravir/cbor-network.txt                       | Ravi Raju       |   |
+|        261 | map                  | Network Address Prefix (IPv4 or IPv6 Address + Mask Length)     | https://github.com/toravir/CBOR-Tag-Specs/blob/master/networkPrefix.md | Ravi Raju       |   |
+|        263 | byte string          | Hexadecimal string                                              | https://github.com/toravir/CBOR-Tag-Specs/blob/master/hexString.md     | Ravi Raju       |   |
+|        266 | text string          | Internationalized resource identifier (IRI)                     | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil     |   |
+|        267 | text string          | Internationalized resource identifier reference (IRI reference) | https://peteroupc.github.io/CBOR/iri.html                              | Peter Occil     |   |
+|       1048 | byte string          | IEEE OUI/CID                                                    | {{-mac}}                                                                 |                 |   |
 {: #tab-domain-specific title="Select Domain-Specific Tags"}
 
 Notes:
 
-* In the registration for Tag 37, the reference for UUID points to
-{{RFC4122}}, which has been obsoleted by {{-uuid-new}}.
+* In the registration for Tag 37, the reference for UUID has been
+updated from {{-uuid-old}} to {{-uuid-new}}.
 The new RFC has a somewhat different internal structure; the
 definition of the layout of a binary UUID is now distributed over
 {{Section 5 of -uuid-new}}.
