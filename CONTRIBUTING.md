@@ -32,17 +32,25 @@ technical issues needs to occur on the mailing list.
 You might also like to familiarize yourself with other
 [Working Group documents](https://datatracker.ietf.org/wg/cbor/documents/).
 
-## Working Group Information
+## How to Contribute
 
-Discussion of this work occurs on the [Concise Binary Object Representation Maintenance and Extensions
-Working Group mailing list](mailto:cbor@ietf.org)
-([archive](https://www.ietf.org/mail-archive/web/cbor/current/maillist.html),
-[subscribe](https://www.ietf.org/mailman/listinfo/cbor)).
-In addition to contributions in GitHub, you are encouraged to participate in
-discussions there.
+Contributions can be made by creating pull requests, opening an issue, or
+posting to the working group mailing list. See above for the email address
+and a note about policy.
 
-**Note**: Some working groups adopt a policy whereby substantive discussion of
-technical issues needs to occur on the mailing list.
+Here are two ways to create a pull request ("PR"):
 
-You might also like to familiarize yourself with other
-[Working Group documents](https://datatracker.ietf.org/wg/cbor/documents/).
+- Copy the repository and make a pull request using the Git command-line
+tool, using the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) if needed.
+
+- You can use the GitHub UI as follows:
+  - View the draft source
+  - Select the pencil icon to edit the file (usually top-right on the screen)
+  - Make edits
+  - Select "Commit changes"
+  - Add a title and explanatory text
+  - Select "Propose"
+  - When prompted, click on "Create Pull Request"
+
+Document authors/editors are often happy to accept contributions of text,
+and might be willing to help you through the process. Email them and ask.
