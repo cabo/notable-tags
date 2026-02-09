@@ -1082,6 +1082,9 @@ creating an instance of an object that contains the tag number and the
 associated data item.
 In order to test this code, there needs to be a tag
 number that will never be allocated for some new semantics.
+This property also makes the tag number safe to use as a placeholder
+in documentation, such as in illustrative examples that show a
+hypothetical tag, without creating expectations for future registration.
 
 This section specifies a CBOR tag for testing purposes:
 
