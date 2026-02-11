@@ -32,6 +32,10 @@ contributor:
     email: duncan@well-typed.com
   - name: Michael Peyton Jones
     email: me@michaelpj.com
+  - name: Joe Hildebrand
+    email: joe-ietf@cursive.net
+    contribution: |
+      Joe Hildebrand contributed the test tag.
 
   - name: Jane Doe
     org: To do
@@ -1071,6 +1075,42 @@ interface.
 For instance, such implementations can represent simple(123) as
 21334(123) in the programming interface.
 
+## Test Tag
+
+CBOR implementations should handle tags that they do not understand, usually by
+creating an instance of an object that contains the tag number and the
+associated data item.
+In order to test this code, there needs to be a tag
+number that will never be allocated for some new semantics.
+This property also makes the tag number safe to use as a placeholder
+in documentation, such as in illustrative examples that show a
+hypothetical tag, without creating expectations for future registration.
+
+This section specifies a CBOR tag for testing purposes:
+
+| Tag                      | TBD (Proposed: 1413829460)                                |
+| Data item                | Any                                                       |
+| Semantics                | Explicitly none.                                          |
+| Point of contact         | Joe Hildebrand <joe-ietf@cursive.net>{: brackets="angle"} |
+| Description of semantics | draft-bormann-cbor-notable-tags, {{test-tag}}               |
+{: #tab-test-tag title="Test Tag"}
+
+### Semantics
+
+This tag is always intended to be represented in the same manner that an
+unimplemented tag would be in a given implementation.
+
+### Sample code
+
+~~~javascript
+import {encode, decode, Tag} from 'cbor2';
+const t = new Tag(1413829460, 'TEST');
+const bytes = encode(t); // 0xda544553546454455354
+const t2 = decode(bytes); // 1413829460('TEST')
+~~~
+
+
+
 <!-- [^cpa] -->
 
 IANA Considerations {#iana}
@@ -1081,6 +1121,8 @@ IANA has allocated the first to third tag in {{tab-tag-values}} from the
 FCFS space, with the present document as the specification reference.
 IANA also has allocated the tags in the next seven rows from the Specification
 Required space, with the present document as the specification reference.
+
+IANA is requested to register the tag in the final row.
 <!--
 Finally, IANA is requested to register the tags in the last two rows
 (marked with CPA) from the Specification Required space, with the
@@ -1096,8 +1138,9 @@ present document as the specification reference.
 | 18300 to 18555 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -1)                       | draft-bormann-cbor-notable-tags, {{hashtags}}                 |           |
 |                      18556 | array        | \[COSE algorithm identifier, Bare Hash value]                     | draft-bormann-cbor-notable-tags, {{hashtags}}                 |           |
 | 18557 to 18811 (inclusive) | byte string  | Bare Hash value (COSE algorithm 1 to 255)                         | draft-bormann-cbor-notable-tags, {{hashtags}}                 |           |
-|                     108    | byte string  | Expected conversion to base16 encoding (lowercase)                | draft-bormann-cbor-notable-tags, {{expected-tags}}            |           |
-|                   21334    | uint         | (always invalid in interchange)<br>programming aid for simple values | draft-bormann-cbor-notable-tags, {{invalid-simple}}           | <!--  --> |
+|                        108 | byte string  | Expected conversion to base16 encoding (lowercase)                | draft-bormann-cbor-notable-tags, {{expected-tags}}            |           |
+|                      21334 | uint         | (always invalid in interchange)<br>programming aid for simple values | draft-bormann-cbor-notable-tags, {{invalid-simple}}           | <!--  --> |
+|                 1413829460 | any          | explicitly none                                                   | draft-bormann-cbor-notable-tags, {{test-tag}}                 |           |
 {: #tab-tag-values cols='r l l' title="Values for Tags"}
 
 In addition, IANA has allocated the tags from
