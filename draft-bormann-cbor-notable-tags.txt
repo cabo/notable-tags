@@ -4,8 +4,8 @@
 
 Network Working Group                                         C. Bormann
 Internet-Draft                                    Universität Bremen TZI
-Intended status: Informational                           1 February 2026
-Expires: 5 August 2026
+Intended status: Informational                          11 February 2026
+Expires: 15 August 2026
 
 
                            Notable CBOR Tags
@@ -53,7 +53,7 @@ Note to Readers
 
 
 
-Bormann                   Expires 5 August 2026                 [Page 1]
+Bormann                  Expires 15 August 2026                 [Page 1]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -73,7 +73,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 August 2026.
+   This Internet-Draft will expire on 15 August 2026.
 
 Copyright Notice
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Bormann                   Expires 5 August 2026                 [Page 2]
+Bormann                  Expires 15 August 2026                 [Page 2]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -133,16 +133,19 @@ Internet-Draft              Notable CBOR Tags              February 2026
    10. Implementation aids . . . . . . . . . . . . . . . . . . . . .  27
      10.1.  Invalid Tag  . . . . . . . . . . . . . . . . . . . . . .  27
      10.2.  Programming Aid for Simple Values  . . . . . . . . . . .  27
+     10.3.  Test Tag . . . . . . . . . . . . . . . . . . . . . . . .  28
+       10.3.1.  Semantics  . . . . . . . . . . . . . . . . . . . . .  28
+       10.3.2.  Sample code  . . . . . . . . . . . . . . . . . . . .  28
    11. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  28
-   12. Security Considerations . . . . . . . . . . . . . . . . . . .  29
-   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  29
-     13.1.  Normative References . . . . . . . . . . . . . . . . . .  29
-     13.2.  Informative References . . . . . . . . . . . . . . . . .  31
-   List of Figures . . . . . . . . . . . . . . . . . . . . . . . . .  35
-   List of Tables  . . . . . . . . . . . . . . . . . . . . . . . . .  35
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  35
-   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  36
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  36
+   12. Security Considerations . . . . . . . . . . . . . . . . . . .  30
+   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  30
+     13.1.  Normative References . . . . . . . . . . . . . . . . . .  30
+     13.2.  Informative References . . . . . . . . . . . . . . . . .  32
+   List of Figures . . . . . . . . . . . . . . . . . . . . . . . . .  36
+   List of Tables  . . . . . . . . . . . . . . . . . . . . . . . . .  36
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  36
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  37
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  37
 
 1.  Introduction
 
@@ -162,10 +165,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-
-
-
-Bormann                   Expires 5 August 2026                 [Page 3]
+Bormann                  Expires 15 August 2026                 [Page 3]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -221,7 +221,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                 [Page 4]
+Bormann                  Expires 15 August 2026                 [Page 4]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -277,7 +277,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                 [Page 5]
+Bormann                  Expires 15 August 2026                 [Page 5]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -333,7 +333,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                 [Page 6]
+Bormann                  Expires 15 August 2026                 [Page 6]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -389,7 +389,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                 [Page 7]
+Bormann                  Expires 15 August 2026                 [Page 7]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -445,7 +445,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                 [Page 8]
+Bormann                  Expires 15 August 2026                 [Page 8]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -501,7 +501,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                 [Page 9]
+Bormann                  Expires 15 August 2026                 [Page 9]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -557,7 +557,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 10]
+Bormann                  Expires 15 August 2026                [Page 10]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -613,7 +613,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 11]
+Bormann                  Expires 15 August 2026                [Page 11]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -669,7 +669,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 12]
+Bormann                  Expires 15 August 2026                [Page 12]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -725,7 +725,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 13]
+Bormann                  Expires 15 August 2026                [Page 13]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -781,7 +781,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 14]
+Bormann                  Expires 15 August 2026                [Page 14]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -837,7 +837,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 15]
+Bormann                  Expires 15 August 2026                [Page 15]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -893,7 +893,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 16]
+Bormann                  Expires 15 August 2026                [Page 16]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -949,7 +949,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 17]
+Bormann                  Expires 15 August 2026                [Page 17]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1005,7 +1005,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 18]
+Bormann                  Expires 15 August 2026                [Page 18]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1061,7 +1061,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 19]
+Bormann                  Expires 15 August 2026                [Page 19]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1117,7 +1117,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 20]
+Bormann                  Expires 15 August 2026                [Page 20]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1173,7 +1173,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 21]
+Bormann                  Expires 15 August 2026                [Page 21]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1229,7 +1229,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 22]
+Bormann                  Expires 15 August 2026                [Page 22]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1285,7 +1285,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 23]
+Bormann                  Expires 15 August 2026                [Page 23]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1341,7 +1341,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 24]
+Bormann                  Expires 15 August 2026                [Page 24]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1397,7 +1397,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 25]
+Bormann                  Expires 15 August 2026                [Page 25]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1453,7 +1453,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 26]
+Bormann                  Expires 15 August 2026                [Page 26]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1509,18 +1509,68 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 27]
+Bormann                  Expires 15 August 2026                [Page 27]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
 
+10.3.  Test Tag
+
+   CBOR implementations should handle tags that they do not understand,
+   usually by creating an instance of an object that contains the tag
+   number and the associated data item.  In order to test this code,
+   there needs to be a tag number that will never be allocated for some
+   new semantics.  This property also makes the tag number safe to use
+   as a placeholder in documentation, such as in illustrative examples
+   that show a hypothetical tag, without creating expectations for
+   future registration.
+
+   This section specifies a CBOR tag for testing purposes:
+
+        +==================+=====================================+
+        | Tag              | TBD (Proposed: 1413829460)          |
+        +==================+=====================================+
+        | Data item        | Any                                 |
+        +------------------+-------------------------------------+
+        | Semantics        | Explicitly none.                    |
+        +------------------+-------------------------------------+
+        | Point of contact | Joe Hildebrand joe-ietf@cursive.net |
+        |                  | <mailto:joe-ietf@cursive.net>       |
+        +------------------+-------------------------------------+
+        | Description of   | draft-bormann-cbor-notable-tags,    |
+        | semantics        | Section 10.3                        |
+        +------------------+-------------------------------------+
+
+                            Table 14: Test Tag
+
+10.3.1.  Semantics
+
+   This tag is always intended to be represented in the same manner that
+   an unimplemented tag would be in a given implementation.
+
+10.3.2.  Sample code
+
+   import {encode, decode, Tag} from 'cbor2';
+   const t = new Tag(1413829460, 'TEST');
+   const bytes = encode(t); // 0xda544553546454455354
+   const t2 = decode(bytes); // 1413829460('TEST')
+
 11.  IANA Considerations
 
    In the registry "CBOR Tags" [IANA.cbor-tags], IANA has allocated the
-   first to third tag in Table 14 from the FCFS space, with the present
+   first to third tag in Table 15 from the FCFS space, with the present
    document as the specification reference.  IANA also has allocated the
    tags in the next seven rows from the Specification Required space,
    with the present document as the specification reference.
+
+
+
+Bormann                  Expires 15 August 2026                [Page 28]
+
+Internet-Draft              Notable CBOR Tags              February 2026
+
+
+   IANA is requested to register the tag in the final row.
 
    +======================+========+===============+===============+==+
    |                  Tag | Data   | Semantics     | Reference     |  |
@@ -1562,20 +1612,20 @@ Internet-Draft              Notable CBOR Tags              February 2026
    |                      |        | identifier,   | notable-tags, |  |
    |                      |        | Bare Hash     | Section 3.1.1 |  |
    |                      |        | value]        |               |  |
-
-
-
-Bormann                   Expires 5 August 2026                [Page 28]
-
-Internet-Draft              Notable CBOR Tags              February 2026
-
-
    +----------------------+--------+---------------+---------------+--+
    |       18557 to 18811 | byte   | Bare Hash     | draft-        |  |
    |          (inclusive) | string | value (COSE   | bormann-cbor- |  |
    |                      |        | algorithm 1   | notable-tags, |  |
    |                      |        | to 255)       | Section 3.1.1 |  |
    +----------------------+--------+---------------+---------------+--+
+
+
+
+Bormann                  Expires 15 August 2026                [Page 29]
+
+Internet-Draft              Notable CBOR Tags              February 2026
+
+
    |                  108 | byte   | Expected      | draft-        |  |
    |                      | string | conversion to | bormann-cbor- |  |
    |                      |        | base16        | notable-tags, |  |
@@ -1590,8 +1640,13 @@ Internet-Draft              Notable CBOR Tags              February 2026
    |                      |        | aid for       |               |  |
    |                      |        | simple values |               |  |
    +----------------------+--------+---------------+---------------+--+
+   |           1413829460 | any    | explicitly    | draft-        |  |
+   |                      |        | none          | bormann-cbor- |  |
+   |                      |        |               | notable-tags, |  |
+   |                      |        |               | Section 10.3  |  |
+   +----------------------+--------+---------------+---------------+--+
 
-                        Table 14: Values for Tags
+                        Table 15: Values for Tags
 
    In addition, IANA has allocated the tags from Table 13, with a
    reference to the present document.
@@ -1621,7 +1676,8 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 29]
+
+Bormann                  Expires 15 August 2026                [Page 30]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1677,7 +1733,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 30]
+Bormann                  Expires 15 August 2026                [Page 31]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1733,7 +1789,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 31]
+Bormann                  Expires 15 August 2026                [Page 32]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1789,7 +1845,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 32]
+Bormann                  Expires 15 August 2026                [Page 33]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1845,7 +1901,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 33]
+Bormann                  Expires 15 August 2026                [Page 34]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1901,7 +1957,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
 
 
-Bormann                   Expires 5 August 2026                [Page 34]
+Bormann                  Expires 15 August 2026                [Page 35]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1947,7 +2003,7 @@ List of Tables
    Table 11:  Tag numbers for UTF-8 variants
    Table 12:  Application-specific Tags
    Table 13:  Tags for Enumerated Alternative Data Items
-   Table 14:  Values for Tags
+   Table 15:  Values for Tags
 
 Acknowledgements
 
@@ -1957,7 +2013,7 @@ Acknowledgements
 
 
 
-Bormann                   Expires 5 August 2026                [Page 35]
+Bormann                  Expires 15 August 2026                [Page 36]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
@@ -1979,6 +2035,12 @@ Contributors
    Michael Peyton Jones
    Email: me@michaelpj.com
 
+
+   Joe Hildebrand
+   Email: joe-ietf@cursive.net
+
+
+   Joe Hildebrand contributed the test tag.
 
    Jane Doe
    To do
@@ -2007,10 +2069,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-Bormann                   Expires 5 August 2026                [Page 36]
+Bormann                  Expires 15 August 2026                [Page 37]
