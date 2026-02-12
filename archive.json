@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-10T02:23:13.206346+00:00",
+  "timestamp": "2026-02-12T02:05:36.410519+00:00",
   "repo": "cabo/notable-tags",
   "labels": [
     {
@@ -311,24 +311,26 @@
       "id": "PR_kwDOD9UdRc7CVbgi",
       "title": "Add test tag (via Joe Hildebrand)",
       "url": "https://github.com/cabo/notable-tags/pull/6",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "cabo",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-02-08T20:39:01Z",
-      "updatedAt": "2026-02-09T10:22:23Z",
+      "updatedAt": "2026-02-11T17:32:08Z",
       "baseRepository": "cabo/notable-tags",
       "baseRefName": "main",
       "baseRefOid": "943e55f3061c7a57bb3004ee387994c84bcd2df3",
       "headRepository": "cabo/notable-tags",
       "headRefName": "test-tag",
       "headRefOid": "338d2aaaf6d61b23e474083318a21bb055217697",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-02-11T17:32:08Z",
+      "mergedAt": "2026-02-11T17:32:08Z",
+      "mergedBy": "cabo",
+      "mergeCommit": {
+        "oid": "fa3b28b2bb925088eadcf0fc6184d181c076294f"
+      },
       "comments": [
         {
           "author": "hildjj",
