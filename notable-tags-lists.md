@@ -56,6 +56,9 @@
 {{tab-tag-enum}}:
 : {{<<tab-tag-enum}}
 
+{{tab-test-tag}}:
+: {{<<tab-test-tag}}
+
 {{tab-tag-values}}:
 : {{<<tab-tag-values}}
 

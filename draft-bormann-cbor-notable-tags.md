@@ -35,7 +35,8 @@ contributor:
   - name: Joe Hildebrand
     email: joe-ietf@cursive.net
     contribution: |
-      Joe Hildebrand contributed the test tag.
+      Joe Hildebrand contributed the test tag and registered the
+      JavaScript Regexp tag.
 
   - name: Jane Doe
     org: To do
@@ -1118,29 +1119,28 @@ IANA Considerations {#iana}
 
 In the registry "{{cbor-tags (CBOR Tags)<IANA.cbor-tags}}" {{IANA.cbor-tags}},
 IANA has allocated the first to third tag in {{tab-tag-values}} from the
-FCFS space, with the present document as the specification reference.
+First Come First Served (FCFS) space, with the present document as the specification reference.
 IANA also has allocated the tags in the next seven rows from the Specification
-Required space, with the present document as the specification reference.
-
-IANA is requested to register the tag in the final row.
+Required space, with the present document as the specification
+reference, as well as the tag in the final row from the FCFS range.
 <!--
 Finally, IANA is requested to register the tags in the last two rows
 (marked with CPA) from the Specification Required space, with the
 present document as the specification reference.
  -->
 
-|                        Tag | Data Item    | Semantics                                                         | Reference                                                   |           |
-|                      65535 | (none valid) | always invalid                                                    | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |           |
-|                 4294967295 | (none valid) | always invalid                                                    | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |           |
-|       18446744073709551615 | (none valid) | always invalid                                                    | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |           |
-|                         63 | byte string  | Encoded CBOR Sequence {{-seq}}                                      | draft-bormann-cbor-notable-tags, {{related-tags}}             |           |
-|                      21065 | text string  | I-Regexp                                                          | draft-bormann-cbor-notable-tags, {{related-tags}}; {{-iregexp}} |           |
-| 18300 to 18555 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -1)                       | draft-bormann-cbor-notable-tags, {{hashtags}}                 |           |
-|                      18556 | array        | \[COSE algorithm identifier, Bare Hash value]                     | draft-bormann-cbor-notable-tags, {{hashtags}}                 |           |
-| 18557 to 18811 (inclusive) | byte string  | Bare Hash value (COSE algorithm 1 to 255)                         | draft-bormann-cbor-notable-tags, {{hashtags}}                 |           |
-|                        108 | byte string  | Expected conversion to base16 encoding (lowercase)                | draft-bormann-cbor-notable-tags, {{expected-tags}}            |           |
-|                      21334 | uint         | (always invalid in interchange)<br>programming aid for simple values | draft-bormann-cbor-notable-tags, {{invalid-simple}}           | <!--  --> |
-|                 1413829460 | any          | explicitly none                                                   | draft-bormann-cbor-notable-tags, {{test-tag}}                 |           |
+|                        Tag | Data Item    | Semantics                                                         | Reference                                                   |
+|                      65535 | (none valid) | always invalid                                                    | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
+|                 4294967295 | (none valid) | always invalid                                                    | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
+|       18446744073709551615 | (none valid) | always invalid                                                    | draft-bormann-cbor-notable-tags, {{invalid-tag}}              |
+|                         63 | byte string  | Encoded CBOR Sequence {{-seq}}                                      | draft-bormann-cbor-notable-tags, {{related-tags}}             |
+|                      21065 | text string  | I-Regexp                                                          | draft-bormann-cbor-notable-tags, {{related-tags}}; {{-iregexp}} |
+| 18300 to 18555 (inclusive) | byte string  | Bare Hash value (COSE algorithm -256 to -1)                       | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
+|                      18556 | array        | \[COSE algorithm identifier, Bare Hash value]                     | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
+| 18557 to 18811 (inclusive) | byte string  | Bare Hash value (COSE algorithm 1 to 255)                         | draft-bormann-cbor-notable-tags, {{hashtags}}                 |
+|                        108 | byte string  | Expected conversion to base16 encoding (lowercase)                | draft-bormann-cbor-notable-tags, {{expected-tags}}            |
+|                      21334 | uint         | (always invalid in interchange)<br>programming aid for simple values | draft-bormann-cbor-notable-tags, {{invalid-simple}}           |
+|                 1413829460 | any          | explicitly none                                                   | draft-bormann-cbor-notable-tags, {{test-tag}}                 |
 {: #tab-tag-values cols='r l l' title="Values for Tags"}
 
 In addition, IANA has allocated the tags from
