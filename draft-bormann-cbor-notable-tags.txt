@@ -124,7 +124,7 @@ Internet-Draft              Notable CBOR Tags              February 2026
    8.  Platform-oriented . . . . . . . . . . . . . . . . . . . . . .  20
      8.1.  Perl  . . . . . . . . . . . . . . . . . . . . . . . . . .  20
      8.2.  JSON  . . . . . . . . . . . . . . . . . . . . . . . . . .  21
-     8.3.  Weird text encodings  . . . . . . . . . . . . . . . . . .  21
+     8.3.  Weird text encodings  . . . . . . . . . . . . . . . . . .  22
    9.  Application-specific  . . . . . . . . . . . . . . . . . . . .  22
      9.1.  Enumerated Alternative Data Items . . . . . . . . . . . .  23
        9.1.1.  Semantics . . . . . . . . . . . . . . . . . . . . . .  25
@@ -1160,15 +1160,15 @@ Internet-Draft              Notable CBOR Tags              February 2026
 
    Tag number 262 has been registered to identify byte strings that
    carry embedded JSON text (https://github.com/toravir/CBOR-Tag-
-   Specs/blob/master/embeddedJSON.md).
+   Specs/blob/master/embeddedJSON.md).  This is an analog to tag 24 for
+   embedded Encoded CBOR Data Items.
 
    Tag number 275 can be used to identify maps that contain keys that
    are all of type Text String, as they would occur in JSON
    (https://github.com/ecorm/cbor-tag-text-key-map).
 
-8.3.  Weird text encodings
 
-   (TO DO: Obtain permission to copy the definitions here.)
+
 
 
 
@@ -1177,6 +1177,10 @@ Bormann                  Expires 29 August 2026                [Page 21]
 
 Internet-Draft              Notable CBOR Tags              February 2026
 
+
+8.3.  Weird text encodings
+
+   (TO DO: Obtain permission to copy the definitions here.)
 
    Some variants of UTF-8 are in use in specific areas of application.
    Tags have been registered to be able to carry around strings
@@ -1200,10 +1204,6 @@ Internet-Draft              Notable CBOR Tags              February 2026
 9.  Application-specific
 
    (TO DO: Obtain permission to copy the definitions here.)
-
-
-
-
 
 
 
