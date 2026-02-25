@@ -186,7 +186,7 @@ collected.
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -194,7 +194,8 @@ collected.
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 }
 
 @font-face {
@@ -1069,7 +1070,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bormann</td>
-<td class="center">Expires 15 August 2026</td>
+<td class="center">Expires 29 August 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1082,12 +1083,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-bormann-cbor-notable-tags-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-02-11" class="published">11 February 2026</time>
+<time datetime="2026-02-25" class="published">25 February 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-08-15">15 August 2026</time></dd>
+<dd class="expires"><time datetime="2026-08-29">29 August 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1155,7 +1156,7 @@ obtained from all authors of registered tag definitions to copy over their text.
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 15 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -3160,10 +3161,10 @@ const t2 = decode(bytes); // 1413829460('TEST')
       </h2>
 <p id="section-11-1">In the registry "<a href="https://www.iana.org/assignments/cbor-tags#cbor-tags" class="relref">CBOR Tags</a>" <span>[<a href="#IANA.cbor-tags" class="cite xref">IANA.cbor-tags</a>]</span>,
 IANA has allocated the first to third tag in <a href="#tab-tag-values" class="auto internal xref">Table 15</a> from the
-FCFS space, with the present document as the specification reference.
+First Come First Served (FCFS) space, with the present document as the specification reference.
 IANA also has allocated the tags in the next seven rows from the Specification
-Required space, with the present document as the specification reference.<a href="#section-11-1" class="pilcrow">¶</a></p>
-<p id="section-11-2">IANA is requested to register the tag in the final row.<a href="#section-11-2" class="pilcrow">¶</a></p>
+Required space, with the present document as the specification
+reference, as well as the tag in the final row from the FCFS range.<a href="#section-11-1" class="pilcrow">¶</a></p>
 <span id="name-values-for-tags"></span><div id="tab-tag-values">
 <table class="center" id="table-15">
         <caption>
@@ -3176,7 +3177,6 @@ Required space, with the present document as the specification reference.<a href
             <th class="text-left" rowspan="1" colspan="1">Data Item</th>
             <th class="text-left" rowspan="1" colspan="1">Semantics</th>
             <th class="text-left" rowspan="1" colspan="1">Reference</th>
-            <th class="text-left" rowspan="1" colspan="1"> </th>
           </tr>
         </thead>
         <tbody>
@@ -3186,7 +3186,6 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">always invalid</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#invalid-tag" class="auto internal xref">Section 10.1</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">4294967295</td>
@@ -3194,7 +3193,6 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">always invalid</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#invalid-tag" class="auto internal xref">Section 10.1</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">18446744073709551615</td>
@@ -3202,7 +3200,6 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">always invalid</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#invalid-tag" class="auto internal xref">Section 10.1</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">63</td>
@@ -3211,7 +3208,6 @@ Required space, with the present document as the specification reference.<a href
 </td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#related-tags" class="auto internal xref">Section 2.1</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">21065</td>
@@ -3219,7 +3215,6 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">I-Regexp</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#related-tags" class="auto internal xref">Section 2.1</a>; <span>[<a href="#RFC9485" class="cite xref">RFC9485</a>]</span>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">18300 to 18555 (inclusive)</td>
@@ -3227,7 +3222,6 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">Bare Hash value (COSE algorithm -256 to -1)</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#hashtags" class="auto internal xref">Section 3.1.1</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">18556</td>
@@ -3235,7 +3229,6 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">[COSE algorithm identifier, Bare Hash value]</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#hashtags" class="auto internal xref">Section 3.1.1</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">18557 to 18811 (inclusive)</td>
@@ -3243,7 +3236,6 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">Bare Hash value (COSE algorithm 1 to 255)</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#hashtags" class="auto internal xref">Section 3.1.1</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">108</td>
@@ -3251,7 +3243,6 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">Expected conversion to base16 encoding (lowercase)</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#expected-tags" class="auto internal xref">Section 2.1, Paragraph 2, Item 2</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">21334</td>
@@ -3259,8 +3250,6 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">(always invalid in interchange)<br>programming aid for simple values</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#invalid-simple" class="auto internal xref">Section 10.2</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1">
-              </td>
           </tr>
           <tr>
             <td class="text-right" rowspan="1" colspan="1">1413829460</td>
@@ -3268,13 +3257,12 @@ Required space, with the present document as the specification reference.<a href
             <td class="text-left" rowspan="1" colspan="1">explicitly none</td>
             <td class="text-left" rowspan="1" colspan="1">draft-bormann-cbor-notable-tags, <a href="#test-tag" class="auto internal xref">Section 10.3</a>
 </td>
-            <td class="text-left" rowspan="1" colspan="1"> </td>
           </tr>
         </tbody>
       </table>
 </div>
-<p id="section-11-4">In addition, IANA has allocated the tags from
-<a href="#tab-tag-enum" class="auto internal xref">Table 13</a>, with a reference to the present document.<a href="#section-11-4" class="pilcrow">¶</a></p>
+<p id="section-11-3">In addition, IANA has allocated the tags from
+<a href="#tab-tag-enum" class="auto internal xref">Table 13</a>, with a reference to the present document.<a href="#section-11-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">
@@ -3644,9 +3632,15 @@ their specific sections above.<a href="#section-12-1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="appendix-B-1.27">
-<a href="#tab-tag-values" class="auto internal xref">Table 15</a>:</dt>
+<a href="#tab-test-tag" class="auto internal xref">Table 14</a>:</dt>
         <dd style="margin-left: 5.5em" id="appendix-B-1.28">
-          <p id="appendix-B-1.28.1"><a href="#tab-tag-values" class="internal xref">Values for Tags</a><a href="#appendix-B-1.28.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-1.28.1"><a href="#tab-test-tag" class="internal xref">Test Tag</a><a href="#appendix-B-1.28.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="appendix-B-1.29">
+<a href="#tab-tag-values" class="auto internal xref">Table 15</a>:</dt>
+        <dd style="margin-left: 5.5em" id="appendix-B-1.30">
+          <p id="appendix-B-1.30.1"><a href="#tab-tag-values" class="internal xref">Values for Tags</a><a href="#appendix-B-1.30.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -3697,7 +3691,8 @@ these tags in this document.<a href="#appendix-D-1" class="pilcrow">¶</a></p>
 <a href="mailto:joe-ietf@cursive.net" class="email">joe-ietf@cursive.net</a>
 </div>
 </address>
-<p id="appendix-D-2">Joe Hildebrand contributed the test tag.<a href="#appendix-D-2" class="pilcrow">¶</a></p>
+<p id="appendix-D-2">Joe Hildebrand contributed the test tag and registered the
+JavaScript Regexp tag.<a href="#appendix-D-2" class="pilcrow">¶</a></p>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Jane Doe</span></div>
 <div dir="auto" class="left"><span class="org">To do</span></div>
