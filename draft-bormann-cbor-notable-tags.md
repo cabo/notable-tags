@@ -850,9 +850,10 @@ last pathname component is given in {{perltags}}.
 
 (TO DO: Obtain permission to copy the definitions here.)
 
-
 Tag number 262 has been registered to identify byte strings that carry embedded
-JSON text (`https://github.com/toravir/CBOR-Tag-Specs/blob/master/embeddedJSON.md`).
+JSON text
+(`https://github.com/toravir/CBOR-Tag-Specs/blob/master/embeddedJSON.md`).
+This is an analog to tag 24 for embedded Encoded CBOR Data Items.
 
 Tag number 275 can be used to identify maps that contain keys that are
 all of type Text String, as they would occur in JSON
