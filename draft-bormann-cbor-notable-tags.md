@@ -61,6 +61,7 @@ normative:
   RFC9053: cose-alg
   RFC9054: cose-hash
   RFC9360: certhash
+  I-D.ietf-cbor-cde: cde
 
 informative:
   BCP26:
@@ -105,6 +106,14 @@ informative:
   RFC9254: yang-cbor
   RFC9542: mac
   RFC9164: ip
+  I-D.ietf-cbor-packed: packed
+  STRINGREF:
+    target: http://cbor.schmorp.de/stringref
+    title: (Specification for Tags 256 and Tag 25)
+    quote-title: false
+    author:
+      - name: Marc A. Lehmann
+    date: false
   I-D.bormann-cbor-numbers: numbers
   I-D.bormann-cbor-yang-standin: standin
   C:
@@ -1111,7 +1120,134 @@ const bytes = encode(t); // 0xda544553546454455354
 const t2 = decode(bytes); // 1413829460('TEST')
 ~~~
 
+# Managing redundancy
 
+A CBOR data item often has appreciable internal redundancy, for
+instance by serializing certain strings again and again.
+
+Data compression specifications such as deflate {{?RFC1951}}, gzip
+{{?RFC1952}}, brotli {{?RFC7932}}, zstd {{?RFC8878}}, and dcb/dcz {{?RFC9842}}
+provide powerful ways to provide compressed representations of encoded
+data items that exhibit internal redundancy.
+While these can provide very good compression ratios,
+the disadvantage of applying traditional data compression is that the
+serialized data need to undergo a separate compression pass at the
+producer and a decompression pass at the consumer before the data
+items can be accessed again.
+
+An alternative is to perform some management of redundancy not at the
+level of serialized data, but at the data model level, i.e., within
+the data items interchanged.
+This can enable a CBOR library to perform redundancy reduction
+("packing") and unpacking on the fly.
+This section discusses tag sets that can be used for this.
+
+## Packed CBOR
+
+A comprehensive approach to reducing redundancy by packing is provided
+by the set of tags and simple values defined in {{-packed}}, which see.
+
+## Stringref
+
+A very simple mechanism that is focused just on the redundancy of
+repeated (byte or text) strings is _stringref_ {{STRINGREF}}, originally
+designed in the context of the Perl platform ({{perl}}), but now
+implemented on other platforms, too.
+
+With some additional care, the stringref mechanism can be used in a
+general fashion; this section will briefly introduce stringref and
+ways to use it that are fully interoperable.
+
+### Stringref Mechanism
+
+Stringref works by silently entering (byte or text) strings in a table
+that maps between unsigned integers ("index" values) and the string
+value (including whether it is a text or a byte string).
+On the producer side, an entry is added to the table when the specific
+string value is encoded for the first time.
+This allows all further copies of the same string to be expressed by
+just referencing the table entry by its index (sequence number).
+This reference is expressed via tag 25, carrying the index as an
+unsigned integer.
+The table entry is only added if representing the string itself would
+be longer than a reference via tag 25, i.e., the string needs to have a
+minimum length in bytes as per {{tab-stringref-length}} to get a table entry.
+
+| string index        | minimum string length (bytes) |
+| 0 .. 23             |                             3 |
+| 24 .. 255           |                             4 |
+| 256 .. 65535        |                             5 |
+| 65536 .. 4294967295 |                             7 |
+| 4294967296 ..       |                            11 |
+{: #tab-stringref-length title="Stringref: Minimum String Length for Creating a New Table Entry"}
+
+Note that there is no requirement for the producer of the encoded CBOR
+data item to actually make use of a table entry; this means that
+inexact ("lossy") representations of the table can be used at the
+producer, as long as the highest index is properly incremented on any
+string actually encoded as such.
+(If an actual string is indeed emitted again, the new copy gets a new
+table entry.)
+
+The consumer side follows the decisions of the producer, i.e., any
+(text or byte) string encountered in the encoded data item that is
+minimum size or larger leads to a new entry in the table at the lowest
+current unfilled index and thus to incrementing the highest index in use.
+
+### Stringref Namespaces
+
+Employing stringref (tag 25) places an onus on CBOR libraries both
+during emission and during ingestion: Both have to manage their own
+mapping table and examine it repeatedly, possibly adding an entry for
+another index/string mapping to it, each time a string is processed.
+
+To incur this overhead only when needed, stringref references are only
+valid within the tag content of a tag with tag number 256,
+_stringref-namespace_ (tag content: any).
+A library that implements stringref ingestion can switch on stringref
+processing when that tag is encountered, and switch it off again
+when its processing leaves the tag 256 tag content.
+A producer can localize the effort needed at both ends by placing the
+tag at a position in the hierarchy that merits the additional processing.
+
+Stringref namespaces also provide a basic form of composability:
+If another tag 256 is encountered within the content of a tag 256, a
+new mapping table ("namespace") is created and the processing of
+strings and tags 25 within the tag content of the inner tag operates
+starting at index 0, independently of the processing of the tag
+content of the outer tag outside the inner tag.
+(After leaving the inner tag 256, the processing continues using the
+table generated by the outer tag 256.)
+
+### Serialization Considerations
+
+As defined, stringref has a dependency on serialization order.
+Like JSON objects, CBOR maps do not have a defined order in
+processing, and both encoders and decoders might employ their own
+preferred order when that is beneficial on the specific platform.
+Stringref's implicit filling of the mapping table only works correctly
+when producer and consumer agree on this order.
+
+So far, this looming interoperability problem has kept stringref
+confined to some niche applications.
+However, stringref can be used without a danger of disagreeing map
+orders in conjunction with a deterministic encoding serialization
+constraint, such as CDE, which binds both sides to the same ordering
+of entries in a map {{-cde}}.
+
+Using CDE also solves another problem with stringref as defined: The
+tags' specification says that it only applies to
+definite-length-encoded strings.
+Here as well, the component doing the stringref processing may have no
+control over which serialization is used in the encoder and no
+information about the serialization used from the decoder.
+Since CDE incorporates the serialization constraint "definite length only"
+(DLO), no disagreement can happen when those serialization constraints
+are followed.
+
+The present specification therefore recommends using stringref only in
+environments where a deterministic encoding with a DLO serialization
+constraint, such as CDE (or LDE), is followed.
 
 <!-- [^cpa] -->
 
